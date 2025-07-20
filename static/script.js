@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = document.getElementById('next-btn');
     if (nextBtn) {
         nextBtn.addEventListener('click', function() {
-            window.location.href = 'static/develop.html';
+            window.location.href = 'develop.html';
         });
     }
 
@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 继续按钮点击事件
         continueBtn.addEventListener('click', () => {
-            window.location.href = 'static/compare.html';
+            window.location.href = 'compare.html';
         });
     }
 
@@ -284,9 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Next按钮事件
         document.getElementById('next-btn')?.addEventListener('click', () => {
-            alert('Proceeding to next step...');
             window.location.href = 'develop.html';
-
         });
     });
 
@@ -433,5 +431,207 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 继续按钮点击事件
 continueBtn.addEventListener('click', () => {
-    window.location.href = '/static/compare.html';
+    window.location.href = 'compare.html';
 });
+
+
+// 渲染Develop页面数据
+function renderDevelopPage() {
+    fetch('/api/data')
+        .then(response => response.json())
+        .then(data => {
+            // 遍历所有卡片区域
+            document.querySelectorAll('.card').forEach(card => {
+                const section = card.querySelector('.card-header').dataset.section;
+                const container = card.querySelector('.tag-container');
+                container.innerHTML = '';
+
+                // 检查数据是否存在
+                if (!data[section] || !Array.isArray(data[section])) return;
+
+                // 渲染P类型项和S类型子项
+                data[section].forEach(item => {
+                    if (item.type === 'P') {
+                        // 创建P类型项
+                        const pTag = document.createElement('div');
+                        pTag.className = 'p-type';
+                        pTag.innerHTML = `
+                            <span class="ptag-content">${item.text}</span>
+                            <span class="tag-badge">P</span>
+                        `;
+
+                        // 创建S类型子项容器
+                        const sContainer = document.createElement('div');
+                        sContainer.className = 's-container';
+
+                        // 添加S类型子项
+                        if (item.subItems && item.subItems.length) {
+                            item.subItems.forEach(subItem => {
+                                if (subItem.type === 'S') {
+                                    const sTag = document.createElement('div');
+                                    sTag.className = 's-type';
+                                    sTag.innerHTML = `
+                                        <span class="stag-content">${subItem.text}</span>
+                                        <span class="tag-badge">S</span>
+                                        <button class="remove-btn">×</button>
+                                        <button class="add-btn">+</button>
+                                    `;
+                                    sContainer.appendChild(sTag);
+                                }
+                            });
+                        }
+
+                        pTag.appendChild(sContainer);
+                        container.appendChild(pTag);
+                    }
+                });
+            });
+        })
+        .then(() => {
+            // 重新绑定事件监听器
+            bindDevelopPageEvents();
+        });
+}
+
+// 绑定Develop页面事件
+function bindDevelopPageEvents() {
+    // 为所有添加按钮添加事件监听
+    document.querySelectorAll('.add-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const cardHeader = this.closest('.card-header');
+            const section = cardHeader ? cardHeader.dataset.section : 'persona';
+            const pItem = this.closest('.p-type');
+            const sContainer = this.closest('.s-container');
+
+            // 判断是添加P类型还是S类型
+            if (this.closest('.card-header')) {
+                addPTypeItem(section);
+            } else if (sContainer) {
+                addSTypeItem(section, pItem.querySelector('.ptag-content').textContent);
+            }
+        });
+    });
+
+    // 为所有删除按钮添加事件监听
+    document.querySelectorAll('.remove-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const sType = this.closest('.s-type');
+            const pType = this.closest('.p-type');
+            const card = this.closest('.card');
+            const section = card.querySelector('.card-header').dataset.section;
+
+            if (sType) {
+                const pItemText = sType.closest('.p-type').querySelector('.ptag-content').textContent;
+                const sItemText = sType.querySelector('.stag-content').textContent;
+                removeSTypeItem(section, pItemText, sItemText);
+            } else if (pType) {
+                const pItemText = pType.querySelector('.ptag-content').textContent;
+                removePTypeItem(section, pItemText);
+            }
+        });
+    });
+}
+
+// 修改初始化Develop页面函数
+function initDevelopPage() {
+    renderDevelopPage();
+}
+
+// 添加P类型项
+function addPTypeItem(section) {
+    const newText = prompt(`Enter new ${section} P type item:`);
+    if (!newText || !newText.trim()) return;
+
+    fetch('/api/data')
+        .then(response => response.json())
+        .then(data => {
+            // 确保section数组存在
+            if (!data[section]) data[section] = [];
+
+            // 添加新的P类型项
+            data[section].push({
+                text: newText.trim(),
+                type: 'P',
+                subItems: []
+            });
+
+            return saveDataToServer(data);
+        })
+        .then(() => refreshDevelopPage());
+}
+
+// 添加S类型项
+function addSTypeItem(section, parentText) {
+    const newText = prompt(`Enter new ${section} S type item:`);
+    if (!newText || !newText.trim()) return;
+
+    fetch('/api/data')
+        .then(response => response.json())
+        .then(data => {
+            // 找到对应的P类型项
+            const pItem = data[section].find(item => item.text === parentText && item.type === 'P');
+            if (pItem) {
+                // 确保subItems数组存在
+                if (!pItem.subItems) pItem.subItems = [];
+                // 添加新的S类型项
+                pItem.subItems.push({
+                    text: newText.trim(),
+                    type: 'S',
+                    unmet: []
+                });
+            }
+
+            return saveDataToServer(data);
+        })
+        .then(() => refreshDevelopPage());
+}
+
+// 删除P类型项
+function removePTypeItem(section, itemText) {
+    fetch('/api/data')
+        .then(response => response.json())
+        .then(data => {
+            data[section] = data[section].filter(item => !(item.text === itemText && item.type === 'P'));
+            return saveDataToServer(data);
+        })
+        .then(() => refreshDevelopPage());
+}
+
+// 删除S类型项
+function removeSTypeItem(section, parentText, itemText) {
+    fetch('/api/data')
+        .then(response => response.json())
+        .then(data => {
+            const pItem = data[section].find(item => item.text === parentText && item.type === 'P');
+            if (pItem && pItem.subItems) {
+                pItem.subItems = pItem.subItems.filter(subItem => !(subItem.text === itemText && subItem.type === 'S'));
+            }
+            return saveDataToServer(data);
+        })
+        .then(() => refreshDevelopPage());
+}
+
+// 保存数据到服务器
+function saveDataToServer(data) {
+    return fetch('/api/data', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    });
+}
+
+// 刷新Develop页面
+function refreshDevelopPage() {
+    window.location.reload();
+}
+
+// 修改页面初始化逻辑
+if (window.location.pathname.includes('compare.html')) {
+    renderComparisonPage();
+} else if (window.location.pathname.includes('develop.html')) {
+    initDevelopPage();
+} else {
+    initMainPage();
+}

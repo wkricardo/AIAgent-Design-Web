@@ -383,23 +383,28 @@
     margin-top: 30px;
 }
 
-#continue-btn {
-    background-color: #000;
+#continue-btn, #back-btn, #generate-btn {
+    padding: 12px 30px;
+    background-color: #1c1904;
     color: white;
     border: none;
-    padding: 12px 24px;
     border-radius: 30px;
     font-size: 16px;
-    font-weight: bold;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    transition: all 0.3s ease;
+    margin: 0 10px;
 }
 
 #continue-btn::after {
-    content: '→';
-    font-size: 18px;
+    padding: 12px 30px;
+    background-color: #1c1904;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 10px;
 }
 
 #continue-btn:hover {
@@ -407,17 +412,15 @@
 }
 
 #next-btn {
-    background-color: #000;
+    padding: 12px 30px;
+    background-color: #1c1904;
     color: white;
     border: none;
-    padding: 12px 24px;
     border-radius: 30px;
     font-size: 16px;
-    font-weight: bold;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    transition: all 0.3s ease;
+    margin: 0 10px;
 }
 
 #next-btn:hover {
@@ -451,21 +454,15 @@
 }
 
 #continue-btn {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: #1e40af;
+    padding: 12px 30px;
+    background-color: #1c1904;
     color: white;
     border: none;
-    padding: 12px 24px;
     border-radius: 30px;
     font-size: 16px;
-    font-weight: 600;
     cursor: pointer;
-    box-shadow: 0 4px 6px -1px rgba(30, 64, 175, 0.4), 0 2px 4px -1px rgba(30, 64, 175, 0.2);
     transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
+    margin: 0 10px;
 }
 
 #continue-btn:hover {
@@ -484,12 +481,23 @@
     background-color: #1557b0;
 }
 
-#continue-btn {
-    padding: 10px 20px;
-    background-color: #000;
+.remove-btn {
+    background-color: #ff4d4f;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
     font-size: 16px;
     cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+    transition: all 0.2s ease;
+}
+
+.remove-btn:hover {
+    background-color: #d9363e;
+    transform: scale(1.1);
 }

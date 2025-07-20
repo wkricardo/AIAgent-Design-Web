@@ -14,12 +14,57 @@
             <div class="sidebar-item">Compare</div>
         </div>
         <div class="main-content">
-            <div class="develop-header">
-                <h2>Develop Your Product Features</h2>
+            <div class="comparison-header">
+                <h2>Choose to address the problem/solutions from the concept blocks</h2>
+                <p>Please suggest possible solutions based on the current needs</p>
             </div>
-            <div class="concept-blocks">
-                <!-- Concept blocks will be dynamically inserted here -->
+            
+            <div class="content-grid">
+                <!-- Persona Section -->
+                <div class="card">
+                    <div class="card-header" data-section="persona">
+                        Persona
+                        <button class="add-btn">+</button>
+                    </div>
+                    <div class="tag-container">
+                        <!-- Persona content here -->
+                    </div>
+                </div>
+                
+                <!-- Pain Points/Needs Section -->
+                <div class="card">
+                    <div class="card-header" data-section="painPoints">
+                        Pain Points / Needs
+                        <button class="add-btn">+</button>
+                    </div>
+                    <div class="tag-container">
+                        <!-- Pain Points content here -->
+                    </div>
+                </div>
+                
+                <!-- Usage Location Section -->
+                <div class="card">
+                    <div class="card-header" data-section="location">
+                        Usage Location
+                        <button class="add-btn">+</button>
+                    </div>
+                    <div class="tag-container">
+                        <!-- Location content here -->
+                    </div>
+                </div>
+                
+                <!-- Additional Features Section -->
+                <div class="card">
+                    <div class="card-header" data-section="requirements">
+                        Additional Features
+                        <button class="add-btn">+</button>
+                    </div>
+                    <div class="tag-container">
+                        <!-- Requirements content here -->
+                    </div>
+                </div>
             </div>
+            
             <div class="continue-section">
                 <button id="back-btn">← Back</button>
                 <button id="generate-btn">Generate Solutions →</button>
