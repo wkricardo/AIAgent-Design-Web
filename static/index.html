@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Robotic Vacuum Cleaner - Product Design</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+    <div class="sidebar-item active">Explore</div>
+    <div class="sidebar-item">Develop</div>
+    <div class="sidebar-item">Compare</div>
+</div>
+        <div class="main-content">
+            <div class="product-input-section">
+                <label for="product-name" class="product-label">Enter your product name :</label>
+                <input type="text" id="product-name" value="Smart Robotic Vacuum Cleaner">
+            </div>
+
+            <div class="content-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Persona</h3>
+                        <button class="add-btn" data-section="persona">+</button>
+                    </div>
+                    <div class="tag-container" id="persona-container">
+                        <div class="tag">Major metropolitan areas <span class="remove-tag">×</span></div>
+                        <div class="tag">Family of three <span class="remove-tag">×</span> with kids <span class="remove-tag">×</span> (4-10 yrs old)</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Pain Points / Needs</h3>
+                        <button class="add-btn" data-section="painPoints">+</button>
+                    </div>
+                    <div class="tag-container" id="painPoints-container">
+                        <div class="tag">Dust remains in corners <span class="remove-tag">×</span></div>
+                        <div class="tag">Toys being dragged across the floor <span class="remove-tag">×</span></div>
+                    </div>
+                </div>
+
+                <div class="card" id="usage-location-card">
+                    <div class="card-header">
+                        <h3>Usage Location</h3>
+                        <button class="add-btn" data-section="usageLocations">+</button>
+                    </div>
+                    <div class="tag-container" id="usageLocations-container">
+                        <div class="tag">Living room <span class="remove-tag">×</span></div>
+                        <div class="tag">Bedroom <span class="remove-tag">×</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="continue-section">
+                <button id="continue-btn">Continue </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

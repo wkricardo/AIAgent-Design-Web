@@ -1,0 +1,141 @@
+{
+  "comparisonProducts": [
+    {
+      "id": 1,
+      "image": "product1.png",
+      "location": [
+        {
+          "subItems": [
+            {
+              "text": "自动切换吸力与路径模式",
+              "type": "S",
+              "unmet": ["拖拽玩具", "地面不整洁"]
+            }
+          ],
+          "text": "卧室+客厅清扫",
+          "type": "P"
+        }
+      ],
+      "name": "Dreame X50 Ultra",
+      "notMet": [
+        "三口小家庭",
+        "孩子上幼儿园"
+      ],
+      "notMetRequirements": [
+        "拖拽玩具",
+        "地面不整洁"
+      ],
+      "persona": [
+        {
+          "subItems": [
+            {
+              "text": "APP可分房间设置",
+              "type": "S",
+              "unmet": ["三口小家庭", "孩子上幼儿园"]
+            }
+          ],
+          "text": "一线/新一线小家庭",
+          "type": "P"
+        }
+      ],
+      "requirements": [
+        {
+          "subItems": [
+            {
+              "text": "伸缩侧刷",
+              "type": "S",
+              "unmet": ["地面有电线", "宠物毛发"]
+            }
+          ],
+          "text": "角落覆盖",
+          "type": "P"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "image": "product1.png",
+      "location": [
+        {
+          "subItems": [
+            {
+              "text": "强吸力+高精度地图",
+              "type": "S"
+            }
+          ],
+          "text": "卧室+客厅清扫",
+          "type": "P"
+        }
+      ],
+      "name": "Shark PowerDetect NeverTouch Pro",
+      "notMet": [
+        "三口家庭",
+        "一线/新一线小家庭"
+      ],
+      "persona": [
+        {
+          "subItems": [
+            {
+              "text": "自清洁底座",
+              "type": "S"
+            }
+          ],
+          "text": "育儿家庭",
+          "type": "P"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "image": "product2.png",
+      "location": [
+        {
+          "subItems": [
+            {
+              "text": "3in1平板机身+双侧旋刷",
+              "type": "S"
+            },
+            {
+              "text": "认路规划与贴边路线设计",
+              "type": "S"
+            }
+          ],
+          "text": "角落覆盖",
+          "type": "P"
+        }
+      ],
+      "name": "Eufy L60 Hybrid",
+      "notMet": [
+        "三口小家庭",
+        "孩子上幼儿园"
+      ],
+      "persona": [
+        {
+          "subItems": [
+            {
+              "text": "APP可分房间设置",
+              "type": "S",
+              "unmet": ["三口小家庭", "孩子上幼儿园"]
+            }
+          ],
+          "text": "一线/新一线小家庭",
+          "type": "P"
+        }
+      ]
+    }
+  ],
+  "painPoints": [
+    "Dust remains in corners",
+    "Toys being dragged across the floor"
+  ],
+  "persona": [
+    "Major metropolitan areas",
+    "Family of three",
+    "with kids (4-10 yrs old)"
+  ],
+  "productName": "Smart Device Test",
+  "usageLocations": [
+    "Living room",
+    "Bedroom"
+  ]
+}
