@@ -1,3 +1,8 @@
-Flask==2.3.3
-python-dotenv==1.0.0
-flask-cors==4.0.0
+# Flask 最高支持 Python 3.6 的版本是 2.0.x（2.0.3 为最后一个兼容版本）
+Flask==2.0.3
+
+# python-dotenv 支持 Python 3.6 的最新版本
+python-dotenv==1.0.0  # 该版本兼容 Python 3.6+，无需修改
+
+# flask-cors 支持 Python 3.6 的最新版本
+flask-cors==3.0.10  # 4.0.0 要求 Python 3.7+，3.0.10 是兼容 3.6 的最后一个版本
