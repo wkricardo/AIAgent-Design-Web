@@ -1,4 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // 页面导航功能
+    const nextBtn = document.getElementById('next-btn');
+    if (nextBtn) {
+        nextBtn.addEventListener('click', function() {
+            window.location.href = 'static/develop.html';
+        });
+    }
+
+    const backBtn = document.getElementById('back-btn');
+    if (backBtn) {
+        backBtn.addEventListener('click', function() {
+            window.history.back();
+        });
+    }
+
     // 根据页面路径初始化不同功能
     if (window.location.pathname.includes('compare.html')) {
         renderComparisonPage();
@@ -167,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 继续按钮点击事件
         continueBtn.addEventListener('click', () => {
-            window.location.href = 'compare.html';
+            window.location.href = 'static/compare.html';
         });
     }
 
@@ -270,6 +285,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Next按钮事件
         document.getElementById('next-btn')?.addEventListener('click', () => {
             alert('Proceeding to next step...');
+            window.location.href = 'develop.html';
+
         });
     });
 

@@ -38,6 +38,10 @@ def serve_index():
 def serve_compare():
     return send_from_directory('static', 'compare.html')
 
+@app.route('/develop.html')
+def serve_develop():
+    return send_from_directory('static', 'develop.html')
+
 @app.route('/api/data', methods=['GET'])
 def get_data():
     return jsonify(load_data())
