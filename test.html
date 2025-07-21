@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>迭代图表</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    .grid line {
+      stroke: lightgrey;
+      stroke-opacity: 0.7;
+      shape-rendering: crispEdges;
+    }
+    .grid path {
+      stroke-width: 0;
+    }
+    .label {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      fill: #333;
+    }
+    .current, .suggested {
+      stroke: white;
+      stroke-width: 1.5px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 添加容器元素 -->
+  <div id="iteration-chart"></div>
+
+  <script>
+    function drawIterationChart() {
+      // 清除现有图表
+      d3.select("#iteration-chart").selectAll("*").remove();
+
+      // 图表数据
+      const data = {
+        current: [
+          { x: 0, y: 4 }, { x: 1, y: 4 }, { x: 2, y: 3 }, { x: 3, y: 3 }, { x: 4, y: 2 }, { x: 5, y: 1 }
+        ],
+        suggested: [
+          { x: 0, y: 4 }, { x: 2, y: 4 }, { x: 3, y: 3 }, { x: 5, y: 2 }, { x: 6, y: 1 }
+        ]
+      };
+
+      // 图表尺寸和边距
+      const margin = { top: 40, right: 30, bottom: 60, left: 40 };
+      const width = 800 - margin.left - margin.right;
+      const height = 400 - margin.top - margin.bottom;
+
+      // 创建SVG容器
+      const svg = d3.select("#iteration-chart")
+          .append("svg")
+          .attr("width", width + margin.left + margin.right)
+          .attr("height", height + margin.top + margin.bottom)
+          .append("g")
+          .attr("transform", `translate(${margin.left},${margin.top})`);
+
+      // 创建X轴比例尺
+      const xScale = d3.scaleLinear()
+          .domain([0, 6])
+          .range([0, width]);
+
+      // 创建Y轴比例尺
+      const yScale = d3.scaleLinear()
+          .domain([0, 5])
+          .range([height, 0]);
+
+      // 添加X轴
+      svg.append("g")
+          .attr("transform", `translate(0,${height})`)
+          .call(d3.axisBottom(xScale).ticks(7).tickFormat((d, i) => {
+              const labels = ["0", "S", "S(t+1)", "S(t+2)", "S(t+3)", "", ""];
+              return labels[i] || "";
+          }));
+
+      // 添加Y轴
+      svg.append("g")
+          .call(d3.axisLeft(yScale).ticks(5));
+
+      // 添加网格线
+      svg.append("g")
+          .attr("class", "grid")
+          .attr("transform", `translate(0,${height})`)
+          .call(d3.axisBottom(xScale).ticks(7).tickSize(-height).tickFormat(""));
+
+      svg.append("g")
+          .attr("class", "grid")
+          .call(d3.axisLeft(yScale).ticks(5).tickSize(-width).tickFormat(""));
+
+      // 添加当前迭代曲线区域
+      svg.append("path")
+          .datum(data.current)
+          .attr("fill", "#a5c8e4")
+          .attr("opacity", 0.5)
+          .attr("d", d3.area()
+              .x(d => xScale(d.x))
+              .y0(height)
+              .y1(d => yScale(d.y)));
+
+      // 添加建议迭代曲线区域
+      svg.append("path")
+          .datum(data.suggested)
+          .attr("fill", "#d6e6f2")
+          .attr("opacity", 0.5)
+          .attr("d", d3.area()
+              .x(d => xScale(d.x))
+              .y0(height)
+              .y1(d => yScale(d.y)));
+
+      // 添加当前迭代曲线
+      svg.append("path")
+          .datum(data.current)
+          .attr("fill", "none")
+          .attr("stroke", "#347fc4")
+          .attr("stroke-width", 2)
+          .attr("d", d3.line()
+              .x(d => xScale(d.x))
+              .y(d => yScale(d.y)));
+
+      // 添加建议迭代曲线
+      svg.append("path")
+          .datum(data.suggested)
+          .attr("fill", "none")
+          .attr("stroke", "#6b9ac4")
+          .attr("stroke-width", 2)
+          .attr("stroke-dasharray", "5,5")
+          .attr("d", d3.line()
+              .x(d => xScale(d.x))
+              .y(d => yScale(d.y)));
+
+      // 添加当前迭代数据点
+      svg.selectAll("circle.current")
+          .data(data.current)
+          .enter()
+          .append("circle")
+          .attr("class", "current")
+          .attr("cx", d => xScale(d.x))
+          .attr("cy", d => yScale(d.y))
+          .attr("r", 6)
+          .attr("fill", d => d.x === 1 || d.x === 4 ? "#e76f51" : "#333");
+
+      // 添加建议迭代数据点
+      svg.selectAll("circle.suggested")
+          .data(data.suggested)
+          .enter()
+          .append("circle")
+          .attr("class", "suggested")
+          .attr("cx", d => xScale(d.x))
+          .attr("cy", d => yScale(d.y))
+          .attr("r", 6)
+          .attr("fill", "#457b9d");
+
+      // 修复三角形标记位置
+      const trianglePoints = data.current.filter(d => d.x === 1 || d.x === 4);
+      svg.selectAll("polygon.triangle")
+          .data(trianglePoints)
+          .enter()
+          .append("polygon")
+          .attr("class", "triangle")
+          .attr("points", d => {
+              const x = xScale(d.x);
+              const y = yScale(d.y);
+              return `${x},${y-12} ${x-8},${y+4} ${x+8},${y+4}`; // 调整三角形大小和位置
+          })
+          .attr("fill", "#e76f51");
+
+      // 添加标签
+      svg.append("text")
+          .attr("x", xScale(1))
+          .attr("y", yScale(4) - 15) // 调整标签位置
+          .attr("text-anchor", "middle")
+          .attr("class", "label")
+          .text("当前迭代");
+
+      svg.append("text")
+          .attr("x", xScale(2))
+          .attr("y", yScale(4) - 15) // 调整标签位置
+          .attr("text-anchor", "middle")
+          .attr("class", "label")
+          .text("下一轮迭代建议");
+    }
+
+    // 调用函数绘制图表
+    drawIterationChart();
+  </script>
+</body>
+</html>

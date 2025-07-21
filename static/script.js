@@ -19,7 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
         renderComparisonPage();
     } else if (window.location.pathname.includes('develop.html')) {
         initDevelopPage();
-    } else {
+    } else if (window.location.pathname.includes('solution.html')) {
+        renderSolutionPage();
+                // 调用函数绘制图表
+        drawIterationChart();
+    }
+    else {
         initMainPage();
     }
 
@@ -537,6 +542,9 @@ function renderDevelopPage() {
             // 重新绑定事件监听器
             bindDevelopPageEvents();
         });
+        document.getElementById('generate-btn')?.addEventListener('click', () => {
+            window.location.href = 'solution.html';
+        });
 }
 
 // 绑定Develop页面事件
@@ -672,3 +680,225 @@ function saveDataToServer(data) {
 function refreshDevelopPage() {
     window.location.reload();
 }
+
+function renderSolutionPage() {
+    // 填充方案描述
+    const solutionDescription = document.getElementById('solution-description');
+    solutionDescription.innerHTML = `
+        <p>这是一款面向一线/新一线城市三口之家设计的智能扫地机器人，支持卧室与客厅分区清扫，具备高角落覆盖率与安静运行能力。</p>
+        <p>产品采用D型机身设计与伸缩侧刷结构，以增强边角能力，改善床脚与墙角的清扫效果，同时通过自动切换吸力与路径适应不同房间地面与家具布局。</p>
+        <p>系统内置Quiet Mode与自适应息间调度，孩子在休息时段以低噪音运行，减少干扰。针对杂乱玩具等常见家庭障碍物，产品搭配障碍识别与路径回补策略，提升清洁完整度与稳定性。</p>
+    `;
+
+    // 填充评估指标
+    const assessmentMetrics = document.getElementById('assessment-metrics');
+    assessmentMetrics.innerHTML = `
+        <div class="metric-item">
+            <h4>Persona</h4>
+            <div class="metric-status">发展幅度小，建议重点发散</div>
+        </div>
+        <div class="metric-item">
+            <h4>Location</h4>
+            <div class="metric-status">还处于发展阶段，建议继续发展</div>
+        </div>
+        <div class="metric-item">
+            <h4>Requirements</h4>
+            <div class="metric-status">保持迭代，建议观察是否收敛</div>
+        </div>
+    `;
+
+    // // 绘制迭代评估图表
+    // const canvas = document.getElementById('iteration-chart');
+    // const ctx = canvas.getContext('2d');
+    // drawIterationChart();
+
+    // 绑定Next按钮事件
+    document.getElementById('next-btn').addEventListener('click', () => {
+        window.location.href = 'next-page.html';
+    });
+}
+
+function drawIterationChart() {
+    // 清除现有图表
+    d3.select("#iteration-chart").selectAll("*").remove();
+
+    // 图表数据
+    const data = [
+        [
+            { x: 1.2, y: 4 }, 
+            { x: 1.5, y: 3 }, 
+            { x: 2.5, y: 2 }, 
+            { x: 3, y: 1 }, 
+            { x: 4, y: 0 }
+        ],
+        [
+            { x: 1.3, y: 4 }, 
+            { x: 2.1, y: 3 }, 
+            { x: 3.3, y: 2 }, 
+            { x: 5, y: 1 }, 
+            { x: 6, y: 0 }
+        ],
+        [
+            { x: 2.3, y: 4 }, 
+            { x: 3.1, y: 3 }, 
+            { x: 4.3, y: 2 }, 
+            { x: 6, y: 1 }, 
+            { x: 7, y: 0 }
+        ],
+        [
+            { x: 2.3, y: 4 }, 
+            { x: 3.1, y: 3 }, 
+            { x: 4.3, y: 2 }, 
+            { x: 7, y: 1 }, 
+            { x: 8, y: 0 }
+        ],
+        [
+            { x: 2.3, y: 4 }, 
+            { x: 4.1, y: 3 }, 
+            { x: 5.3, y: 2 }, 
+            { x: 9, y: 1 }, 
+            { x: 12, y: 0 }
+        ],
+    ];
+
+    // 图表尺寸和边距
+    const margin = { top: 40, right: 30, bottom: 60, left: 40 };
+    const width = 800 - margin.left - margin.right;
+    const height = 400 - margin.top - margin.bottom;
+    const curvecolorList = ["#347fc4", "#3c83c4", "#4487c4", "#4c8bc4", "#548fc4", "#5c93c4", "#6497c4", "#6b9ac4"];
+    const areacolorList = ["#a5c8e4", "#accce6", "#b3d0e8", "#bad4ea", "#c1d8ec", "#c8dcef", "#cfdcf2", "#d6e6f2"];
+    const pointcolorList = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f"];
+    // 创建SVG容器
+    const svg = d3.select("#iteration-chart")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    // 创建X轴比例尺
+    const xScale = d3.scaleLinear()
+        .domain([-0.3, d3.max(data, d => d3.max(d, p => p.x)) + 1])
+        .range([0, width]);
+
+    // 创建Y轴比例尺
+    const yScale = d3.scaleLinear()
+        .domain([-0.3, 4.3])
+        .range([height, 0]);
+    const tickValues = [];
+    data.forEach(xy => {
+        tickValues.push(xy[xy.length - 1].x);
+    });
+    // 添加X轴 - 不显示刻度尺
+    const xAxisGroup = svg.append("g")
+        .attr("transform", `translate(0,${height})`)
+        .call(d3.axisBottom(xScale).tickValues(tickValues).tickFormat((d, i) => {
+            const labels = ["S", "S(t+1)", "S(t+2)", "S(t+3)", "S(t+4)", "S(t+5)", "S(t+6)", "S(t+7)", "S(t+8)"];
+            return labels[i] || "";
+        }).tickSize(0));  // 设置刻度线长度为0，隐藏X轴刻度尺
+
+    // 增大X轴标签字体大小
+    xAxisGroup.selectAll(".tick text")
+        .style("font-size", "24px");
+
+    // 隐藏X轴轴线（上边框）
+    xAxisGroup.selectAll(".domain")
+        .style("display", "none");
+    
+    // 添加Y轴 - P1最小(底部)，P5最大(顶部)，并显示网格线
+    const yAxisGroup = svg.append("g")
+        .call(d3.axisLeft(yScale).tickValues([0, 1, 2, 3, 4])
+            .tickFormat((d, i) => {
+                const labels = ["P1", "P2", "P3", "P4", "P5"];  // 调整为正序
+                return labels[i] || "r";
+            })
+            .tickSize(-width));  // 添加Y轴网格线
+    // 隐藏X轴轴线（上边框）
+    yAxisGroup.selectAll(".domain")
+        .style("display", "none");
+    // 修改Y轴网格线为虚线
+    yAxisGroup.selectAll(".tick line")
+        .style("stroke-dasharray", "5,5")
+        .style("stroke-opacity", 0.7);
+        
+    yAxisGroup.selectAll(".tick line")
+    .filter((d, i) => d === 4.3) // 筛选顶部的P5网格线
+    .style("display", "none");
+
+    yAxisGroup.selectAll(".tick text")
+        .style("font-size", "24px");
+    
+    data.forEach((xy, index) => {
+        // alert(xy)
+        // 添加当前迭代曲线区域（以Y轴为底）
+        svg.append("path")
+        .datum(xy)  
+        .attr("fill", areacolorList[index])
+        .attr("opacity", 0.5)
+        .attr("d", d3.area()
+            .y(d => yScale(d.y))
+            .x0(0)  // 从Y轴开始填充
+            .x1(d => xScale(d.x))  // 到曲线的X值结束
+            .curve(d3.curveMonotoneX));
+
+        // 添加当前迭代曲线
+        svg.append("path")
+            .datum(xy)
+            .attr("fill", "none")
+            .attr("stroke", curvecolorList[index])
+            .attr("stroke-width", 2)
+            .attr("d", d3.line()
+                .x(d => xScale(d.x))
+                .y(d => yScale(d.y))
+                .curve(d3.curveMonotoneX));
+                
+        if (index === 0) {
+            svg.selectAll("circle.current")
+                .data(xy)
+                .enter()
+                .append("circle")
+                .attr("class", "current")
+                .attr("cx", d => xScale(d.x))
+                .attr("cy", d => yScale(d.y))
+                .attr("r", 6)
+                .attr("fill", pointcolorList[index])
+                .style("stroke", "white") // 加白色边框，增强可见性
+                .style("stroke-width", 1.5);
+        }
+        else {
+            svg.selectAll(`circle.cs${index}`)
+                .data(xy)
+                .enter()
+                .append("circle")
+                .attr("class", `cs${index}`)
+                .attr("cx", d => xScale(d.x))
+                .attr("cy", d => yScale(d.y))
+                .attr("r", 6)
+                .attr("fill", pointcolorList[index])
+                .style("stroke", "white") // 加白色边框，增强可见性
+                .style("stroke-width", 1.5);
+        }
+
+        if (index === data.length - 2) {
+        // 添加标签
+            svg.append("text")
+                .attr("x", xScale(1))
+                .attr("y", yScale(4) - 15)
+                .attr("text-anchor", "middle")
+                .attr("class", "label")
+                .text("当前迭代");
+        }
+        else if (index === data.length - 1) {   
+            svg.append("text")
+                .attr("x", xScale(2))
+                .attr("y", yScale(4) - 15)
+                .attr("text-anchor", "middle")
+                .attr("class", "label")
+                .text("下一轮迭代建议");
+        };
+    });
+
+}
+
+
+

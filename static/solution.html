@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解决方案</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="sidebar-item">Explore</div>
+            <div class="sidebar-item active">Develop</div>
+            <div class="sidebar-item">Compare</div>
+        </div>
+        <div class="main-content">
+            <!-- 方案描述区域 -->
+            <div class="solution-section">
+                <h2 class="section-title">方案描述</h2>
+                <div class="solution-description" id="solution-description">
+                    <!-- 将由JavaScript动态填充 -->
+                </div>
+            </div>
+
+            <!-- 迭代差异评估区域 -->
+            <div class="assessment-section">
+                <h2 class="section-title">迭代差异评估</h2>
+                <div class="assessment-container">
+                    <div class="assessment-metrics" id="assessment-metrics">
+                        <!-- 指标评估将由JavaScript动态填充 -->
+                    </div>
+                        <div id="iteration-chart"></div>
+                </div>
+            </div>
+
+            <div class="continue-section">
+                <button id="back-btn">← Back</button>
+                <button id="next-btn">Next →</button>
+            </div>
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>

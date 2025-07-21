@@ -59,6 +59,10 @@ def serve_develop():
     save_data(data)
     return send_from_directory('static', 'develop.html')
 
+@app.route('/solution.html')
+def serve_solution():
+    return send_from_directory('static', 'solution.html')
+
 @app.route('/api/data', methods=['GET'])
 def get_data():
     return jsonify(load_data())
