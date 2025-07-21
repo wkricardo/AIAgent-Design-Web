@@ -14,9 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 根据页面路径初始化不同功能
+    // 修改页面初始化逻辑
     if (window.location.pathname.includes('compare.html')) {
         renderComparisonPage();
+    } else if (window.location.pathname.includes('develop.html')) {
+        initDevelopPage();
     } else {
         initMainPage();
     }
@@ -241,29 +243,29 @@ document.addEventListener('DOMContentLoaded', () => {
                                 // 查找并添加归属当前P的S选项
                                 if (item.subItems && item.subItems.length) {
                                     item.subItems.forEach(subItem => {
-                            if (subItem.type === 'S') {
-                                const sTag = document.createElement('div');
-                                sTag.className = 'selectable-tag s-type';
-                                sTag.innerHTML = `
-                                    <span class="stag-content">${subItem.text}</span>
-                                    <span class="tag-badge">S</span>
-                                `;
-                                sTag.addEventListener('click', () => sTag.classList.toggle('selected'));
-                                sContainer.appendChild(sTag);
+                                    if (subItem.type === 'S') {
+                                        const sTag = document.createElement('div');
+                                        sTag.className = 'selectable-tag s-type';
+                                        sTag.innerHTML = `
+                                            <span class="stag-content">${subItem.text}</span>
+                                            <span class="tag-badge">S</span>
+                                        `;
+                                        sTag.addEventListener('click', () => sTag.classList.toggle('selected'));
+                                        sContainer.appendChild(sTag);
 
-                                // 添加没有满足情况
-                                if (subItem.unmet && subItem.unmet.length) {
-                                    const unmetContainer = document.createElement('div');
-                                    unmetContainer.className = 'unmet-requirements';
-                                    unmetContainer.innerHTML = '<div class="unmet-label">Not meeting: </div>';
-                                    subItem.unmet.forEach(unmet => {
-                                        const unmetTag = document.createElement('span');
-                                        unmetTag.className = 'unmet-tag';
-                                        unmetTag.textContent = unmet;
-                                        unmetContainer.appendChild(unmetTag);
-                                    });
-                                    sContainer.appendChild(unmetContainer);
-                                }
+                                        // 添加没有满足情况
+                                        if (subItem.unmet && subItem.unmet.length) {
+                                            const unmetContainer = document.createElement('div');
+                                            unmetContainer.className = 'unmet-requirements';
+                                            unmetContainer.innerHTML = '<div class="unmet-label">Not meeting: </div>';
+                                            subItem.unmet.forEach(unmet => {
+                                                const unmetTag = document.createElement('span');
+                                                unmetTag.className = 'unmet-tag';
+                                                unmetTag.textContent = unmet;
+                                                unmetContainer.appendChild(unmetTag);
+                                            });
+                                            sContainer.appendChild(unmetContainer);
+                                        }
                             }
                         });
                                 }
@@ -440,54 +442,98 @@ function renderDevelopPage() {
     fetch('/api/data')
         .then(response => response.json())
         .then(data => {
+            // 获取developProducts数组，默认空数组
+            const mdevelopProducts = data.developProducts || [];
             // 遍历所有卡片区域
             document.querySelectorAll('.card').forEach(card => {
-                const section = card.querySelector('.card-header').dataset.section;
-                const container = card.querySelector('.tag-container');
-                container.innerHTML = '';
+                const cardHeader = card.querySelector('.card-header');
+                const container = card.querySelector('.develop-tag-container');
+                const cardName = cardHeader.dataset.section;
+                // // 检查必要DOM元素是否存在
+                if (!cardHeader || !container) return;
+                // 获取data-section属性值作为数据键名
+                const sectionKey = cardHeader.dataset.section;
+                if (!sectionKey) return; 
 
-                // 检查数据是否存在
-                if (!data[section] || !Array.isArray(data[section])) return;
+                const sectionData = mdevelopProducts[cardName];
+                // 创建P类型主选项容器
+                const pContainer = document.createElement('div');
+                pContainer.className = 'develop-p-container';
+                // alert(data.developProducts.location)
+                // 遍历sectionData中的每个P类型数组
+                sectionData.forEach(pItemsArray => {
+                    // 遍历数组中的每个P类型项
+                    pItemsArray.forEach(pItem => {
+                        if (pItem.type === 'P') {
+                            // 创建P类型项容器
+                            const pTag = document.createElement('div');
+                            pTag.className = 'develop-tag p-type';
+                            pTag.innerHTML = `
+                                <span class="ptag-content">${pItem.text}</span>
+                                <span class="tag-badge">P</span>
+                            `;
+                            
+                            // 创建S类型子项容器
+                            const sContainer = document.createElement('div');
+                            sContainer.className = 's-container';
+                            
+                            // 处理S类型子项
+                            if (pItem.subItems && pItem.subItems.length) {
+                                pItem.subItems.forEach(subItem => {
+                                    if (subItem.type === 'S') {
+                                        const sTag = document.createElement('div');
+                                        sTag.className = 'develop-tag s-type';
+                                        sTag.innerHTML = `
+                                            <span class="stag-content">${subItem.text}</span>
+                                            <span class="tag-badge">S</span>
+                                        `;
+                                        sContainer.appendChild(sTag);
+                                    }
+                                });
+                            }
 
-                // 渲染P类型项和S类型子项
-                data[section].forEach(item => {
-                    if (item.type === 'P') {
-                        // 创建P类型项
-                        const pTag = document.createElement('div');
-                        pTag.className = 'p-type';
-                        pTag.innerHTML = `
-                            <span class="ptag-content">${item.text}</span>
-                            <span class="tag-badge">P</span>
-                        `;
+                            const newpTag = document.createElement('div');
+                            newpTag.className = 'develop-tag p-type';
+                            newpTag.innerHTML = `
+                                <span class="ptag-content">${'New Problem'}</span>
+                                <span class="tag-badge">P</span>
+                            `;
+                            const newPTagList = document.createElement('div');
+                            newPTagList.className = 'develop-newptaglist';
+                            for (let i = 0; i < 3; i++) {
+                                const newPTag = document.createElement('div');
+                                newPTag.className = 'develop-newptag';
+                                newPTag.innerHTML = `
+                                <div class="select-checkbox"></div>
+                                <div class="option-text-container">
+                                    <span class="main-text">${'角落结构不一'}</span>
+                                    <span class="sub-text">${'固定延展长度或角度无法通用'}</span>
+                                </div>
+                                `;
+                                newPTagList.appendChild(newPTag);
+                            }
+                            newpTag.appendChild(newPTagList);
+                            
+                            // 将S容器添加到P项，P项添加到卡片容器
+                            pTag.appendChild(sContainer);
+                            pContainer.appendChild(pTag);
+                            pContainer.appendChild(newpTag);
+                            container.appendChild(pContainer);
 
-                        // 创建S类型子项容器
-                        const sContainer = document.createElement('div');
-                        sContainer.className = 's-container';
-
-                        // 添加S类型子项
-                        if (item.subItems && item.subItems.length) {
-                            item.subItems.forEach(subItem => {
-                                if (subItem.type === 'S') {
-                                    const sTag = document.createElement('div');
-                                    sTag.className = 's-type';
-                                    sTag.innerHTML = `
-                                        <span class="stag-content">${subItem.text}</span>
-                                        <span class="tag-badge">S</span>
-                                        <button class="remove-btn">×</button>
-                                        <button class="add-btn">+</button>
-                                    `;
-                                    sContainer.appendChild(sTag);
-                                }
+                            const checkboxes = newpTag.querySelectorAll('.select-checkbox');
+                            checkboxes.forEach(checkbox => {
+                                checkbox.addEventListener('click', function() {
+                                    this.classList.toggle('checked');
+                                    // 可选：更新数据模型中的选中状态
+                                    pItem.selected = this.classList.contains('checked');
+                                    saveDataToServer();
+                                });
                             });
                         }
-
-                        pTag.appendChild(sContainer);
-                        container.appendChild(pTag);
-                    }
+                    });
                 });
             });
-        })
-        .then(() => {
+            
             // 重新绑定事件监听器
             bindDevelopPageEvents();
         });
@@ -625,13 +671,4 @@ function saveDataToServer(data) {
 // 刷新Develop页面
 function refreshDevelopPage() {
     window.location.reload();
-}
-
-// 修改页面初始化逻辑
-if (window.location.pathname.includes('compare.html')) {
-    renderComparisonPage();
-} else if (window.location.pathname.includes('develop.html')) {
-    initDevelopPage();
-} else {
-    initMainPage();
 }

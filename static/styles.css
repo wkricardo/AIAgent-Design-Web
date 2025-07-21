@@ -11,6 +11,8 @@
     overflow: hidden;
 }
 
+
+
 .sidebar {
     width: 70px;
     background-color: #000;
@@ -225,7 +227,9 @@
     margin-bottom: 15px;
 }
 
-.selectable-tag {    padding: 4px 10px;    border-radius: 20px;    font-size: 14px;    cursor: pointer;    transition: all 0.2s ease;    border: 1px solid transparent;    margin-bottom: 3px;}.selectable-tag.p-type {    background-color: #f0f9ff;    border-color: #94a3b8;}.selectable-tag.s-type {    background-color: #fef3c7;    border-color: #f59e0b;    margin-left: 20px;}.type-badge {    margin-left: 5px;    padding: 0 5px;    border-radius: 4px;    font-size: 12px;    font-weight: bold;}.p-type .type-badge {    background-color: #3b82f6;    color: white;}.s-type .type-badge {    background-color: #f59e0b;    color: white;}.sub-tags {    margin-left: 15px;    margin-top: 3px;}
+.selectable-tag {    padding: 4px 12px;    border-radius: 20px;    font-size: 14px;    cursor: pointer;    transition: all 0.2s ease;    border: 1px solid transparent;    margin-bottom: 10px;}.selectable-tag.p-type {    background-color: #f0f9ff;    border-color: #94a3b8;}.selectable-tag.s-type {    background-color: #fef3c7;    border-color: #f59e0b;    margin-left: 20px;}.type-badge {    margin-left: 5px;    padding: 0 5px;    border-radius: 4px;    font-size: 12px;    font-weight: bold;}.p-type .type-badge {    background-color: #3b82f6;    color: white;}.s-type .type-badge {    background-color: #f59e0b;    color: white;}.sub-tags {    margin-left: 15px;    margin-top: 3px;}
+
+.develop-tag {    padding: 4px 12px;    border-radius: 20px;    font-size: 14px;    cursor: pointer;    transition: all 0.2s ease;    border: 1px solid transparent;    margin-bottom: 10px;}.develop-tag.p-type {  background-color: #f0f9ff;    border-color: #94a3b8;}.develop-tag.s-type {    display: flex; flex-wrap: nowrap; background-color: #fef3c7;    border-color: #f59e0b;    margin-left: 20px;}.type-badge {    margin-left: 5px;    padding: 0 5px;    border-radius: 4px;    font-size: 12px;    font-weight: bold;}.p-type .type-badge {    background-color: #3b82f6;    color: white;}.s-type .type-badge {    background-color: #f59e0b;    color: white;}.sub-tags {    margin-left: 15px;    margin-top: 3px;}
 
 .selectable-tag.selected {
     background-color: #e6d9ff;
@@ -358,6 +362,42 @@
     flex-wrap: wrap;
     gap: 10px;
 }
+
+.develop-tag-container {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.develop-p-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 25px;
+    overflow-y: auto;
+    max-height: 400px;
+    box-sizing: border-box; 
+}
+
+.develop-newptaglist{
+    /* background-color: #dfe3ea; */
+    display: block;
+    align-items: center; /* 垂直居中对齐 */
+    justify-content: flex-start; /* 水平左对齐，保持复选框在左侧 */
+    border-radius: 10px;
+    gap: 100px;
+}
+
+.develop-newptag{
+    display: flex;
+    align-items: flex-start;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 
 .tag {
     display: inline-flex;
@@ -500,4 +540,50 @@
 .remove-btn:hover {
     background-color: #d9363e;
     transform: scale(1.1);
+}
+
+.select-checkbox {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid #94a3b8;
+    margin-right: 10px;
+    cursor: pointer;
+    display: inline-block;
+    transition: all 0.2s ease;
+}
+
+/* 选中状态 */
+.select-checkbox.checked {
+    background-color: #1890ff;
+    border-color: #1890ff;
+    position: relative;
+}
+
+/* 选中状态的对勾 */
+.select-checkbox.checked::after {
+    content: "✓";
+    color: white;
+    font-size: 12px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.option-text-container {
+    display: flex;
+    flex-direction: column; /* 垂直排列 */
+    margin-left: 10px;
+}
+
+.main-text {
+    font-size: 16px;
+    color: #333;
+}
+
+.sub-text {
+    font-size: 12px;
+    color: #666;
+    margin-top: 2px;
 }

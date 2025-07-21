@@ -19,7 +19,8 @@ if not os.path.exists(DATA_FILE):
             "productName": "",
             "persona": [],
             "painPoints": [],
-            "usageLocations": []
+            "usageLocations": [],
+            "developProducts": []
         }, f, indent=2)
 
 def load_data():
@@ -40,6 +41,22 @@ def serve_compare():
 
 @app.route('/develop.html')
 def serve_develop():
+    data = load_data()
+        # 整合数据到developProducts
+    integrated_data = {
+        'location': [],
+        'persona': [],
+        'notMet': [],
+        'requirement': []
+    }
+    for i in data['comparisonProducts']:
+        integrated_data['location'].append(i['location'])
+        integrated_data['persona'].append(i['persona'])
+        integrated_data['notMet'].append(i['notMet'])
+        if 'requirements' in i and i['requirements']:
+            integrated_data['requirement'].append(i['requirements'])
+    data['developProducts'] = integrated_data
+    save_data(data)
     return send_from_directory('static', 'develop.html')
 
 @app.route('/api/data', methods=['GET'])
@@ -56,7 +73,12 @@ def update_data():
 def serve_static(path):
     return send_from_directory('static', path)
 
+@app.route('/api/debug')
+def debug_mesage():
+    print('test develop')
+    return jsonify({"status": "success"})
+
 if __name__ == '__main__':
     # 确保static目录存在
     os.makedirs('static', exist_ok=True)
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=8000)
