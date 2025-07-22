@@ -1,0 +1,10 @@
+# ... existing code ...
+# 忽略Jupyter Notebook文件
+/Users/Zhuanz/Desktop/AIAgent Design Web/test.ipynb
+# 或使用相对路径（推荐）
+test.ipynb
+# 忽略所有.ipynb文件（如果需要）
+*.ipynb
+# 忽略.ipynb检查点文件
+.ipynb_checkpoints/
+# ... existing code ...
