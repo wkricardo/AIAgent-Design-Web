@@ -28,15 +28,56 @@
                 <h2 class="section-title">迭代差异评估</h2>
                 <div class="assessment-container">
                     <div class="assessment-metrics" id="assessment-metrics">
+                        <!-- 新增容器组件 -->
+                        <div class="persona-section">
+                            <div class="persona-section-title">Persona</div>
+                            <div class="s-container">
+                                <div class="solution-tag">
+                                    <span class="tag-badge">●</span>
+                                    <span class="stag-content">发展幅度小，建议重点发散</span>
+                                </div>
+                                <div class="solution-tag">
+                                    <span class="tag-badge">●</span>
+                                    <span class="stag-content">发展幅度小，建议重点发散</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="location-section">
+                            <div class="location-section-title">Location</div>
+                            <div class="s-container">
+                                <div class="solution-tag">
+                                    <span class="tag-badge">●</span>
+                                    <span class="stag-content">还处于发展阶段，建议继续发展</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="requirements-section">
+                            <div class="requirements-section-title">Requirements</div>
+                            <div class="s-container">
+                                <div class="solution-tag">
+                                    <span class="tag-badge">●</span>
+                                    <span class="stag-content">保持迭代，建议观察是否收敛</span>
+                                </div>
+                                <div class="solution-tag">
+                                    <span class="tag-badge">●</span>
+                                    <span class="stag-content">已充分响应，建议进入S微调阶段</span>
+                                </div>
+                            </div>
+                        </div>
                         <!-- 指标评估将由JavaScript动态填充 -->
                     </div>
-                        <div id="iteration-chart"></div>
+                    <div id="iteration-chart"></div>
+                    <div class="assessment-solution" id="assessment-solution">
+                        <!-- 指标评估将由JavaScript动态填充 -->
+                    </div>
                 </div>
             </div>
 
             <div class="continue-section">
-                <button id="back-btn">← Back</button>
-                <button id="next-btn">Next →</button>
+                <!-- <button id="back-btn">← Back</button> -->
+                <button id="solutionnext-btn">Next →</button>
             </div>
         </div>
     </div>

@@ -1,3 +1,4 @@
+from itertools import count
 from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
 import json
@@ -41,22 +42,6 @@ def serve_compare():
 
 @app.route('/develop.html')
 def serve_develop():
-    data = load_data()
-        # 整合数据到developProducts
-    integrated_data = {
-        'location': [],
-        'persona': [],
-        'notMet': [],
-        'requirement': []
-    }
-    for i in data['comparisonProducts']:
-        integrated_data['location'].append(i['location'])
-        integrated_data['persona'].append(i['persona'])
-        integrated_data['notMet'].append(i['notMet'])
-        if 'requirements' in i and i['requirements']:
-            integrated_data['requirement'].append(i['requirements'])
-    data['developProducts'] = integrated_data
-    save_data(data)
     return send_from_directory('static', 'develop.html')
 
 @app.route('/solution.html')
@@ -72,6 +57,30 @@ def update_data():
     new_data = request.json
     save_data(new_data)
     return jsonify({"status": "success"})
+
+@app.route('/api/gotodevelop')
+def goto_develop():
+    # data = load_data()
+    # integrated_data = {
+    #     'location': [],
+    #     'persona': [],
+    #     'notMet': [],
+    #     'requirement': []
+    # }
+    # for i in data['comparisonProducts']:
+    #     integrated_data['location'].append(i['location'])
+    #     integrated_data['persona'].append(i['persona'])
+    #     integrated_data['notMet'].append(i['notMet'])
+    #     if 'requirements' in i and i['requirements']:
+    #         integrated_data['requirement'].append(i['requirements'])
+    # data['developProducts'] = integrated_data
+    # save_data(data)
+    return jsonify({"status": "success"})
+
+
+@app.route('/api/getcount')
+def get_count(count):
+    return jsonify({"count": count})
 
 @app.route('/static/<path:path>')
 def serve_static(path):

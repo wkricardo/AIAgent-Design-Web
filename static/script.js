@@ -21,8 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         initDevelopPage();
     } else if (window.location.pathname.includes('solution.html')) {
         renderSolutionPage();
-                // 调用函数绘制图表
-        drawIterationChart();
+        // drawIterationChart();
     }
     else {
         initMainPage();
@@ -198,6 +197,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const productsGrid = document.querySelector('.products-grid');
         if (!productsGrid) return;
 
+        const floatingContainer = document.getElementById('floating-container');
+        const mcloseBtn = floatingContainer.querySelector('.close-btn');
+
+        mcloseBtn.addEventListener('click', function() {
+        floatingContainer.classList.remove('active');
+        });
+
+        document.addEventListener('click', function() {
+            floatingContainer.classList.remove('active');
+        });
+
+        floatingContainer.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
         // 加载产品数据
         fetch('/api/data')
             .then(response => response.json())
@@ -209,12 +222,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     const card = document.createElement('div');
                     card.className = 'product-card';
                     card.innerHTML = `<h3>${product.name}</h3><img src="static/${product.image}" class="product-image" alt="${product.name} image">`;
-
+                    
                     // 定义需要展示的特性区域
                     const sections = [
-                        { title: 'Persona', data: product.persona, type: 'persona' },
-                        { title: 'Location', data: product.location, type: 'location' },
-                        { title: 'Requirements', data: product.requirements, type: 'requirements' }
+                        { title: 'Persona', data: product.persona, type: 'persona-card' },
+                        { title: 'Location', data: product.location, type: 'location-card' },
+                        { title: 'Requirements', data: product.requirements, type: 'requirements-card' }
                     ];
 
                     sections.forEach(section => {
@@ -234,12 +247,18 @@ document.addEventListener('DOMContentLoaded', () => {
                             // P类型主选项
                             if (item.type === 'P') {
                                 const pTag = document.createElement('div');
-                                pTag.className = 'selectable-tag p-type';
+                                pTag.className = 'selectable-tag p-type trigger-float';
                                 pTag.innerHTML = `
                                     <span class="ptag-content">${item.text}</span>
                                     <span class="tag-badge">P</span>
                                 `;
-                                pTag.addEventListener('click', () => pTag.classList.toggle('selected'));
+                                pTag.addEventListener('click', (event) => {
+                                    const isCtrlOrCommand = event.ctrlKey || event.metaKey;
+
+                                    if (isCtrlOrCommand) {
+                                        pTag.classList.toggle('selected')
+                                    }    
+                                });
 
                                 // S类型子选项容器
                                 const sContainer = document.createElement('div');
@@ -255,7 +274,13 @@ document.addEventListener('DOMContentLoaded', () => {
                                             <span class="stag-content">${subItem.text}</span>
                                             <span class="tag-badge">S</span>
                                         `;
-                                        sTag.addEventListener('click', () => sTag.classList.toggle('selected'));
+                                        sTag.addEventListener('click', (event) => {
+                                            const isCtrlOrCommand = event.ctrlKey || event.metaKey;
+
+                                            if (isCtrlOrCommand) {
+                                                sTag.classList.toggle('selected')
+                                            }    
+                                        });
                                         sContainer.appendChild(sTag);
 
                                         // 添加没有满足情况
@@ -286,13 +311,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     productsGrid.appendChild(card);
                 });
-            });
-        }
+            })
+            
+            .then(() => {
+                const triggerElements = document.querySelectorAll('.trigger-float');
+                triggerElements.forEach(trigger => {
+                    trigger.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        // 获取点击位置并定位容器
+                        const rect = this.getBoundingClientRect();
+                        const top = rect.bottom + window.scrollY + 10;
+                        const left = rect.left + window.scrollX;
 
-        // Next按钮事件
-        document.getElementById('next-btn')?.addEventListener('click', () => {
-            window.location.href = 'develop.html';
-        });
+                        // 设置容器位置
+                        floatingContainer.style.top = `${top}px`;
+                        floatingContainer.style.left = `${left}px`;
+                        const isCtrlOrCommand = e.ctrlKey || e.metaKey;
+                        if(!isCtrlOrCommand) {                        
+                            floatingContainer.classList.add('active');
+                        }
+                    });
+                });
+            });
+
+
+    }
+
+
+
     });
 
     // 渲染标签
@@ -466,14 +512,125 @@ function renderDevelopPage() {
                 pContainer.className = 'develop-p-container';
                 // alert(data.developProducts.location)
                 // 遍历sectionData中的每个P类型数组
-                sectionData.forEach(pItemsArray => {
+                sectionData.forEach((pItemsArray, index) => {
                     // 遍历数组中的每个P类型项
-                    pItemsArray.forEach(pItem => {
+                    pItemsArray.forEach((pItem, pIndex) => {
                         if (pItem.type === 'P') {
                             // 创建P类型项容器
                             const pTag = document.createElement('div');
                             pTag.className = 'develop-tag p-type';
                             pTag.innerHTML = `
+                                <span class="ptag-content">${pItem.text}</span>
+                                <span class="ptype tag-badge">P</span>
+                            `;
+                            
+                            // 创建S类型子项容器
+                            const sContainer = document.createElement('div');
+                            sContainer.className = 's-container';
+                            
+                            // 处理S类型子项
+                            if (pItem.subItems && pItem.subItems.length) {
+                                pItem.subItems.forEach(subItem => {
+                                    if (subItem.type === 'S') {
+                                        const sTag = document.createElement('div');
+                                        sTag.className = 'develop-tag s-type';
+                                        sTag.innerHTML = `
+                                            <span class="stag-content">${subItem.text}</span>
+                                            <span class="tag-badge">S</span>
+                                            <button class="develop-tag umet-type close-btn">×</button>
+                                        `;
+                                        sContainer.appendChild(sTag);
+                                    }
+                                });
+                            }
+
+                            const addButton = document.createElement('div');
+                            addButton.innerHTML = `
+                                <button class="plus-btn">+</button>
+                            `;
+
+                            sContainer.appendChild(addButton);
+
+                            const newpTag = document.createElement('div');
+                            newpTag.className = 'develop-tag onlyp-type';
+                            newpTag.innerHTML = `
+                                <span class="ptag-content">${'New Problem'}</span>
+                                <span class="tag-badge">P</span>
+                                <button class="develop-tag onlyp-type close-btn">×</button>
+                            `;
+                            const newPTagList = document.createElement('div');
+                            newPTagList.className = 'develop-newptaglist';
+                            for (let i = 0; i < 3; i++) {
+                                const newPTagCheck = document.createElement('div');
+                                newPTagCheck.className = 'develop-newptag';
+                                newPTagCheck.innerHTML = `
+                                <div class="select-checkbox"></div>
+                                <div class="option-text-container">
+                                    <span class="main-text">${`${i+1}.`+'角落结构不一'}</span>
+                                    <span class="sub-text">${'固定延展长度或角度无法通用'}</span>
+                                </div>
+                                `;
+                                newPTagList.appendChild(newPTagCheck);
+                            }
+                            newpTag.appendChild(newPTagList);
+
+                            const connectionId = `conn-${Date.now()}`;
+                            pTag.dataset.connectionId = connectionId;
+                            newpTag.dataset.connectionId = connectionId;
+                            newpTag.style.display = 'none';
+                            // 将S容器添加到P项，P项添加到卡片容器
+                            pTag.appendChild(sContainer);
+                            // pTag.appendChild(addButton);
+                            pContainer.appendChild(pTag);
+                            pContainer.appendChild(newpTag);
+
+                            container.appendChild(pContainer);
+
+
+                            const checkboxes = newpTag.querySelectorAll('.select-checkbox');
+                            checkboxes.forEach(checkbox => {
+                                checkbox.addEventListener('click', function() {
+                                    const mainText = checkbox.parentElement.querySelector('.main-text');
+                                    // alert(mainText.textContent);
+                                    this.classList.toggle('checked');
+                                    // 可选：更新数据模型中的选中状态
+                                    pItem.selected = this.classList.contains('checked');
+                                    data.developProducts[cardName][index][pIndex]["subItems"].push({
+                                        "text": mainText.textContent,
+                                        "type": "S"
+                                    })
+                                    saveDataToServer(data);
+                                });
+                            });
+                            const addButtons = pTag.querySelector('.plus-btn');
+                            if (addButtons) {
+                                addButtons.addEventListener('click', () => {
+                                    newpTag.style.display = 'block';
+                                    // drawConnectionBetweenTags(pTag, newpTag);
+                                });
+                            }
+                            const removeButtons = newpTag.querySelector('.develop-tag.onlyp-type.close-btn');
+                            if (removeButtons) {               
+                                removeButtons.addEventListener('click', () => {
+                                    newpTag.style.display = 'none';
+                                });
+                            }
+                            const deleteStags = sContainer.querySelectorAll('.develop-tag.umet-type.close-btn');
+                            if (deleteStags) {
+                                deleteStags.forEach(deleteStag => {
+                                    deleteStag.addEventListener('click', () => {
+                                        deleteStag.parentElement.remove();
+                                        data.developProducts[cardName][index][pIndex]["subItems"].splice(deleteStag.parentElement.index, 1);
+                                        saveDataToServer(data);
+                                    })
+                                })
+                            }
+                            
+                        }
+                        else if(pItem.type == 'M') {
+                            const uTag = document.createElement('div');
+                            uTag.className = 'develop-tag umet-type';
+                            uTag.innerHTML = `
                                 <span class="ptag-content">${pItem.text}</span>
                                 <span class="tag-badge">P</span>
                             `;
@@ -491,50 +648,110 @@ function renderDevelopPage() {
                                         sTag.innerHTML = `
                                             <span class="stag-content">${subItem.text}</span>
                                             <span class="tag-badge">S</span>
+                                            <button class="develop-tag umet-type close-btn">×</button>
                                         `;
                                         sContainer.appendChild(sTag);
                                     }
                                 });
                             }
+                            const addButton = document.createElement('div');
+                            addButton.innerHTML = `
+                                <button class="plus-btn">+</button>
+                            `;
+                            sContainer.appendChild(addButton);
 
                             const newpTag = document.createElement('div');
-                            newpTag.className = 'develop-tag p-type';
+                            newpTag.className = 'develop-tag onlyp-type';
                             newpTag.innerHTML = `
                                 <span class="ptag-content">${'New Problem'}</span>
                                 <span class="tag-badge">P</span>
+                                <button class="develop-tag onlyp-type close-btn">×</button>
                             `;
                             const newPTagList = document.createElement('div');
                             newPTagList.className = 'develop-newptaglist';
                             for (let i = 0; i < 3; i++) {
-                                const newPTag = document.createElement('div');
-                                newPTag.className = 'develop-newptag';
-                                newPTag.innerHTML = `
+                                const newPTagCheck = document.createElement('div');
+                                newPTagCheck.className = 'develop-newptag';
+                                newPTagCheck.innerHTML = `
                                 <div class="select-checkbox"></div>
                                 <div class="option-text-container">
-                                    <span class="main-text">${'角落结构不一'}</span>
+                                    <span class="main-text">${`${i+1}.`+'角落结构不一'}</span>
                                     <span class="sub-text">${'固定延展长度或角度无法通用'}</span>
                                 </div>
                                 `;
-                                newPTagList.appendChild(newPTag);
+                                newPTagList.appendChild(newPTagCheck);
                             }
                             newpTag.appendChild(newPTagList);
-                            
+
+                            const connectionId = `conn-${Date.now()}`;
+                            uTag.dataset.connectionId = connectionId;
+                            newpTag.dataset.connectionId = connectionId;
+                            newpTag.style.display = 'none';
                             // 将S容器添加到P项，P项添加到卡片容器
-                            pTag.appendChild(sContainer);
-                            pContainer.appendChild(pTag);
+                            uTag.appendChild(sContainer);
+                            // pTag.appendChild(addButton);
+                            pContainer.appendChild(uTag);
                             pContainer.appendChild(newpTag);
+
                             container.appendChild(pContainer);
+
 
                             const checkboxes = newpTag.querySelectorAll('.select-checkbox');
                             checkboxes.forEach(checkbox => {
                                 checkbox.addEventListener('click', function() {
+
+                                    // alert(mainText.textContent);
                                     this.classList.toggle('checked');
-                                    // 可选：更新数据模型中的选中状态
-                                    pItem.selected = this.classList.contains('checked');
-                                    saveDataToServer();
+                                    // const mainText = checkbox.parentElement.querySelector('.main-text');
+                                    // // 可选：更新数据模型中的选中状态
+                                    // pItem.selected = this.classList.contains('checked');
+                                    // data.developProducts[cardName][index][pIndex]["subItems"].push({
+                                    //     "text": mainText.textContent,
+                                    //     "type": "S"
+                                    // })
+                                    // saveDataToServer(data);
                                 });
                             });
+
+                            const addButtons = uTag.querySelector('.plus-btn');
+                            if (addButtons) {
+                                addButtons.addEventListener('click', () => {
+                                    newpTag.style.display = 'block';
+                                    // drawConnectionBetweenTags(pTag, newpTag);
+                                });
+                            }
+                            const removeButtons = newpTag.querySelector('.develop-tag.onlyp-type.close-btn');
+                            if (removeButtons) {               
+                                removeButtons.addEventListener('click', () => {
+                                    const checkboxes = newpTag.querySelectorAll('.select-checkbox');
+                                    checkboxes.forEach(checkbox => {
+                                        const isChecked = checkbox.classList.contains('checked');
+                                        const mainText = checkbox.parentElement.querySelector('.main-text');
+                                        // 可选：更新数据模型中的选中状态
+                                        if (isChecked) {
+                                            pItem.selected = this.classList.contains('checked');
+                                            data.developProducts[cardName][index][pIndex]["subItems"].push({
+                                                "text": mainText.textContent,
+                                                "type": "S"
+                                            })
+                                            saveDataToServer(data);
+                                        }
+                                    });
+                                    newpTag.style.display = 'none';
+                                });
+                            }
+                            const deleteStags = sContainer.querySelectorAll('.develop-tag.umet-type.close-btn');
+                            if (deleteStags) {
+                                deleteStags.forEach(deleteStag => {
+                                    deleteStag.addEventListener('click', () => {
+                                        deleteStag.parentElement.remove();
+                                        data.developProducts[cardName][index][pIndex]["subItems"].splice(deleteStag.parentElement.index, 1);
+                                        saveDataToServer(data);
+                                    })
+                                })
+                            }
                         }
+
                     });
                 });
             });
@@ -544,7 +761,70 @@ function renderDevelopPage() {
         });
         document.getElementById('generate-btn')?.addEventListener('click', () => {
             window.location.href = 'solution.html';
-        });
+        })
+        .then(() => refreshDevelopPage());
+}
+
+function drawConnectionBetweenTags(sourceTag, targetTag) {
+    // 获取父容器作为SVG绘制区域
+    const container = sourceTag.parentElement;
+    const containerRect = container.getBoundingClientRect();
+    const sourceRect = sourceTag.getBoundingClientRect();
+    const targetRect = targetTag.getBoundingClientRect();
+
+    // 创建或获取SVG容器
+    let svg = container.querySelector('.connection-svg');
+    if (!svg) {
+        svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.classList.add('connection-svg');
+        svg.style.position = 'absolute';
+        svg.style.top = '0';
+        svg.style.left = '0';
+        svg.style.width = '100%';
+        svg.style.height = '100%';
+        svg.style.pointerEvents = 'none';
+        container.style.position = 'relative';
+        container.appendChild(svg);
+    }
+
+    // 计算边缘连接点（右边缘和左边缘）
+    const sourceX = sourceRect.right - containerRect.left;  // 源标签右边缘
+    const sourceY = sourceRect.top - containerRect.top + sourceRect.height / 2;  // 源标签垂直中心
+    const targetX = targetRect.left - containerRect.left;  // 目标标签左边缘
+    const targetY = targetRect.top - containerRect.top + targetRect.height / 2;  // 目标标签垂直中心
+
+    // 添加源端圆形标记
+    const sourceCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    sourceCircle.setAttribute('cx', sourceX);
+    sourceCircle.setAttribute('cy', sourceY);
+    sourceCircle.setAttribute('r', '6');  // 圆形半径
+    sourceCircle.setAttribute('fill', '#fff');  // 白色填充
+    sourceCircle.setAttribute('stroke', '#999');  // 灰色边框
+    sourceCircle.setAttribute('stroke-width', '2');  // 边框宽度
+    svg.appendChild(sourceCircle);
+
+    // 添加目标端圆形标记
+    const targetCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    targetCircle.setAttribute('cx', targetX);
+    targetCircle.setAttribute('cy', targetY);
+    targetCircle.setAttribute('r', '6');
+    targetCircle.setAttribute('fill', '#fff');
+    targetCircle.setAttribute('stroke', '#999');
+    targetCircle.setAttribute('stroke-width', '2');
+    svg.appendChild(targetCircle);
+
+    // 计算曲线控制点（保持曲线平滑）
+    const dx = Math.abs(targetX - sourceX) * 0.5;
+    const pathData = `M ${sourceX} ${sourceY} C ${sourceX + dx} ${sourceY}, ${targetX - dx} ${targetY}, ${targetX} ${targetY}`;
+
+    // 创建路径
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', pathData);
+    path.setAttribute('stroke', '#999');
+    path.setAttribute('stroke-width', '2');
+    path.setAttribute('fill', 'none');
+    path.setAttribute('stroke-dasharray', '5,3');
+    svg.appendChild(path);
 }
 
 // 绑定Develop页面事件
@@ -691,31 +971,62 @@ function renderSolutionPage() {
     `;
 
     // 填充评估指标
-    const assessmentMetrics = document.getElementById('assessment-metrics');
-    assessmentMetrics.innerHTML = `
-        <div class="metric-item">
-            <h4>Persona</h4>
-            <div class="metric-status">发展幅度小，建议重点发散</div>
-        </div>
-        <div class="metric-item">
-            <h4>Location</h4>
-            <div class="metric-status">还处于发展阶段，建议继续发展</div>
-        </div>
-        <div class="metric-item">
-            <h4>Requirements</h4>
-            <div class="metric-status">保持迭代，建议观察是否收敛</div>
-        </div>
-    `;
+    // const assessmentMetrics = document.getElementById('assessment-metrics');
+    const assessmentSolution = document.getElementById('assessment-solution');
+    drawIterationChart();
+    fetch('/api/data')
+        .then(response => response.json())
+        .then(data => {
+            const mdevelopProducts = data.developProducts || [];
+            const mrequirements = mdevelopProducts['location'][0] || [];
+            mrequirements.forEach(pItem => {
+                if (pItem.type === 'P') {
+                    const pTag = document.createElement('div');
+                    pTag.className = 'solution-tag p-type';
+                    pTag.innerHTML = `
+                        <span class="ptag-content">${pItem.text}</span>
+                        <span class="ptype tag-badge">P</span>
+                    `;
+                        // 创建S类型子项容器
+                        const sContainer = document.createElement('div');
+                        sContainer.className = 's-container';
+                        // 处理S类型子项
+                        if (pItem.subItems && pItem.subItems.length) {
+                            pItem.subItems.forEach(subItem => {
+                                if (subItem.type === 'S') {
+                                    const sTag = document.createElement('div');
+                                    sTag.className = 'develop-tag s-type';
+                                    sTag.innerHTML = `
+                                        <span class="stag-content">${subItem.text}</span>
+                                        <span class="tag-badge">S</span>
+                                    `;
+                                    sContainer.appendChild(sTag);
+                                }
+                            });
+                        }
+                        pTag.appendChild(sContainer);
+                        assessmentSolution.appendChild(pTag);
+                        assessmentSolution.style.display = 'none';
+                }
+            });
+        });
+
+
 
     // // 绘制迭代评估图表
     // const canvas = document.getElementById('iteration-chart');
     // const ctx = canvas.getContext('2d');
-    // drawIterationChart();
+    
 
     // 绑定Next按钮事件
-    document.getElementById('next-btn').addEventListener('click', () => {
-        window.location.href = 'next-page.html';
+    document.getElementById('solutionnext-btn').addEventListener('click', () => {
+        window.location.href = 'develop.html';
     });
+}
+
+// 修改初始化Develop页面函数
+function initSolutionPage() {
+    renderSolutionPage();
 }
 
 function drawIterationChart() {
@@ -729,7 +1040,7 @@ function drawIterationChart() {
             { x: 1.5, y: 3 }, 
             { x: 2.5, y: 2 }, 
             { x: 3, y: 1 }, 
-            { x: 4, y: 0 }
+            { x: 1, y: 0 }
         ],
         [
             { x: 1.3, y: 4 }, 
@@ -743,14 +1054,14 @@ function drawIterationChart() {
             { x: 3.1, y: 3 }, 
             { x: 4.3, y: 2 }, 
             { x: 6, y: 1 }, 
-            { x: 7, y: 0 }
+            { x: 8, y: 0 }
         ],
         [
             { x: 2.3, y: 4 }, 
             { x: 3.1, y: 3 }, 
             { x: 4.3, y: 2 }, 
             { x: 7, y: 1 }, 
-            { x: 8, y: 0 }
+            { x: 10, y: 0 }
         ],
         [
             { x: 2.3, y: 4 }, 
@@ -762,9 +1073,9 @@ function drawIterationChart() {
     ];
 
     // 图表尺寸和边距
-    const margin = { top: 40, right: 30, bottom: 60, left: 40 };
-    const width = 800 - margin.left - margin.right;
-    const height = 400 - margin.top - margin.bottom;
+    const margin = { top: 25, right: 10, bottom: 25, left: 34 };
+    const width = 700 - margin.left - margin.right;
+    const height = 450 - margin.top - margin.bottom;
     const curvecolorList = ["#347fc4", "#3c83c4", "#4487c4", "#4c8bc4", "#548fc4", "#5c93c4", "#6497c4", "#6b9ac4"];
     const areacolorList = ["#a5c8e4", "#accce6", "#b3d0e8", "#bad4ea", "#c1d8ec", "#c8dcef", "#cfdcf2", "#d6e6f2"];
     const pointcolorList = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f"];
@@ -783,7 +1094,7 @@ function drawIterationChart() {
 
     // 创建Y轴比例尺
     const yScale = d3.scaleLinear()
-        .domain([-0.3, 4.3])
+        .domain([-0.5, 4.5])
         .range([height, 0]);
     const tickValues = [];
     data.forEach(xy => {
@@ -816,6 +1127,7 @@ function drawIterationChart() {
     // 隐藏X轴轴线（上边框）
     yAxisGroup.selectAll(".domain")
         .style("display", "none");
+    
     // 修改Y轴网格线为虚线
     yAxisGroup.selectAll(".tick line")
         .style("stroke-dasharray", "5,5")
@@ -827,6 +1139,27 @@ function drawIterationChart() {
 
     yAxisGroup.selectAll(".tick text")
         .style("font-size", "24px");
+
+    // 在图表绘制完成后添加对齐逻辑
+    // yAxisGroup.selectAll(".tick").each(function(d, i) {
+    //     // 获取Y轴刻度的像素位置
+    //     const tickY = d3.select(this).attr("transform").match(/translate\(0,(\d+)\)/)[1];
+    //     const tickValue = 4 - i; // 反转索引以匹配P5到P1
+
+    //     // 获取对应的solution-tag
+    //     const tags = document.querySelectorAll(".solution-tag");
+    //     const targetTag = tags[tickValue];
+
+    //     if (targetTag) {
+    //         // 设置标签位置，减去20px使文本垂直居中
+    //         targetTag.style.top = (parseFloat(tickY) - 20) + "px";
+    //     }
+    // });
+
+    // 添加窗口大小调整时重新对齐
+    window.addEventListener("resize", function() {
+        drawIterationChart(); // 重新绘制图表并重计算位置
+    });
     
     data.forEach((xy, index) => {
         // alert(xy)
@@ -839,7 +1172,8 @@ function drawIterationChart() {
             .y(d => yScale(d.y))
             .x0(0)  // 从Y轴开始填充
             .x1(d => xScale(d.x))  // 到曲线的X值结束
-            .curve(d3.curveMonotoneX));
+            .curve(d3.curveCatmullRom.alpha(0.9)))
+        .lower();
 
         // 添加当前迭代曲线
         svg.append("path")
@@ -850,7 +1184,7 @@ function drawIterationChart() {
             .attr("d", d3.line()
                 .x(d => xScale(d.x))
                 .y(d => yScale(d.y))
-                .curve(d3.curveMonotoneX));
+                .curve(d3.curveCatmullRom.alpha(0.9)));
                 
         if (index === 0) {
             svg.selectAll("circle.current")
@@ -863,7 +1197,11 @@ function drawIterationChart() {
                 .attr("r", 6)
                 .attr("fill", pointcolorList[index])
                 .style("stroke", "white") // 加白色边框，增强可见性
-                .style("stroke-width", 1.5);
+                .style("stroke-width", 1.5)
+                .style("cursor", "pointer")  // 添加鼠标指针样式
+                .on("click", function(event, d) {  // 绑定点击事件
+                    handlePointClick(event, d, index);
+                });
         }
         else {
             svg.selectAll(`circle.cs${index}`)
@@ -876,13 +1214,17 @@ function drawIterationChart() {
                 .attr("r", 6)
                 .attr("fill", pointcolorList[index])
                 .style("stroke", "white") // 加白色边框，增强可见性
-                .style("stroke-width", 1.5);
+                .style("stroke-width", 1.5)
+                .style("cursor", "pointer")  // 添加鼠标指针样式
+                .on("click", function(event, d) {  // 绑定点击事件
+                    handlePointClick(event, d, index);
+                });
         }
 
         if (index === data.length - 2) {
         // 添加标签
             svg.append("text")
-                .attr("x", xScale(1))
+                .attr("x", xScale(3))
                 .attr("y", yScale(4) - 15)
                 .attr("text-anchor", "middle")
                 .attr("class", "label")
@@ -890,7 +1232,7 @@ function drawIterationChart() {
         }
         else if (index === data.length - 1) {   
             svg.append("text")
-                .attr("x", xScale(2))
+                .attr("x", xScale(5))
                 .attr("y", yScale(4) - 15)
                 .attr("text-anchor", "middle")
                 .attr("class", "label")
@@ -898,6 +1240,16 @@ function drawIterationChart() {
         };
     });
 
+
+}
+
+function handlePointClick(event, d, seriesIndex) {
+    // 点击事件处理逻辑
+
+    // 可添加自定义交互，如显示详情弹窗、高亮数据点等
+    // 示例：显示数据详情
+    document.getElementById('assessment-solution').style.display = 'block';
+    // alert(`数据点信息:\nX: ${d.x}\nY: ${d.y}`);
 }
 
 
