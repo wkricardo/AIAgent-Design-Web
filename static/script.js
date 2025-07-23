@@ -510,248 +510,172 @@ function renderDevelopPage() {
                 // 创建P类型主选项容器
                 const pContainer = document.createElement('div');
                 pContainer.className = 'develop-p-container';
-                // alert(data.developProducts.location)
-                // 遍历sectionData中的每个P类型数组
                 sectionData.forEach((pItemsArray, index) => {
                     // 遍历数组中的每个P类型项
                     pItemsArray.forEach((pItem, pIndex) => {
+                        const pTag = document.createElement('div');
+                        const pnewpTag = document.createElement('div');
+                        pnewpTag.className = 'develop-tag pnp-type';
                         if (pItem.type === 'P') {
                             // 创建P类型项容器
-                            const pTag = document.createElement('div');
                             pTag.className = 'develop-tag p-type';
                             pTag.innerHTML = `
                                 <span class="ptag-content">${pItem.text}</span>
                                 <span class="ptype tag-badge">P</span>
                             `;
-                            
-                            // 创建S类型子项容器
-                            const sContainer = document.createElement('div');
-                            sContainer.className = 's-container';
-                            
-                            // 处理S类型子项
-                            if (pItem.subItems && pItem.subItems.length) {
-                                pItem.subItems.forEach(subItem => {
-                                    if (subItem.type === 'S') {
-                                        const sTag = document.createElement('div');
-                                        sTag.className = 'develop-tag s-type';
-                                        sTag.innerHTML = `
-                                            <span class="stag-content">${subItem.text}</span>
-                                            <span class="tag-badge">S</span>
-                                            <button class="develop-tag umet-type close-btn">×</button>
-                                        `;
-                                        sContainer.appendChild(sTag);
-                                    }
-                                });
-                            }
-
-                            const addButton = document.createElement('div');
-                            addButton.innerHTML = `
-                                <button class="plus-btn">+</button>
-                            `;
-
-                            sContainer.appendChild(addButton);
-
-                            const newpTag = document.createElement('div');
-                            newpTag.className = 'develop-tag onlyp-type';
-                            newpTag.innerHTML = `
-                                <span class="ptag-content">${'New Problem'}</span>
-                                <span class="tag-badge">P</span>
-                                <button class="develop-tag onlyp-type close-btn">×</button>
-                            `;
-                            const newPTagList = document.createElement('div');
-                            newPTagList.className = 'develop-newptaglist';
-                            for (let i = 0; i < 3; i++) {
-                                const newPTagCheck = document.createElement('div');
-                                newPTagCheck.className = 'develop-newptag';
-                                newPTagCheck.innerHTML = `
-                                <div class="select-checkbox"></div>
-                                <div class="option-text-container">
-                                    <span class="main-text">${`${i+1}.`+'角落结构不一'}</span>
-                                    <span class="sub-text">${'固定延展长度或角度无法通用'}</span>
-                                </div>
-                                `;
-                                newPTagList.appendChild(newPTagCheck);
-                            }
-                            newpTag.appendChild(newPTagList);
-
-                            const connectionId = `conn-${Date.now()}`;
-                            pTag.dataset.connectionId = connectionId;
-                            newpTag.dataset.connectionId = connectionId;
-                            newpTag.style.display = 'none';
-                            // 将S容器添加到P项，P项添加到卡片容器
-                            pTag.appendChild(sContainer);
-                            // pTag.appendChild(addButton);
-                            pContainer.appendChild(pTag);
-                            pContainer.appendChild(newpTag);
-
-                            container.appendChild(pContainer);
-
-
-                            const checkboxes = newpTag.querySelectorAll('.select-checkbox');
-                            checkboxes.forEach(checkbox => {
-                                checkbox.addEventListener('click', function() {
-                                    const mainText = checkbox.parentElement.querySelector('.main-text');
-                                    // alert(mainText.textContent);
-                                    this.classList.toggle('checked');
-                                    // 可选：更新数据模型中的选中状态
-                                    pItem.selected = this.classList.contains('checked');
-                                    data.developProducts[cardName][index][pIndex]["subItems"].push({
-                                        "text": mainText.textContent,
-                                        "type": "S"
-                                    })
-                                    saveDataToServer(data);
-                                });
-                            });
-                            const addButtons = pTag.querySelector('.plus-btn');
-                            if (addButtons) {
-                                addButtons.addEventListener('click', () => {
-                                    newpTag.style.display = 'block';
-                                    // drawConnectionBetweenTags(pTag, newpTag);
-                                });
-                            }
-                            const removeButtons = newpTag.querySelector('.develop-tag.onlyp-type.close-btn');
-                            if (removeButtons) {               
-                                removeButtons.addEventListener('click', () => {
-                                    newpTag.style.display = 'none';
-                                });
-                            }
-                            const deleteStags = sContainer.querySelectorAll('.develop-tag.umet-type.close-btn');
-                            if (deleteStags) {
-                                deleteStags.forEach(deleteStag => {
-                                    deleteStag.addEventListener('click', () => {
-                                        deleteStag.parentElement.remove();
-                                        data.developProducts[cardName][index][pIndex]["subItems"].splice(deleteStag.parentElement.index, 1);
-                                        saveDataToServer(data);
-                                    })
-                                })
-                            }
-                            
                         }
-                        else if(pItem.type == 'M') {
-                            const uTag = document.createElement('div');
-                            uTag.className = 'develop-tag umet-type';
-                            uTag.innerHTML = `
+                        else if (pItem.type === 'M') {
+                            pTag.className = 'develop-tag umet-type';
+                            pTag.innerHTML = `
                                 <span class="ptag-content">${pItem.text}</span>
                                 <span class="tag-badge">P</span>
                             `;
-                            
-                            // 创建S类型子项容器
-                            const sContainer = document.createElement('div');
-                            sContainer.className = 's-container';
-                            
-                            // 处理S类型子项
-                            if (pItem.subItems && pItem.subItems.length) {
-                                pItem.subItems.forEach(subItem => {
-                                    if (subItem.type === 'S') {
-                                        const sTag = document.createElement('div');
-                                        sTag.className = 'develop-tag s-type';
-                                        sTag.innerHTML = `
-                                            <span class="stag-content">${subItem.text}</span>
-                                            <span class="tag-badge">S</span>
-                                            <button class="develop-tag umet-type close-btn">×</button>
-                                        `;
-                                        sContainer.appendChild(sTag);
-                                    }
-                                });
-                            }
-                            const addButton = document.createElement('div');
-                            addButton.innerHTML = `
-                                <button class="plus-btn">+</button>
-                            `;
-                            sContainer.appendChild(addButton);
-
-                            const newpTag = document.createElement('div');
-                            newpTag.className = 'develop-tag onlyp-type';
-                            newpTag.innerHTML = `
-                                <span class="ptag-content">${'New Problem'}</span>
-                                <span class="tag-badge">P</span>
-                                <button class="develop-tag onlyp-type close-btn">×</button>
-                            `;
-                            const newPTagList = document.createElement('div');
-                            newPTagList.className = 'develop-newptaglist';
-                            for (let i = 0; i < 3; i++) {
-                                const newPTagCheck = document.createElement('div');
-                                newPTagCheck.className = 'develop-newptag';
-                                newPTagCheck.innerHTML = `
-                                <div class="select-checkbox"></div>
-                                <div class="option-text-container">
-                                    <span class="main-text">${`${i+1}.`+'角落结构不一'}</span>
-                                    <span class="sub-text">${'固定延展长度或角度无法通用'}</span>
-                                </div>
-                                `;
-                                newPTagList.appendChild(newPTagCheck);
-                            }
-                            newpTag.appendChild(newPTagList);
-
-                            const connectionId = `conn-${Date.now()}`;
-                            uTag.dataset.connectionId = connectionId;
-                            newpTag.dataset.connectionId = connectionId;
-                            newpTag.style.display = 'none';
-                            // 将S容器添加到P项，P项添加到卡片容器
-                            uTag.appendChild(sContainer);
-                            // pTag.appendChild(addButton);
-                            pContainer.appendChild(uTag);
-                            pContainer.appendChild(newpTag);
-
-                            container.appendChild(pContainer);
-
-
-                            const checkboxes = newpTag.querySelectorAll('.select-checkbox');
-                            checkboxes.forEach(checkbox => {
-                                checkbox.addEventListener('click', function() {
-
-                                    // alert(mainText.textContent);
-                                    this.classList.toggle('checked');
-                                    // const mainText = checkbox.parentElement.querySelector('.main-text');
-                                    // // 可选：更新数据模型中的选中状态
-                                    // pItem.selected = this.classList.contains('checked');
-                                    // data.developProducts[cardName][index][pIndex]["subItems"].push({
-                                    //     "text": mainText.textContent,
-                                    //     "type": "S"
-                                    // })
-                                    // saveDataToServer(data);
-                                });
-                            });
-
-                            const addButtons = uTag.querySelector('.plus-btn');
-                            if (addButtons) {
-                                addButtons.addEventListener('click', () => {
-                                    newpTag.style.display = 'block';
-                                    // drawConnectionBetweenTags(pTag, newpTag);
-                                });
-                            }
-                            const removeButtons = newpTag.querySelector('.develop-tag.onlyp-type.close-btn');
-                            if (removeButtons) {               
-                                removeButtons.addEventListener('click', () => {
-                                    const checkboxes = newpTag.querySelectorAll('.select-checkbox');
-                                    checkboxes.forEach(checkbox => {
-                                        const isChecked = checkbox.classList.contains('checked');
-                                        const mainText = checkbox.parentElement.querySelector('.main-text');
-                                        // 可选：更新数据模型中的选中状态
-                                        if (isChecked) {
-                                            pItem.selected = this.classList.contains('checked');
-                                            data.developProducts[cardName][index][pIndex]["subItems"].push({
-                                                "text": mainText.textContent,
-                                                "type": "S"
-                                            })
-                                            saveDataToServer(data);
-                                        }
-                                    });
-                                    newpTag.style.display = 'none';
-                                });
-                            }
-                            const deleteStags = sContainer.querySelectorAll('.develop-tag.umet-type.close-btn');
-                            if (deleteStags) {
-                                deleteStags.forEach(deleteStag => {
-                                    deleteStag.addEventListener('click', () => {
-                                        deleteStag.parentElement.remove();
-                                        data.developProducts[cardName][index][pIndex]["subItems"].splice(deleteStag.parentElement.index, 1);
-                                        saveDataToServer(data);
-                                    })
-                                })
-                            }
                         }
 
+                        // 创建S类型子项容器
+                        const sContainer = document.createElement('div');
+                        sContainer.className = 's-container';
+                        
+                        // 处理S类型子项
+                        if (pItem.subItems && pItem.subItems.length) {
+                            pItem.subItems.forEach(subItem => {
+                                if (subItem.type === 'S') {
+                                    const sTag = document.createElement('div');
+                                    sTag.className = 'develop-tag s-type';
+                                    sTag.innerHTML = `
+                                        <span class="stag-content">${subItem.text}</span>
+                                        <span class="tag-badge">S</span>
+                                        <button class="develop-tag umet-type close-btn">×</button>
+                                    `;
+                                    sContainer.appendChild(sTag);
+                                }
+                            });
+                        }
+
+                        const addButton = document.createElement('div');
+                        addButton.innerHTML = `
+                            <button class="plus-btn">+</button>
+                        `;
+
+                        sContainer.appendChild(addButton);
+
+                        const newpTag = document.createElement('div');
+                        newpTag.className = 'develop-tag onlyp-type';
+                        newpTag.innerHTML = `
+                            <span class="ptag-content">${'New Problem'}</span>
+                            <span class="tag-badge">P</span>
+                            <button class="develop-tag onlyp-type close-btn">×</button>
+                        `;
+                        const newPTagList = document.createElement('div');
+                        newPTagList.className = 'develop-newptaglist';
+                        for (let i = 0; i < 3; i++) {
+                            const newPTagCheckCon = document.createElement('div');
+                            newPTagCheckCon.className = 'develop-newptag';
+                            const checkboxContainer = document.createElement('div');
+                            checkboxContainer.className = 'checkbox-container';
+                            const selectCheckbox = document.createElement('div');
+                            selectCheckbox.className = 'select-checkbox';
+                            checkboxContainer.appendChild(selectCheckbox);
+                            newPTagCheckCon.appendChild(checkboxContainer);
+                            const newPTagCheck = document.createElement('div');
+                            newPTagCheck.className = 'develop-newptag';
+
+                            newPTagCheck.style.display = 'flex';
+                            newPTagCheck.style.flexDirection = 'column';
+                            newPTagCheck.innerHTML = `
+                            <div class="option-text-container">
+                                <span class="main-text">${`${i+1}.`+'角落结构不一'}</span>
+                                <span class="sub-text">${'固定延展长度或角度无法通用'}</span>
+                            </div>
+                            `;
+                            const pnsContainer = document.createElement('div');
+                            pnsContainer.className = 'develop-tag pns-type';
+                            pnsContainer.innerHTML = `
+                            <div class="pnsselect-checkbox"></div>
+                            <div class="solution-text-container">
+                                <span class="solution-text">${`${i+1}.`+'固定延展长度'}</span>
+                            </div>
+                            `;
+                            pnsContainer.style.display = 'none';
+                            newPTagCheck.appendChild(pnsContainer);
+                            newPTagCheckCon.appendChild(newPTagCheck);
+                            newPTagList.appendChild(newPTagCheckCon);
+                        }
+
+                        newpTag.appendChild(newPTagList);
+
+                        const connectionId = `conn-${Date.now()}`;
+                        pTag.dataset.connectionId = connectionId;
+                        newpTag.dataset.connectionId = connectionId;
+
+                        if (pItem.priority === 1) {
+                            pTag.appendChild(sContainer);
+                            pnewpTag.appendChild(pTag);
+                            pnewpTag.appendChild(newpTag);
+                            pContainer.appendChild(pnewpTag);
+                            container.appendChild(pContainer);
+                            drawConnectionBetweenTags(pTag, newpTag);
+                        }
+                        else {
+                            newpTag.style.display = 'none';
+                            // 将S容器添加到P项，P项添加到卡片容器
+                            pTag.appendChild(sContainer);
+                            pnewpTag.appendChild(pTag);
+                            pnewpTag.appendChild(newpTag);
+                            pContainer.appendChild(pnewpTag);
+                            container.appendChild(pContainer); 
+                        }
+
+                        const checkboxes = newpTag.querySelectorAll('.select-checkbox');
+                        checkboxes.forEach(checkbox => {
+                            checkbox.addEventListener('click', function() {
+                                this.classList.toggle('checked');
+                            });
+                        });
+
+                        const addButtons = pTag.querySelector('.plus-btn');
+                        if (addButtons) {
+                            addButtons.addEventListener('click', () => {
+                                newpTag.style.display = 'block';
+                            });
+                        }
+
+                        const deleteStags = sContainer.querySelectorAll('.develop-tag.umet-type.close-btn');
+                        if (deleteStags) {
+                            deleteStags.forEach(deleteStag => {
+                                deleteStag.addEventListener('click', () => {
+                                    deleteStag.parentElement.remove();
+                                    data.developProducts[cardName][index][pIndex]["subItems"].splice(deleteStag.parentElement.index, 1);
+                                    saveDataToServer(data);
+                                })
+                            })
+                        }
+
+                        const removeButtons = newpTag.querySelectorAll('.develop-tag.onlyp-type.close-btn');
+                        removeButtons.forEach(removeButton => {
+                            removeButton.addEventListener('click', () => {
+                                const checkboxes = newpTag.querySelectorAll('.select-checkbox');
+                                const updates = [];
+                                checkboxes.forEach(checkbox => {
+                                    const isChecked = checkbox.classList.contains('checked');
+                                    const mainText = checkbox.parentElement.querySelector('.main-text');
+                                    // 可选：更新数据模型中的选中状态
+                                    if (isChecked) {
+                                        pItem.selected = isChecked; // 直接使用 isChecked 变量
+                                        updates.push({
+                                            "text": mainText.textContent,
+                                            "type": "S"
+                                        });
+                                    }
+                                });
+                                // 检查数据路径是否存在
+                                if (data.developProducts && data.developProducts[cardName] && data.developProducts[cardName][index] && data.developProducts[cardName][index][pIndex]) {
+                                    data.developProducts[cardName][index][pIndex]["subItems"].push(...updates);
+                                    saveDataToServer(data);
+                                }
+                                newpTag.style.display = 'none';
+                            });
+                        });
                     });
                 });
             });
@@ -789,9 +713,9 @@ function drawConnectionBetweenTags(sourceTag, targetTag) {
 
     // 计算边缘连接点（右边缘和左边缘）
     const sourceX = sourceRect.right - containerRect.left;  // 源标签右边缘
-    const sourceY = sourceRect.top - containerRect.top + sourceRect.height / 2;  // 源标签垂直中心
+    const sourceY = sourceRect.top - containerRect.top + sourceRect.height / 4 * 3;  // 源标签垂直中心
     const targetX = targetRect.left - containerRect.left;  // 目标标签左边缘
-    const targetY = targetRect.top - containerRect.top + targetRect.height / 2;  // 目标标签垂直中心
+    const targetY = targetRect.top - containerRect.top + targetRect.height / 4;  // 目标标签垂直中心
 
     // 添加源端圆形标记
     const sourceCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');

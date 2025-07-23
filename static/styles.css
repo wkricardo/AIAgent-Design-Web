@@ -246,15 +246,19 @@
     margin-bottom: 15px;
 }
 
-.selectable-tag {    padding: 4px 12px;    border-radius: 20px;    font-size: 14px;    cursor: pointer;    transition: all 0.2s ease;    border: 1px solid transparent;    margin-bottom: 10px;}.selectable-tag.p-type {    background-color: #f0f9ff;    border-color: #94a3b8;}.selectable-tag.s-type {    background-color: #fef3c7;    border-color: #f59e0b;    margin-left: 20px;}.type-badge {    margin-left: 5px;    padding: 0 5px;    border-radius: 4px;    font-size: 12px;    font-weight: bold;}.p-type .type-badge {    background-color: #3b82f6;    color: white;}.s-type .type-badge {    background-color: #f59e0b;    color: white;}.sub-tags {    margin-left: 15px;    margin-top: 3px;}
+.selectable-tag {    padding: 4px 12px;    border-radius: 20px;    font-size: 14px;    cursor: pointer;    transition: all 0.2s ease;    border: 1px solid transparent;    margin: 5px;}.selectable-tag.p-type {    background-color: #f0f9ff;    border-color: #94a3b8;}.selectable-tag.s-type {    background-color: #fef3c7;    border-color: #f59e0b;    margin-left: 20px;}.type-badge {    margin-left: 5px;    padding: 0 5px;    border-radius: 4px;    font-size: 12px;    font-weight: bold;}.p-type .type-badge {    background-color: #3b82f6;    color: white;}.s-type .type-badge {    background-color: #f59e0b;    color: white;}.sub-tags {    margin-left: 15px;    margin-top: 3px;}
 
-.develop-tag {    padding: 4px 12px;    border-radius: 20px;    font-size: 14px;    cursor: pointer;    transition: all 0.2s ease;    border: 1px solid transparent;    margin-bottom: 10px;}
+.develop-tag {    padding: 4px 12px;    border-radius: 20px;    font-size: 14px;    cursor: pointer;    transition: all 0.2s ease;    border: 1px solid transparent;    margin-bottom: 0px;}
 
-.develop-tag.p-type { background-color: #F3E9FF;    border-color: #94a3b8; gap: 12px;}
+.develop-tag.p-type {border-width: 0px; margin-bottom: 0px; background-color: #F3E9FF;    border-color: #94a3b8; gap: 12px;}
 
-.develop-tag.onlyp-type {  display: block; background-color: #fcf7f4ab;    border-color: #8cb5ee;}
+.develop-tag.onlyp-type { border-width: 0px; display: block; background-color: #F5F5F5;    border-color: #8cb5ee;}
 
-.develop-tag.umet-type { background-color: #FFE1E1;    border-color: #94a3b8; gap: 12px;}
+.develop-tag.umet-type { border-width: 0px; background-color: #FFE1E1;    border-color: #94a3b8; gap: 12px;}
+
+.develop-tag.pnp-type { display: flex; padding: 12px 12px; background-color: #fffcfc00;    border-color: #696969; gap: 12px;}
+
+.develop-tag.pns-type { border-width: 0.1px; display: flex; padding: 2px 2px; background-color: #fffcfc00;    border-color: #696969; gap: 12px;}
 
 .develop-tag.onlyp-type.close-btn {
     float: right;
@@ -522,7 +526,7 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    gap: 25px;
+    gap: 20px;
     overflow-y: auto;
     max-height: 400px;
     box-sizing: border-box; 
@@ -534,16 +538,18 @@
     align-items: center; /* 垂直居中对齐 */
     justify-content: flex-start; /* 水平左对齐，保持复选框在左侧 */
     border-radius: 10px;
-    gap: 100px;
+    gap: 10px;
+    margin-bottom: 5px;
+    margin-top: 12px;
 }
 
 .develop-newptag{
     display: flex;
     align-items: flex-start;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-left: 2px;
+    margin-right: 2px;
 }
 
 
@@ -711,6 +717,35 @@
 
 /* 选中状态的对勾 */
 .select-checkbox.checked::after {
+    content: "✓";
+    color: white;
+    font-size: 12px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.pnsselect-checkbox {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid #94a3b8;
+    margin-right: 0px;
+    cursor: pointer;
+    display: inline-block;
+    transition: all 0.2s ease;
+}
+
+/* 选中状态 */
+.pnsselect-checkbox.checked {
+    background-color: #1890ff;
+    border-color: #1890ff;
+    position: relative;
+}
+
+/* 选中状态的对勾 */
+.pnsselect-checkbox.checked::after {
     content: "✓";
     color: white;
     font-size: 12px;
@@ -907,4 +942,25 @@
 /* 悬浮容器显示状态 */
 .floating-container.active {
   display: block;
+}
+
+.solution-text {
+    font-size: 12px;
+}
+
+.solution-text-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center; /* 垂直居中 */
+  justify-content: center; /* 水平居中（可选） */
+  min-height: 40px; /* 设置最小高度确保对齐稳定 */
+}
+
+/* 如果 Checkbox 本身有偏移，可添加 */
+.checkbox-container .select-checkbox {
+  margin: auto; /* 强制继承居中属性 */
 }

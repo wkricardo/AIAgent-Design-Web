@@ -140,6 +140,7 @@
     "location": [
       [
         {
+          "priority": 1,
           "selected": false,
           "subItems": [
             {
@@ -153,6 +154,7 @@
       ],
       [
         {
+          "priority": 2,
           "selected": true,
           "subItems": [
             {
@@ -166,6 +168,7 @@
       ],
       [
         {
+          "priority": 3,
           "selected": true,
           "subItems": [
             {
@@ -183,6 +186,7 @@
       ],
       [
         {
+          "priority": 2,
           "selected": true,
           "subItems": [
             {
@@ -212,10 +216,11 @@
     "persona": [
       [
         {
-          "selected": false,
+          "priority": 1,
+          "selected": true,
           "subItems": [
             {
-              "text": "3.\u89d2\u843d\u7ed3\u6784\u4e0d\u4e00",
+              "text": "1.\u89d2\u843d\u7ed3\u6784\u4e0d\u4e00",
               "type": "S"
             }
           ],
@@ -225,24 +230,9 @@
       ],
       [
         {
+          "priority": 1,
           "selected": true,
           "subItems": [
-            {
-              "text": "2.\u89d2\u843d\u7ed3\u6784\u4e0d\u4e00",
-              "type": "S"
-            },
-            {
-              "text": "1.\u89d2\u843d\u7ed3\u6784\u4e0d\u4e00",
-              "type": "S"
-            },
-            {
-              "text": "1.\u89d2\u843d\u7ed3\u6784\u4e0d\u4e00",
-              "type": "S"
-            },
-            {
-              "text": "1.\u89d2\u843d\u7ed3\u6784\u4e0d\u4e00",
-              "type": "S"
-            },
             {
               "text": "2.\u89d2\u843d\u7ed3\u6784\u4e0d\u4e00",
               "type": "S"
@@ -254,6 +244,7 @@
       ],
       [
         {
+          "priority": 1,
           "selected": true,
           "subItems": [
             {
@@ -267,6 +258,7 @@
       ],
       [
         {
+          "priority": 2,
           "selected": true,
           "subItems": [
             {
@@ -282,6 +274,7 @@
     "requirement": [
       [
         {
+          "priority": 3,
           "selected": true,
           "subItems": [
             {
@@ -303,13 +296,9 @@
       ],
       [
         {
+          "priority": 2,
           "selected": true,
-          "subItems": [
-            {
-              "text": "3.\u89d2\u843d\u7ed3\u6784\u4e0d\u4e00",
-              "type": "S"
-            }
-          ],
+          "subItems": [],
           "text": "\u5367\u5ba4+\u5ba2\u5385\u6e05\u626b",
           "type": "M"
         }
