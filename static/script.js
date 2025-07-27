@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+
     // 修改页面初始化逻辑
     if (window.location.pathname.includes('compare.html')) {
         renderComparisonPage();
@@ -21,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
         initDevelopPage();
     } else if (window.location.pathname.includes('solution.html')) {
         renderSolutionPage();
-        // drawIterationChart();
     }
     else {
         initMainPage();
@@ -29,9 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function initMainPage() {
         const productNameInput = document.getElementById('product-name');
-        const personaContainer = document.getElementById('persona-container');
-        const painPointsContainer = document.getElementById('painPoints-container');
-        const usageLocationsContainer = document.getElementById('usageLocations-container');
+        const whenContainer = document.getElementById('when-container');
+        const whyContainer = document.getElementById('why-container');
+        const whereContainer = document.getElementById('where-container');
+        const whoContainer = document.getElementById('who-container');
         const addButtons = document.querySelectorAll('.add-btn');
         const continueBtn = document.getElementById('continue-btn');
 
@@ -40,9 +41,10 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(response => response.json())
             .then(data => {
                 productNameInput.value = data.productName || '';
-                renderTags(personaContainer, data.persona || [], 'persona');
-                renderTags(painPointsContainer, data.painPoints || [], 'painPoints');
-                renderTags(usageLocationsContainer, data.usageLocations || [], 'usageLocations');
+                renderTags(whenContainer, data.when || [], 'when');
+                renderTags(whyContainer, data.why || [], 'why');
+                renderTags(whereContainer, data.where || [], 'where');
+                renderTags(whoContainer, data.who || [], 'who');
             });
 
         // 渲染标签
@@ -86,20 +88,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 保存数据到后端
         function saveData() {
-            const data = {
-                productName: productNameInput.value,
-                persona: getTagsFromContainer(personaContainer),
-                painPoints: getTagsFromContainer(painPointsContainer),
-                usageLocations: getTagsFromContainer(usageLocationsContainer)
-            };
-
-            fetch('/api/data', {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            });
+            fetch('/api/data')
+                .then(response => response.json())
+                .then(data => {
+                    data['productName'] = productNameInput.value;
+                    return fetch('/api/data', {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+                })
         }
 
         // 从容器获取标签
@@ -610,6 +610,7 @@ function renderDevelopPage() {
 
                         if (pItem.priority === 1) {
                             pTag.appendChild(sContainer);
+                            // newpTag.querySelector('.develop-tag.onlyp-type.close-btn').style.display = 'none';
                             pnewpTag.appendChild(pTag);
                             pnewpTag.appendChild(newpTag);
                             pContainer.appendChild(pnewpTag);
@@ -619,6 +620,8 @@ function renderDevelopPage() {
                         else {
                             newpTag.style.display = 'none';
                             // 将S容器添加到P项，P项添加到卡片容器
+                            newpTag.querySelector('.ptag-content').textContent = 'New Solution';
+                            newpTag.querySelector('.tag-badge').textContent = 'S';
                             pTag.appendChild(sContainer);
                             pnewpTag.appendChild(pTag);
                             pnewpTag.appendChild(newpTag);
@@ -637,6 +640,7 @@ function renderDevelopPage() {
                         if (addButtons) {
                             addButtons.addEventListener('click', () => {
                                 newpTag.style.display = 'block';
+                                drawConnectionBetweenTags(pTag, newpTag);
                             });
                         }
 
@@ -674,6 +678,12 @@ function renderDevelopPage() {
                                     saveDataToServer(data);
                                 }
                                 newpTag.style.display = 'none';
+                                // 移除连接线
+                                const connectionLine = newpTag.parentElement.querySelector(`connection-svg`);
+                                if (connectionLine) {
+                                    alert('')
+                                    connectionLine.remove();
+                                }
                             });
                         });
                     });

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Design</title>
+    <link rel="stylesheet" href="/static/styles.css"">
+</head>
+<body>
+
+<div class="container">
+    <div class="sidebar">
+    <div class="sidebar-item active">Explore</div>
+    <div class="sidebar-item">Develop</div>
+    <div class="sidebar-item">Compare</div>
+</div>
+    <div class="main-content">
+        <!-- 导航栏 - 与现有页面保持一致 -->
+
+        <!-- 主内容区域 -->
+        <main class="content">
+
+            <div class="product-input-section">
+                <label for="product-name" class="product-label">What do you want to design? </label>
+                <input type="text" id="product-name" value="Smart Robotic Vacuum Cleaner" font="16px">
+            </div>
+
+            <!-- 文字输入区域 -->
+            <section class="input-section">
+                <label for="design-task" class="input-label">Please enter your design task (including Who/Why/Where/When)</label>
+                <textarea id="design-task" class="text-input" placeholder="Enter your design requirements here..."></textarea>
+            </section>
+
+            <!-- 图像上传区域 -->
+            <section class="image-upload-section">
+                <label class="input-label">Please enter preferred image as inspirations</label>
+                <div id="drop-area" class="drop-zone">
+                    <div class="drop-zone-content">
+                        <div class="plus-icon">+</div>
+                        <p>Drag and drop images here or click to upload</p>
+                    </div>
+                    <input type="file" id="file-input" class="file-input" accept="image/*" multiple>
+                </div>
+            </section>
+            
+
+            <div class="continue-section">
+                <button id="continue-btn">Continue →</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/explore.js"></script>
+</body>
+</html>

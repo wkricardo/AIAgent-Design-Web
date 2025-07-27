@@ -278,14 +278,6 @@
           "selected": true,
           "subItems": [
             {
-              "text": "\u4f38\u7f29\u4fa7\u5237",
-              "type": "S",
-              "unmet": [
-                "\u5730\u9762\u6709\u7535\u7ebf",
-                "\u5ba0\u7269\u6bdb\u53d1"
-              ]
-            },
-            {
               "text": "2.\u89d2\u843d\u7ed3\u6784\u4e0d\u4e00",
               "type": "S"
             }
@@ -305,18 +297,23 @@
       ]
     ]
   },
-  "painPoints": [
-    "Dust remains in corners",
-    "Toys being dragged across the floor"
-  ],
-  "persona": [
-    "with kids (4-10 yrs old)",
-    "Family of Three",
-    "saddasd"
-  ],
   "productName": "Smart Device Test",
-  "usageLocations": [
+  "userInput": "Yse, this is the input from users.",
+  "when": [
+    "with kids (4-10 yrs old)",
+    "Family of Three"
+  ],
+  "where": [
     "Living room",
     "Bedroom"
+  ],
+  "who": [
+    "with kids (4-10 yrs old)",
+    "Family of Three",
+    "sad"
+  ],
+  "why": [
+    "Dust remains in corners",
+    "Toys being dragged across the floor"
   ]
 }

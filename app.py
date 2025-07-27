@@ -1,15 +1,23 @@
 from itertools import count
 from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
+from werkzeug.utils import secure_filename
 import json
 import os
 
 app = Flask(__name__)
 CORS(app)
 
+UPLOAD_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static', 'uploads')
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
+
 @app.route('/')
 def root():
     return send_from_directory('static', 'index.html')
+    
 
 DATA_FILE = 'data.json'
 
@@ -39,6 +47,10 @@ def serve_index():
 @app.route('/compare.html')
 def serve_compare():
     return send_from_directory('static', 'compare.html')
+
+@app.route('/explore.html')
+def serve_explore():
+    return send_from_directory('static', 'explore.html')
 
 @app.route('/develop.html')
 def serve_develop():
@@ -90,6 +102,45 @@ def serve_static(path):
 def debug_mesage():
     print('test develop')
     return jsonify({"status": "success"})
+
+# 添加图片上传端点
+@app.route('/api/upload-image', methods=['POST'])
+def upload_image():
+    # 检查是否有文件部分
+    if 'image' not in request.files:
+        return jsonify({"status": "error", "message": "No image part"}), 400
+    file = request.files['image']
+    # 如果用户没有选择文件
+    if file.filename == '':
+        return jsonify({"status": "error", "message": "No selected file"}), 400
+    # 检查文件类型是否允许
+    if file and '.' in file.filename and file.filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS:
+        # 安全处理文件名
+        filename = secure_filename(file.filename)
+        # 保存文件路径
+        filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        file.save(filepath)
+        
+        # 更新data.json中的userImage字段
+        data = load_data()
+        # 确保userImage数组存在
+        if 'userImage' not in data:
+            data['userImage'] = []
+        # 添加新图片信息
+        data['userImage'].append({
+            'filename': filename,
+            'path': filepath,
+            'upload_time': datetime.datetime.now().isoformat()
+        })
+        save_data(data)
+        
+        return jsonify({
+            "status": "success",
+            "filename": filename,
+            "message": "Image uploaded successfully"
+        })
+    
+    return jsonify({"status": "error", "message": "File type not allowed"}), 400
 
 if __name__ == '__main__':
     # 确保static目录存在

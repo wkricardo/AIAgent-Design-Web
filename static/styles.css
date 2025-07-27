@@ -369,8 +369,7 @@
 }
 
 .product-input-section {
-    margin-bottom: 30px;
-    padding: 30px;
+    margin-bottom: 10px;
     background: linear-gradient(135deg, #f3e8ff 0%, #e6d9ff 100%);
     border-radius: 20px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.1);
@@ -379,9 +378,9 @@
 }
 
 .product-label {
-    font-size: 18px;
+    font-size: 24px;
     color: #333;
-    margin-bottom: 15px;
+    margin-top: 5px;
     display: block;
     font-weight: 500;
 }
@@ -394,7 +393,7 @@
     width: 80%;
     font-size: 28px;
     font-weight: bold;
-    margin: 15px auto;
+    margin: 10px auto;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     text-align: center;
 }
@@ -963,4 +962,95 @@
 /* 如果 Checkbox 本身有偏移，可添加 */
 .checkbox-container .select-checkbox {
   margin: auto; /* 强制继承居中属性 */
+}
+
+.image-upload-section {
+    margin-top: 2rem;
+}
+
+.drop-zone {
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.drop-zone.highlight {
+    border-color: #66afe9;
+    background-color: rgba(102, 175, 233, 0.1);
+}
+
+.drop-zone-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.plus-icon {
+    font-size: 2rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.file-input {
+    display: none;
+}
+
+.image-preview {
+    display: inline-block;
+    margin: 0.5rem;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.image-preview img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.text-input {
+    width: 98%;
+    min-height: 220px;
+    padding: 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 16px;
+    font-size: 14px;
+    line-height: 1.5;
+    resize: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.text-input:focus {
+    outline: none;
+    border-color: #66afe9;
+    box-shadow: 0 0 0 3px rgba(102, 175, 233, 0.1);
+}
+
+.text-input::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+.input-label {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 8px;
+    padding-left: 2px;
+    letter-spacing: 0.2px;
+    transition: color 0.2s ease;
+    margin: 10px;
+}
+
+/* 可选：添加与输入框关联的交互效果 */
+.text-input:focus + .input-label,
+.text-input:not(:placeholder-shown) + .input-label {
+    color: #4a6cf7;
 }
