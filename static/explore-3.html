@@ -10,62 +10,53 @@
     <div class="container">
         <div class="sidebar-container">
             <div class="sidebar">
-                <div class="sidebar-item active">Explore</div>
+                <div class="sidebar-item active"><img src="/static/IconResource/explore-icon-active.png" class="sidebar-icon" alt="Explore"></div>
                 <div class="sidebar-item">〇</div>
-                <div class="sidebar-item">Develop</div>
+                <div class="sidebar-item"><img src="/static/IconResource/develop-icon.png" class="sidebar-icon" alt="Develop"></div>
                 <div class="sidebar-item">〇</div>
-                <div class="sidebar-item">Compare</div>
+                <div class="sidebar-item"><img src="/static/IconResource/compare-icon.png" class="sidebar-icon" alt="Compare"></div>
             </div>
         </div>
         <div class="main-content">
             <div class="product-input-section">
-                <label for="product-name" class="product-label">What :</label>
-                <input type="text" id="product-name" value="Smart Robotic Vacuum Cleaner">
+                <label for="product-name" class="evaluation-title-label">Please select/add initial solutions you’d suggest to start with</label>
             </div>
 
             <div class="content-grid">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header" data-section="who">
                         <h3>Who</h3>
-                        <button class="add-btn" data-section="who">+</button>
                     </div>
                     <div class="tag-container" id="who-container">
-                        <div class="tag">Major metropolitan areas <span class="remove-tag">×</span></div>
-                        <div class="tag">Family of three <span class="remove-tag">×</span> with kids <span class="remove-tag">×</span> (4-10 yrs old)</div>
+
                     </div>
                 </div>
 
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header" data-section="why">
                         <h3>Why</h3>
-                        <button class="add-btn" data-section="why">+</button>
                     </div>
                     <div class="tag-container" id="why-container">
-                        <div class="tag">Dust remains in corners <span class="remove-tag">×</span></div>
-                        <div class="tag">Toys being dragged across the floor <span class="remove-tag">×</span></div>
+
                     </div>
                 </div>
 
                 <div class="card" id="where-card">
-                    <div class="card-header">
+                    <div class="card-header" data-section="where">
                         <h3>Where</h3>
-                        <button class="add-btn" data-section="where">+</button>
                     </div>
                     <div class="tag-container" id="where-container">
-                        <div class="tag">Living room <span class="remove-tag">×</span></div>
-                        <div class="tag">Bedroom <span class="remove-tag">×</span></div>
+
                     </div>
                 </div>
 
 
                 <div class="card" id="when-card">
-                    <div class="card-header">
+                    <div class="card-header" data-section="when">
                         <h3>When</h3>
-                        <button class="add-btn" data-section="when">+</button>
                     </div>
                     <div class="tag-container" id="when-container">
-                        <div class="tag">Living room <span class="remove-tag">×</span></div>
-                        <div class="tag">Bedroom <span class="remove-tag">×</span></div>
+
                     </div>
                 </div>
             </div>
@@ -76,6 +67,6 @@
         </div>
     </div>
 
-    <script src="/static/script.js"></script>
+    <script src="/static/explore-3-script.js"></script>
 </body>
 </html>

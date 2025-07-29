@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Design</title>
+    <link rel="stylesheet" href="/static/styles.css"">
+</head>
+<body>
+
+<div class="container">
+    <div class="sidebar-container">
+        <div class="sidebar">
+            <div class="sidebar-item"><img src="/static/IconResource/explore-icon.png" class="sidebar-icon" alt="Explore"></div>
+            <div class="sidebar-item active">〇</div>
+            <div class="sidebar-item"><img src="/static/IconResource/develop-icon.png" class="sidebar-icon" alt="Develop"></div>
+            <div class="sidebar-item">〇</div>
+            <div class="sidebar-item"><img src="/static/IconResource/compare-icon.png" class="sidebar-icon" alt="Compare"></div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <!-- 导航栏 - 与现有页面保持一致 -->
+
+        <!-- 主内容区域 -->
+        <main class="content">
+
+            <div class="product-input-section">
+                <label for="product-name" class="evaluation-title-label">Evaluate, identify contradictory, similar issues, and generate reasonable solutions </label>
+            </div>
+
+            <!-- 添加设计草图中的评估区域 -->
+            <div class="evaluation-grid">
+                <div class="evaluation-container" id="evaluation-container">
+                    <!-- Who 部分 -->
+                    <div class="evaluation-tag parent-type">
+                        <div class="evaluation-tag title-type">
+                            <span class="tag-badge title-type">P</span>
+                            <span class="ptag-content">Who</span>
+                        </div>
+                        <div class="section-content" id="who-section">
+                            <!-- 将由JS动态生成内容 -->
+                        </div>
+                    </div>
+
+                    <div class="evaluation-tag detail-type">
+                        <div class="section-content" id="who-detail-section">
+                            <!-- 将由JS动态生成内容 -->
+                        </div>
+                    </div>           
+                    
+                    <div class="evaluation-tag design-type">
+                        <div class="section-content" id="who-design-section">
+                            <!-- 将由JS动态生成内容 -->
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Where 部分 -->
+                <div class="evaluation-tag parent-type">
+                    <div class="evaluation-tag title-type">
+                        <span class="tag-badge title-type">P</span>
+                        <span class="ptag-content">Where</span>
+                    </div>
+                    <div class="section-content" id="where-section">
+                        <!-- 将由JS动态生成内容 -->
+                    </div>
+                </div>
+
+                <!-- Why 部分 -->
+                <div class="evaluation-tag parent-type">
+                    <div class="evaluation-tag title-type">
+                        <span class="tag-badge title-type">P</span>
+                        <span class="ptag-content">Why</span>
+                    </div>
+                    <div class="section-content" id="why-section">
+                        <!-- 将由JS动态生成内容 -->
+                    </div>
+                </div>
+
+                <!-- What 部分 -->
+                <div class="evaluation-tag parent-type">
+                    <div class="evaluation-tag title-type">
+                        <span class="tag-badge title-type">P</span>
+                        <span class="ptag-content">What</span>
+                    </div>
+                    <div class="section-content" id="what-section">
+                        <!-- 将由JS动态生成内容 -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="continue-section">
+                <button id="continue-btn">Continue →</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/evaluation.js"></script>
+</body>
+</html>

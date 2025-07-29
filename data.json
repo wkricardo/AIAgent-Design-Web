@@ -297,6 +297,97 @@
       ]
     ]
   },
+  "evaluationData": {
+    "who": [
+      [
+        {
+          "priority": 1,
+          "selected": false,
+          "subItems": [
+            {"text": "APP可分房间设置", "type": "S"},
+            {"text": "D型机身设计", "type": "S"}
+          ],
+          "text": "Major metropolitan areas 问题总结：清洁面积有限 复杂度高 分时段打扫",
+          "type": "P"
+        }
+      ],
+      [
+        {
+          "priority": 2,
+          "selected": true,
+          "subItems": [
+            {"text": "APP可分房间设置", "type": "S"},
+            {"text": "D型机身设计", "type": "S"}
+          ],
+          "text": "Family of three with kids (4-10 years old) 问题总结：多人操作 随时清扫 清洁操作安心",
+          "type": "P"
+        }
+      ]
+    ],
+    "why": [
+      [
+        {
+          "priority": 1,
+          "selected": false,
+          "subItems": [],
+          "text": "Dust remains in corners 问题总结：边角清洁不彻底",
+          "type": "P"
+        }
+      ],
+      [
+        {
+          "priority": 2,
+          "selected": true,
+          "subItems": [],
+          "text": "Toys being dragged across the floor 问题总结：随时清扫需求",
+          "type": "P"
+        }
+      ]
+    ],
+    "where": [
+      [
+        {
+          "priority": 1,
+          "selected": false,
+          "subItems": [],
+          "text": "Living room 问题总结：清洁面积有限",
+          "type": "P"
+        }
+      ],
+      [
+        {
+          "priority": 2,
+          "selected": true,
+          "subItems": [],
+          "text": "Bedroom 问题总结：布料地毯易卡住",
+          "type": "P"
+        }
+      ],
+      [
+        {
+          "priority": 3,
+          "selected": true,
+          "subItems": [
+            {"text": "APP可分房间设置", "type": "S"},
+            {"text": "D型机身设计", "type": "S"}
+          ],
+          "text": "Living room + Bedroom 问题总结：区域分隔",
+          "type": "P"
+        }
+      ]
+    ],
+    "when": [
+      [
+        {
+          "priority": 1,
+          "selected": true,
+          "subItems": [],
+          "text": "Day and night 问题总结：全天候清洁需求",
+          "type": "P"
+        }
+      ]
+    ]
+  },
   "productName": "Smart Device Test",
   "userInput": "Yse, this is the input from users.",
   "when": [

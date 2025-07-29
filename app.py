@@ -52,6 +52,14 @@ def serve_compare():
 def serve_explore():
     return send_from_directory('static', 'explore.html')
 
+@app.route('/explore-3.html')
+def serve_explore_3():
+    return send_from_directory('static', 'explore-3.html')
+
+@app.route('/evaluation.html')
+def serve_evaluation():
+    return send_from_directory('static', 'evaluation.html')
+
 @app.route('/develop.html')
 def serve_develop():
     return send_from_directory('static', 'develop.html')
