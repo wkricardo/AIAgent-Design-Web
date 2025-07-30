@@ -90,6 +90,18 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
         reader.readAsDataURL(file);
-    }
+    };
+
+    setupEventListeners();
+
+    function setupEventListeners() {
+    // 继续按钮点击事件
+    const continueBtn = document.getElementById('continue-btn');
+    continueBtn.addEventListener('click', function() {
+        // 可以添加页面跳转或表单提交逻辑
+                // 继续按钮点击事件
+        window.location.href = 'explore.html';
+    });
+}
 });
 // ... existing code ...

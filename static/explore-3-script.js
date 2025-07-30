@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
     // 初始化各部分内容
     renderDevelopPage();
+
+    document.getElementById('continue-btn')?.addEventListener('click', () => {
+        window.location.href = 'evaluation.html';
+    })
 });
 
 // 渲染Develop页面数据
@@ -121,11 +125,9 @@ function renderDevelopPage() {
                 });
             });
             
-            // 重新绑定事件监听器
-            bindDevelopPageEvents();
+
         });
-        document.getElementById('generate-btn')?.addEventListener('click', () => {
-            window.location.href = 'solution.html';
-        })
-        .then(() => refreshDevelopPage());
+
+
+
 }

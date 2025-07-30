@@ -298,48 +298,13 @@
     ]
   },
   "evaluationData": {
-    "who": [
+    "when": [
       [
         {
           "priority": 1,
-          "selected": false,
-          "subItems": [
-            {"text": "APP可分房间设置", "type": "S"},
-            {"text": "D型机身设计", "type": "S"}
-          ],
-          "text": "Major metropolitan areas 问题总结：清洁面积有限 复杂度高 分时段打扫",
-          "type": "P"
-        }
-      ],
-      [
-        {
-          "priority": 2,
-          "selected": true,
-          "subItems": [
-            {"text": "APP可分房间设置", "type": "S"},
-            {"text": "D型机身设计", "type": "S"}
-          ],
-          "text": "Family of three with kids (4-10 years old) 问题总结：多人操作 随时清扫 清洁操作安心",
-          "type": "P"
-        }
-      ]
-    ],
-    "why": [
-      [
-        {
-          "priority": 1,
-          "selected": false,
-          "subItems": [],
-          "text": "Dust remains in corners 问题总结：边角清洁不彻底",
-          "type": "P"
-        }
-      ],
-      [
-        {
-          "priority": 2,
           "selected": true,
           "subItems": [],
-          "text": "Toys being dragged across the floor 问题总结：随时清扫需求",
+          "text": "Day and night \u95ee\u9898\u603b\u7ed3\uff1a\u5168\u5929\u5019\u6e05\u6d01\u9700\u6c42",
           "type": "P"
         }
       ]
@@ -350,7 +315,7 @@
           "priority": 1,
           "selected": false,
           "subItems": [],
-          "text": "Living room 问题总结：清洁面积有限",
+          "text": "Living room \u95ee\u9898\u603b\u7ed3\uff1a\u6e05\u6d01\u9762\u79ef\u6709\u9650",
           "type": "P"
         }
       ],
@@ -359,7 +324,7 @@
           "priority": 2,
           "selected": true,
           "subItems": [],
-          "text": "Bedroom 问题总结：布料地毯易卡住",
+          "text": "Bedroom \u95ee\u9898\u603b\u7ed3\uff1a\u5e03\u6599\u5730\u6bef\u6613\u5361\u4f4f",
           "type": "P"
         }
       ],
@@ -368,28 +333,81 @@
           "priority": 3,
           "selected": true,
           "subItems": [
-            {"text": "APP可分房间设置", "type": "S"},
-            {"text": "D型机身设计", "type": "S"}
+            {
+              "text": "APP\u53ef\u5206\u623f\u95f4\u8bbe\u7f6e",
+              "type": "S"
+            },
+            {
+              "text": "D\u578b\u673a\u8eab\u8bbe\u8ba1",
+              "type": "S"
+            }
           ],
-          "text": "Living room + Bedroom 问题总结：区域分隔",
+          "text": "Living room + Bedroom \u95ee\u9898\u603b\u7ed3\uff1a\u533a\u57df\u5206\u9694",
           "type": "P"
         }
       ]
     ],
-    "when": [
+    "who": [
       [
         {
           "priority": 1,
+          "selected": false,
+          "subItems": [
+            {
+              "text": "APP\u53ef\u5206\u623f\u95f4\u8bbe\u7f6e",
+              "type": "S"
+            },
+            {
+              "text": "D\u578b\u673a\u8eab\u8bbe\u8ba1",
+              "type": "S"
+            }
+          ],
+          "text": "Major metropolitan areas \u95ee\u9898\u603b\u7ed3\uff1a\u6e05\u6d01\u9762\u79ef\u6709\u9650 \u590d\u6742\u5ea6\u9ad8 \u5206\u65f6\u6bb5\u6253\u626b",
+          "type": "P"
+        }
+      ],
+      [
+        {
+          "priority": 2,
+          "selected": true,
+          "subItems": [
+            {
+              "text": "APP\u53ef\u5206\u623f\u95f4\u8bbe\u7f6e",
+              "type": "S"
+            },
+            {
+              "text": "D\u578b\u673a\u8eab\u8bbe\u8ba1",
+              "type": "S"
+            }
+          ],
+          "text": "Family of three with kids (4-10 years old) \u95ee\u9898\u603b\u7ed3\uff1a\u591a\u4eba\u64cd\u4f5c \u968f\u65f6\u6e05\u626b \u6e05\u6d01\u64cd\u4f5c\u5b89\u5fc3",
+          "type": "P"
+        }
+      ]
+    ],
+    "why": [
+      [
+        {
+          "priority": 1,
+          "selected": false,
+          "subItems": [],
+          "text": "Dust remains in corners \u95ee\u9898\u603b\u7ed3\uff1a\u8fb9\u89d2\u6e05\u6d01\u4e0d\u5f7b\u5e95",
+          "type": "P"
+        }
+      ],
+      [
+        {
+          "priority": 2,
           "selected": true,
           "subItems": [],
-          "text": "Day and night 问题总结：全天候清洁需求",
+          "text": "Toys being dragged across the floor \u95ee\u9898\u603b\u7ed3\uff1a\u968f\u65f6\u6e05\u626b\u9700\u6c42",
           "type": "P"
         }
       ]
     ]
   },
   "productName": "Smart Device Test",
-  "userInput": "Yse, this is the input from users.",
+  "userInput": "dasfdasfsa",
   "when": [
     "with kids (4-10 yrs old)",
     "Family of Three"
@@ -400,8 +418,7 @@
   ],
   "who": [
     "with kids (4-10 yrs old)",
-    "Family of Three",
-    "sad"
+    "Family of Three"
   ],
   "why": [
     "Dust remains in corners",

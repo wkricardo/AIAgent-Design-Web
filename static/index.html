@@ -3,79 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Robotic Vacuum Cleaner - Product Design</title>
-    <link rel="stylesheet" href="/static/styles.css">
+    <title>Explore Design</title>
+    <link rel="stylesheet" href="/static/styles.css"">
 </head>
 <body>
-    <div class="container">
-        <div class="sidebar-container">
-            <div class="sidebar">
-                <div class="sidebar-item active">Explore</div>
-                <div class="sidebar-item">〇</div>
-                <div class="sidebar-item">Develop</div>
-                <div class="sidebar-item">〇</div>
-                <div class="sidebar-item">Compare</div>
-            </div>
+
+<div class="container">
+    <div class="sidebar-container">
+        <div class="sidebar">
+            <div class="sidebar-item active"><img src="/static/IconResource/explore-icon-active.png" class="sidebar-icon" alt="Explore"></div>
+            <div class="sidebar-item">〇</div>
+            <div class="sidebar-item"><img src="/static/IconResource/develop-icon.png" class="sidebar-icon" alt="Develop"></div>
+            <div class="sidebar-item">〇</div>
+            <div class="sidebar-item"><img src="/static/IconResource/compare-icon.png" class="sidebar-icon" alt="Compare"></div>
         </div>
-        <div class="main-content">
+    </div>
+    <div class="main-content">
+        <!-- 导航栏 - 与现有页面保持一致 -->
+
+        <!-- 主内容区域 -->
+        <main class="content">
+
             <div class="product-input-section">
-                <label for="product-name" class="product-label">What :</label>
-                <input type="text" id="product-name" value="Smart Robotic Vacuum Cleaner">
+                <label for="product-name" class="product-label">What do you want to design? </label>
+                <input type="text" id="product-name" value="Smart Robotic Vacuum Cleaner" font="16px">
             </div>
 
-            <div class="content-grid">
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Who</h3>
-                        <button class="add-btn" data-section="who">+</button>
-                    </div>
-                    <div class="tag-container" id="who-container">
-                        <div class="tag">Major metropolitan areas <span class="remove-tag">×</span></div>
-                        <div class="tag">Family of three <span class="remove-tag">×</span> with kids <span class="remove-tag">×</span> (4-10 yrs old)</div>
-                    </div>
-                </div>
+            <!-- 文字输入区域 -->
+            <section class="input-section">
+                <label for="design-task" class="input-label">Please enter your design task (including Who/Why/Where/When)</label>
+                <textarea id="design-task" class="text-input" placeholder="Enter your design requirements here..."></textarea>
+            </section>
 
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Why</h3>
-                        <button class="add-btn" data-section="why">+</button>
+            <!-- 图像上传区域 -->
+            <section class="image-upload-section">
+                <label class="input-label">Please enter preferred image as inspirations</label>
+                <div id="drop-area" class="drop-zone">
+                    <div class="drop-zone-content">
+                        <div class="plus-icon">+</div>
+                        <p>Drag and drop images here or click to upload</p>
                     </div>
-                    <div class="tag-container" id="why-container">
-                        <div class="tag">Dust remains in corners <span class="remove-tag">×</span></div>
-                        <div class="tag">Toys being dragged across the floor <span class="remove-tag">×</span></div>
-                    </div>
+                    <input type="file" id="file-input" class="file-input" accept="image/*" multiple>
                 </div>
-
-                <div class="card" id="where-card">
-                    <div class="card-header">
-                        <h3>Where</h3>
-                        <button class="add-btn" data-section="where">+</button>
-                    </div>
-                    <div class="tag-container" id="where-container">
-                        <div class="tag">Living room <span class="remove-tag">×</span></div>
-                        <div class="tag">Bedroom <span class="remove-tag">×</span></div>
-                    </div>
-                </div>
-
-
-                <div class="card" id="when-card">
-                    <div class="card-header">
-                        <h3>When</h3>
-                        <button class="add-btn" data-section="when">+</button>
-                    </div>
-                    <div class="tag-container" id="when-container">
-                        <div class="tag">Living room <span class="remove-tag">×</span></div>
-                        <div class="tag">Bedroom <span class="remove-tag">×</span></div>
-                    </div>
-                </div>
-            </div>
+            </section>
+            
 
             <div class="continue-section">
                 <button id="continue-btn">Continue →</button>
             </div>
-        </div>
+        </main>
     </div>
 
-    <script src="/static/script.js"></script>
+    <script src="/static/explore.js"></script>
 </body>
 </html>

@@ -195,7 +195,8 @@ function setupEventListeners() {
     const continueBtn = document.getElementById('continue-btn');
     continueBtn.addEventListener('click', function() {
         // 可以添加页面跳转或表单提交逻辑
-        alert('Evaluation completed!');
+                // 继续按钮点击事件
+        window.location.href = 'develop.html';
     });
 }
 

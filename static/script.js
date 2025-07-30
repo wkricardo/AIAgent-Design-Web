@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (window.location.pathname.includes('solution.html')) {
         renderSolutionPage();
     }
-    else {
+    else if (window.location.pathname.includes('explore.html')) {
         initMainPage();
     }
 
@@ -102,11 +102,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
         }
 
-        // 从容器获取标签
-        function getTagsFromContainer(container) {
-            return Array.from(container.querySelectorAll('.tag'))
-                .map(tagElement => tagElement.firstChild.textContent.trim());
-        }
+        // // 从容器获取标签
+        // function getTagsFromContainer(container) {
+        //     return Array.from(container.querySelectorAll('.tag'))
+        //         .map(tagElement => tagElement.firstChild.textContent.trim());
+        // }
 
         // 添加标签
         function addTag(section, tagText) {
@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 继续按钮点击事件
         continueBtn.addEventListener('click', () => {
-            window.location.href = 'compare.html';
+            window.location.href = 'explore-3.html';
         });
     }
 

@@ -50,7 +50,9 @@ def serve_compare():
 
 @app.route('/explore.html')
 def serve_explore():
+    # 显式指定优先使用路由而非静态文件
     return send_from_directory('static', 'explore.html')
+
 
 @app.route('/explore-3.html')
 def serve_explore_3():
