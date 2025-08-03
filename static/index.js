@@ -96,12 +96,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function setupEventListeners() {
     // 继续按钮点击事件
-    const continueBtn = document.getElementById('continue-btn');
-    continueBtn.addEventListener('click', function() {
-        // 可以添加页面跳转或表单提交逻辑
-                // 继续按钮点击事件
-        window.location.href = 'explore.html';
-    });
-}
+        const continueBtn = document.getElementById('continue-btn');
+        continueBtn.addEventListener('click', function() {
+            // 可以添加页面跳转或表单提交逻辑
+                    // 继续按钮点击事件
+            const loadingAlert = document.getElementById('loadingAlert');
+            loadingAlert.style.display = 'block';
+            fetch('/api/fromtasktotag')
+                .then(response => response.json())
+                .then(data => {
+                    loadingAlert.style.display = 'none';
+                    if (data['status'] == 'success') {
+                        window.location.href = 'explore.html';
+                    } else {
+                        alert('请先填写设计任务');
+                    }
+                });
+        });
+    }
 });
 // ... existing code ...

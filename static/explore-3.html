@@ -21,46 +21,93 @@
             <div class="product-input-section">
                 <label for="product-name" class="evaluation-title-label">Please select/add initial solutions you’d suggest to start with</label>
             </div>
+            
+            <div class="compare-content">
+                <div class="content-grid">
+                    <div class="card">
+                        <div class="card-header" data-section="who">
+                            <h3>Who</h3>
+                        </div>
+                        <div class="tag-container" id="who-container">
 
-            <div class="content-grid">
-                <div class="card">
-                    <div class="card-header" data-section="who">
-                        <h3>Who</h3>
+                        </div>
                     </div>
-                    <div class="tag-container" id="who-container">
 
+                    <div class="card">
+                        <div class="card-header" data-section="why">
+                            <h3>Why</h3>
+                        </div>
+                        <div class="tag-container" id="why-container">
+
+                        </div>
+                    </div>
+
+                    <div class="card" id="where-card">
+                        <div class="card-header" data-section="where">
+                            <h3>Where</h3>
+                        </div>
+                        <div class="tag-container" id="where-container">
+
+                        </div>
+                    </div>
+
+
+                    <div class="card" id="when-card">
+                        <div class="card-header" data-section="when">
+                            <h3>When</h3>
+                        </div>
+                        <div class="tag-container" id="when-container">
+
+                        </div>
                     </div>
                 </div>
-
-                <div class="card">
-                    <div class="card-header" data-section="why">
-                        <h3>Why</h3>
+                
+                <div class="explore-evaluation">
+                    <div class="evaluation-title-container">
+                        <div class="evaluation-title">
+                            <span>评估</span>
+                        </div>
                     </div>
-                    <div class="tag-container" id="why-container">
-
+                    
+                    <div class="evaluation-section">
+                        <h3>遗漏的 Problem：</h3>
+                        <div class="develop-tag explore-p-type">
+                            <div class="tag-content">
+                                <span>Dust remains in corners</span>
+                                <span class="tag-badge">P</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-
-                <div class="card" id="where-card">
-                    <div class="card-header" data-section="where">
-                        <h3>Where</h3>
+                    
+                    <div class="evaluation-section">
+                        <h3>遗漏的 需求细化：</h3>
+                        <div class="develop-tag explore-p-type">
+                            <div class="tag-content">
+                                <span>Major metropolitan areas</span>
+                                <span class="tag-badge">P</span>
+                            </div>
+                            <div class="evaluation-description">
+                                清洁面积有限 分时段打扫
+                            </div>
+                        </div>
                     </div>
-                    <div class="tag-container" id="where-container">
 
+                    <div class="evaluation-section">
+                        <h3>请进一步确认是否要包含需求细化：</h3>
+                        <div class="develop-tag explore-p-type">
+                            <div class="tag-content">
+                                <span>角落复杂 - 一线城市户型紧凑、家具密集，角落复杂清洁需求更突出。</span>
+                                <span class="tag-badge">P</span>
+                            </div>
+                            <div class="evaluation-description">
+                                input：Major metropolitan areas， 一开始没有点选的需求（角落复杂）
+                                output：分析Major metropolitan areas场景是不是一定需要该需求，给一个解释
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-
-                <div class="card" id="when-card">
-                    <div class="card-header" data-section="when">
-                        <h3>When</h3>
-                    </div>
-                    <div class="tag-container" id="when-container">
-
-                    </div>
                 </div>
             </div>
-
             <div class="continue-section">
                 <button id="continue-btn">Continue →</button>
             </div>

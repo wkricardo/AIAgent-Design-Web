@@ -7,10 +7,17 @@ test.ipynb
 # ... existing code ...
 
 apikey.py
-__pycache__/apikey.cpython-312.pyc
+__pycache__/*
+
+node_modules/*
+
+node_modules
+
 test.ipynb
 
 apitest.ipynb
+
+apiFunction.py
 
 *.png
 

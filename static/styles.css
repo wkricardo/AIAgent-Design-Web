@@ -49,7 +49,7 @@
 .sidebar-item.active {
     background-color: #fff;
     color: #000;
-    margin-right: -5px;
+    margin-right: -10px;
     border-radius: 30px 0 0 30px;
 }
 
@@ -117,13 +117,6 @@
     max-height: 750px; 
     overflow-y: auto; }
 
-/* 特性区域方框样式 */
-.persona-section, .location-section, .requirements-section {
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 15px;
-    margin-bottom: 15px;
-}
 
 /* P类型主选项样式 */
 .p-type {
@@ -978,8 +971,8 @@
     padding: 15px;
     margin-bottom: 10px;
     position: relative; /* 添加相对定位 */
-    margin-top: 25px;
-    /* padding-top: 25px; /* 为标题腾出空间 */
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
 /* 特性区域方框样式 */
  .location-section, .requirements-section {
@@ -1221,6 +1214,15 @@
     gap: 12px;
 }
 
+.evaluation-tag.fparent-type {
+    border-width: 1px;
+    margin: 10px;
+    background-color: #ffffff;
+    border-color: #94a3b8;
+    border-style: dashed;
+    gap: 12px;
+}
+
 .evaluation-tag .detail-type {
     max-width: 25%;
     border-width: 0px;
@@ -1338,4 +1340,375 @@
     margin-bottom: 0px;
     border-width: 0.1px;
     border-color: #94a3b8;
+}
+
+/* 全局样式重置与基础设置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #fff;
+  color: #333;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+/* 报告容器整体样式 */
+.report-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 标题部分 */
+.title-box {
+  margin-bottom: 20px;
+}
+
+.main-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+}
+
+.sub-title {
+  font-size: 16px;
+  color: #666;
+  margin-top: 5px;
+}
+
+/* 六边形区域 */
+.hexagon-section {
+  margin-bottom: 30px;
+}
+
+.hexagon-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+
+.hexagon0 {
+    width: 79px;
+    height: 91px;
+    position: relative;
+    /* 创建边框层 */
+    background-color: #FF7474; /* 边框颜色 */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.hexagon {
+    width: 80px;
+    height: 92px;
+    position: relative;
+    /* 创建边框层 */
+    background-color: #000000fa; /* 边框颜色 */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.hexagon::before {
+    content: "";
+    position: absolute;
+    top: 2px;  /* 边框宽度 */
+    left: 2px; /* 边框宽度 */
+    width: calc(100% - 4px); /* 减去两侧边框 */
+    height: calc(100% - 4px); /* 减去两侧边框 */
+    background-color: #f5f5f5; /* 内部填充色 */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    z-index: 1;
+}
+
+/* 内容容器 */
+.hexagon-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2; /* 确保内容在顶层 */
+}
+
+.hexagon-twin {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    padding: -10px;
+}
+
+/* 第二个六边形偏移实现重叠 */
+.hexagon-twin .hexagon0 {
+    left: 50px; /* 水平偏移量，根据需要调整 */
+    top: 0px; /* 垂直偏移量，根据需要调整 */
+    z-index: 5; /* 确保第二个六边形在上面 */
+    /* 如果需要更多重叠，可以使用负的偏移值 */
+    /* 例如: left: -10px; top: -10px; */
+}
+
+
+
+.hex-value {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ff6b6b;
+}
+
+.hex-label {
+  font-size: 14px;
+  color: #666;
+  margin-top: 5px;
+}
+
+.correlation-desc {
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+}
+
+/* 迭代方向标题及图例 */
+.direction-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.direction-title p {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.explore {
+  background-color: #66b3ff;
+}
+
+.refine {
+  background-color: #ffd166;
+}
+
+/* 各个阶段的内容区域 */
+.phases-section {
+  background-color: #f9f9f9;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.phase-item {
+  margin-bottom: 0px;
+}
+
+.phase-nowrap {
+    display: block;
+}
+
+.phase-label {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.phase-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bar-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 5px;
+}
+
+.bar-text {
+  font-size: 14px;
+  width: 200px;
+  display: flex;
+  flex-wrap: nowrap;
+  color: #333;
+}
+
+.bar {
+  width: 100%;
+  height: 15px;
+  background-color: #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.bar-inner {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+}
+
+.bar-inner.explore {
+  background-color: #66b3ff;
+}
+
+.bar-inner.refine {
+  background-color: #ffd166;
+}
+
+.bar-circle {
+    flex: 1;
+    font-size: 14px;
+    z-index: 10;
+}
+
+.white-circle {
+  /* 设置宽度和高度（确保宽高相等才能形成正圆） */
+  width: 14px;
+  height: 14px;
+  
+  /* 关键：将边框圆角设置为 50% 形成圆形 */
+  border-radius: 50%;
+  
+  /* 设置白色背景 */
+  background-color: white;
+  
+  /* 可选：添加边框或阴影增强视觉效果 */
+  border: 2px solid #ddd; /* 灰色边框 */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 轻微阴影 */
+}
+
+.horizontal-arrow {
+  width: 99%; /* 箭头长度 */
+  height: 1.5px; /* 箭杆粗细 */
+  background-color: #333; /* 箭头颜色 */
+  position: relative;
+  margin-top: 10px;
+}
+
+/* 箭头头部（使用伪元素） */
+.horizontal-arrow::after {
+  content: '';
+  position: absolute;
+  right: -2px; /* 与箭杆末端对齐 */
+  top: -5.5px;
+  width: 0;
+  height: 0;
+  /* 箭头三角形：通过边框组合实现 */
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 7px solid #333; /* 与箭杆同色 */
+}
+
+.compare-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.right-content {
+    width: 40%;
+    margin-left: 3%;
+}
+
+.left-content {
+    width: 60%;
+}
+
+.final-evaluation-grid {
+    border-width: 1px;
+    margin: 10px;
+    background-color: #ffffff;
+    border-color: #94a3b8;
+    border-style: dashed;
+    gap: 12px;
+    border-radius: 12px;
+}
+
+/* 评估部分样式 */
+.explore-evaluation {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+    margin-left: 2%;
+    min-width: 270px;
+}
+
+.evaluation-title-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.evaluation-title {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #f3e8ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.evaluation-title span {
+    font-size: 24px;
+    font-weight: bold;
+    color: #5b21b6;
+}
+
+.evaluation-section {
+    margin-bottom: 20px;
+}
+
+.evaluation-section h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.develop-tag.explore-p-type {
+    padding: 10px 15px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    position: relative;
+}
+
+.develop-tag.explore-p-type .tag-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.develop-tag.explore-p-type .tag-content span {
+    font-size: 16px;
+}
+
+.develop-tag.explore-p-type .evaluation-description {
+    font-size: 14px;
+    color: #666;
+    margin-top: 8px;
 }

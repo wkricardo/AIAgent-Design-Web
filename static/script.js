@@ -493,7 +493,9 @@ function renderDevelopPage() {
     fetch('/api/data')
         .then(response => response.json())
         .then(data => {
-            // 获取developProducts数组，默认空数组
+            // 获取developProducts数组，
+            // 
+            // 默认空数组
             const mdevelopProducts = data.developProducts || [];
             // 遍历所有卡片区域
             document.querySelectorAll('.card').forEach(card => {
@@ -694,7 +696,7 @@ function renderDevelopPage() {
             bindDevelopPageEvents();
         });
         document.getElementById('generate-btn')?.addEventListener('click', () => {
-            window.location.href = 'solution.html';
+            window.location.href = 'compareFinal.html';
         })
         .then(() => refreshDevelopPage());
 }

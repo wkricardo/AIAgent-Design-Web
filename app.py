@@ -2,6 +2,7 @@ from itertools import count
 from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
+from apiFunction import getDesignTaskTags
 import json
 import os
 
@@ -47,6 +48,10 @@ def serve_index():
 @app.route('/compare.html')
 def serve_compare():
     return send_from_directory('static', 'compare.html')
+
+@app.route('/compareFinal.html')
+def serve_compare_final():
+    return send_from_directory('static', 'compareFinal.html')
 
 @app.route('/explore.html')
 def serve_explore():
@@ -99,10 +104,19 @@ def goto_develop():
     # save_data(data)
     return jsonify({"status": "success"})
 
-
-@app.route('/api/getcount')
-def get_count(count):
-    return jsonify({"count": count})
+@app.route('/api/fromtasktotag')
+def from_task_to_tag():
+    data = load_data()
+    productName = data['productName']
+    designTask = data['userInput']
+    tags = getDesignTaskTags(productName, designTask)
+    tagsJson = json.loads(tags)
+    data['who'] = tagsJson['who']
+    data['why'] = tagsJson['why']
+    data['where'] = tagsJson['where']
+    data['when'] = tagsJson['when']
+    save_data(data)
+    return jsonify({"status": "success"})
 
 @app.route('/static/<path:path>')
 def serve_static(path):
@@ -154,5 +168,6 @@ def upload_image():
 
 if __name__ == '__main__':
     # 确保static目录存在
+    # print(from_task_to_tag())
     os.makedirs('static', exist_ok=True)
     app.run(debug=True, port=8000)

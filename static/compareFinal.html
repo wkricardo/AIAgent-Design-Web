@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare Final</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 侧边栏 -->
+        <div class="sidebar-container">
+            <div class="sidebar">
+                <div class="sidebar-item"><img src="/static/IconResource/explore-icon.png" class="sidebar-icon" alt="Explore"></div>
+                <div class="sidebar-item">〇</div>
+                <div class="sidebar-item"><img src="/static/IconResource/develop-icon.png" class="sidebar-icon" alt="Develop"></div>
+                <div class="sidebar-item">〇</div>
+                <div class="sidebar-item active"><img src="/static/IconResource/compare-icon-active.png" class="sidebar-icon" alt="Compare"></div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+        <!-- 导航栏 - 与现有页面保持一致 -->
+            <!-- 主内容区域 -->
+            <main class="compare-content">
+                <div class = "left-content">
+                    <div class="title-box">
+                    <h1 class="main-title">迭代报告</h1>
+                    <p class="sub-title">迭代偏移距离（本轮与最开始的s对比）</p>
+                    </div>
+
+                <!-- 六边形相关性部分 -->
+                    <div class="hexagon-section">
+                        <div class="hexagon-group">
+                            <div class="hexagon-twin">
+                                <div class="hexagon0">
+                                    <div class="hexagon-content">
+                                        0.8
+                                    </div>
+                                </div>
+                                <div class="hexagon"></div>
+                            </div>
+
+                            <div class="hexagon-twin">
+                                <div class="hexagon0">
+                                    <div class="hexagon-content">
+                                        0.8
+                                    </div>
+                                </div>
+                                <div class="hexagon"></div>
+                            </div>
+
+                            <div class="hexagon-twin">
+                                <div class="hexagon0">
+                                    <div class="hexagon-content">
+                                        0.8
+                                    </div>
+                                </div>
+                                <div class="hexagon"></div>
+                            </div>
+                            
+                            <div class="hexagon-twin">
+                                <div class="hexagon0">
+                                    <div class="hexagon-content">
+                                        0.8
+                                    </div>
+                                </div>
+                                <div class="hexagon"></div>
+                            </div>
+                        </div>
+                        <p class="correlation-desc">相关性和相关性是否偏移</p>
+                    </div>
+
+                <!-- 迭代方向标题 -->
+                    <div class="direction-title">
+                    <p>迭代方向</p>
+                    <div class="legend">
+                        <span class="dot explore"></span>
+                        <span>Explore Phases</span>
+                        <span class="dot refine"></span>
+                        <span>Refine Phases</span>
+                    </div>
+                    </div>
+
+                <!-- 各个维度的进度条区域 -->
+                    <div class="phases-section">
+                    <!-- Who 维度 -->
+                    <div class="phase-item">
+                            <div class="persona-section">
+                                <div class="persona-section-title">Who</div>
+                                <div class="phase-bars">
+                                    <div class="bar-wrap">
+                                        <span class="bar-text">Major metropolitan areas</span>
+                                        <div class="bar">
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-inner explore" style="width: 60%"></div>
+                                        <div class="bar-inner refine" style="width: 30%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="bar-wrap">
+                                        <span class="bar-text">Family of three</span>
+                                        <div class="bar">
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-inner explore" style="width: 50%"></div>
+                                        <div class="bar-inner refine" style="width: 40%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="bar-wrap">
+                                        <span class="bar-text">with kids (4-10 yrs old)</span>
+                                        <div class="bar">
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-inner explore" style="width: 70%"></div>
+                                        <div class="bar-inner refine" style="width: 20%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+
+                    <!-- Where 维度 -->
+                    <div class="phase-item">
+                            <div class="persona-section">
+                                <div class="persona-section-title">Where</div>
+                                <div class="phase-bars">
+                                    <div class="bar-wrap">
+                                        <span class="bar-text">Living room</span>
+                                        <div class="bar">
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-inner explore" style="width: 40%"></div>
+                                        <div class="bar-inner refine" style="width: 50%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+
+                    <!-- Why 维度 -->
+                    <div class="phase-item">
+                            <div class="persona-section">
+                                <div class="persona-section-title">Why</div>
+                                <div class="phase-bars">
+                                    <div class="bar-wrap">
+                                        <span class="bar-text">Dust remains in corners</span>
+                                        <div class="bar">
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-inner explore" style="width: 55%"></div>
+                                        <div class="bar-inner refine" style="width: 35%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="bar-wrap">
+                                        <span class="bar-text">Toys being dragged</span>
+                                        <div class="bar">
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-inner explore" style="width: 50%">                                        </div>
+                                        <div class="bar-inner refine" style="width: 45%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+
+                    <!-- When 维度 -->
+                    <div class="phase-item">
+                            <div class="persona-section">
+                                <div class="persona-section-title">When</div>
+                                <div class="phase-bars">
+                                    <div class="bar-wrap">
+                                        <span class="bar-text">Workday</span>
+                                        <div class="bar">
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-inner explore" style="width: 60%"></div>
+                                        <div class="bar-inner refine" style="width: 30%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="bar-wrap">
+                                        <span class="bar-text">Weekend</span>
+                                        <div class="bar">
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-inner explore" style="width: 40%"></div>
+                                        <div class="bar-inner refine" style="width: 50%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="bar-wrap">
+                                        <span class="bar-text">Separate time</span>
+                                        <div class="bar">
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-circle ">〇</div>
+                                        <div class="bar-inner explore" style="width: 70%"></div>
+                                        <div class="bar-inner refine" style="width: 20%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="horizontal-arrow"></div>
+                    
+                    </div>
+                </div>
+                <div class="right-content">
+                    <div class="title-box">
+                        <h1 class="main-title">我的方案</h1>
+                    </div>
+                    <div class="final-evaluation-grid" id="evaluation-grid">
+                        <!-- Where 部分 -->
+                        <div class="evaluation-container" id="evaluation-container">
+                            <div class = "parent-list">
+                                <div class="evaluation-tag fparent-type">
+                                    <div class="evaluation-tag title-type">
+                                        <span class="tag-badge title-type">Where</span>
+                                    </div>
+                                    <div class="section-content" id="where-section">
+                                        <!-- 将由JS动态生成内容 -->
+                                    </div>
+                                </div>
+
+                                <div class="evaluation-tag fparent-type">
+                                    <div class="evaluation-tag title-type">
+                                        <span class="tag-badge title-type">When</span>
+                                    </div>
+                                    <div class="section-content" id="what-section">
+                                        <!-- 将由JS动态生成内容 -->
+                                    </div>
+                                </div>
+
+                                <div class="evaluation-tag fparent-type">
+                                    <div class="evaluation-tag title-type">
+                                        <span class="tag-badge title-type">Why</span>
+                                    </div>
+                                    <div class="section-content" id="why-section">
+                                        <!-- 将由JS动态生成内容 -->
+                                    </div>
+                                </div>
+
+                                <div class="evaluation-tag fparent-type">
+                                    <div class="evaluation-tag title-type">
+                                        <span class="tag-badge title-type">Who</span>
+                                    </div>
+                                    <div class="section-content" id="who-section">
+                                        <!-- 将由JS动态生成内容 -->
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class = "detail-list">
+                                <div class="evaluation-tag detail-type">
+                                    <div class="section-content" id="where-detail-section">
+                                        <!-- 将由JS动态生成内容 -->
+                                    </div>
+                                </div>
+
+                                <div class="evaluation-tag detail-type">
+                                    <div class="section-content" id="what-detail-section">
+                                        <!-- 将由JS动态生成内容 -->
+                                    </div>
+                                </div>
+
+                                <div class="evaluation-tag detail-type">
+                                    <div class="section-content" id="why-detail-section">
+                                        <!-- 将由JS动态生成内容 -->
+                                    </div>
+                                </div>
+
+                                <div class="evaluation-tag detail-type">
+                                    <div class="section-content" id="who-detail-section">
+                                        <!-- 将由JS动态生成内容 -->
+                                    </div>
+                                </div>       
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+            <div class="continue-section">
+                <button id="continue-btn">Continue →</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="static/compareFinal.js"></script>
+</body>
+</html>
