@@ -1,0 +1,295 @@
+{
+  "products":[
+      {
+        "product_name": "Roborock S8 MaxV Ultra",
+        "type":"Robot mops, robot vacuums",
+        "description": "The Roborock S8 MaxV Ultra is a smart vacuum and mop robot with innovative corner-to-edge cleaning. Additionally, the device offers automatic suction power adjustment and comes with a self-cleaning station.",
+        "features": [
+          "self-cleaning station ( all-in-one dock )",
+          "Corner-to-edge cleaning with side brushes",
+          "DuoRoller brush against pet hair",
+          "Navigates precisely thanks to camera and LED light"
+          ],
+        "highlights":"Premium robot mop for dust-free corners and edges",
+        "functions": [
+              "Suction power of 10,000 PA (Pascal)",
+              "automatic corner and edge detection",
+              "optimized DuoRoller Riser solid rubber brush",
+              "automatic hot water mop wash",
+              "integrated tank for cleaning agent"
+          ],
+        "pros": [
+          "multifunctional extraction station",
+          "thorough cleaning of narrow spaces",
+          "ideal for large households with animals",
+          "intuitive control via voice command"
+        ],
+        "cons": [
+          "high purchase price"
+        ]
+      },
+
+      {
+        "product_name": "Dreame L40s Pro Ultra",
+        "type":"Robot mops, robot vacuums",
+        "description": "The Dreame L40s Pro Ultra is an effective vacuum and mop robot with 19,000 Pa of suction power. It can overcome obstacles up to 4 cm high. It comes with a docking station that takes care of many maintenance tasks for you.",
+        "features": [
+          "Suction power: 19,000 Pa",
+          "with double roller system",
+          "Overcoming obstacles of 4 cm"
+          ],
+        "highlights":"New, powerful Dreame model of the L series",
+        "functions": [
+              "19,000 Pa instead of 11,000 Pa suction power",
+              "HyperStream Detangling DuoBrush system against pet hair",
+              "EasyLeap system – climbing aid for door thresholds",
+              "automatic mop cleaning at 75 °C",
+              "Detects more than 180 obstacles"
+          ],
+        "pros": [
+          "excellent suction power on mixed surfaces",
+          "very good navigation and obstacle detection",
+          "with integrated pet search",
+          "good value for money"
+        ],
+        "cons": [
+          "Laser tower is not retractable"
+        ]
+      },
+
+      {
+        "product_name": "MOVA V50 Ultra Complete",
+        "type":"Robot mops, robot vacuums",
+        "description": "The MOVA V50 Ultra Complete from Dreame boasts 24,000 Pa of suction power and features a retractable sensor for low furniture. It also comes with a pet brush, extendable wheels, and a base station with automatic maintenance.",
+        "features": [
+          "Suction power: 24,000 Pa",
+          "extendable Versalift LDS sensor",
+          "Hot water cleaning at 50 °C"
+          ],
+        "highlights":"Efficient vacuum robot with climbing aid and retractable sensor",
+        "functions": [
+              "a suction power of 24,000 Pa instead of 19,000 Pa",
+              "retractable and extendable sensor",
+              "Triple-effective pet hair brush TroboWave DuoBrush",
+              "Overcoming obstacles of up to 6 cm",
+              "wipes with 50 °C hot water",
+              "Solid all-in-one dock with hot air drying"
+          ],
+        "pros": [
+          "intensive cleaning of animal areas",
+          "Raise the wiper blades up to 1.5 cm",
+          "Hard floor cleaning with hot water",
+          "relatively inconspicuous"
+        ],
+        "cons": [
+          "high purchase price"
+        ]
+      },
+
+
+      {
+        "product_name": "ECOVACS DEEBOT T50 Omni",
+        "type":"Robot mops, robot vacuums",
+        "description": "The ECOVACS DEEBOT T50 Omni vacuum and mop robot, with its height of 8.1 cm, reaches even hard-to-reach areas. It has a power of 15,000 Pa and comes with a ZeroTangle brush, mop pads, and a side brush.",
+        "features": [
+          "Height: 8.1 cm",
+          "Suction power: 15,000 Pa",
+          "ZeroTangle 2.0 and double mop pads"
+          ],
+        "highlights":"Flat design for comprehensive floor coverage",
+        "functions": [
+              "extendable side brush for corners and edges",
+              "Wiper pads that can be raised by 9 mm",
+              "ZeroTangle anti-pet hair brush",
+              "OZMO Turbo 2.0 wiping system with stain detection",
+              "Proven all-in-one omni-station with hot wash"
+          ],
+        "pros": [
+          "extremely flat design",
+          "great basic equipment",
+          "Mop wash at 75 °C",
+          "pleasantly quiet at 63 dB"
+        ],
+        "cons": [
+          "unsuitable for large households with a lot of living space",
+          "quite large base station"
+        ]
+      },
+
+      {
+        "product_name": "Roborock Qrevo Curv white",
+        "type":"Robot mops, robot vacuums",
+        "description": "The new Roborock Qrevo Curv white vacuum and mop robot offers powerful suction and is suitable for large living spaces. Extendable mop pads and a side brush clean corners, edges, and stubborn stains. The device can climb over thresholds up to 4 cm high.",
+        "features": [
+          "Suction power: 18,500 Pa",
+          "with side brush and edge cleaning system",
+          "multifunctional, self-cleaning base station"
+          ],
+        "highlights":"High-end vacuum mop for thresholds up to 4 cm high",
+        "functions": [
+              "the 2-part DuoDivide suction roll",
+              "18,500 Pa in Max+ suction mode",
+              "extendable FlexiArm in Arc Shape design",
+              "2 rotating mops",
+              "Round docking station with self-cleaning"
+          ],
+        "pros": [
+          "extremely absorbent",
+          "with optimized side brush",
+          "overcomes heights of up to 4 cm",
+          "Hot water wash of the mops at 75 °C"
+        ],
+        "cons": [
+          "high-priced",
+          "loud when vacuuming"
+        ]
+      },
+
+
+      {
+        "product_name": "Dreame L10s Ultra Gen2",
+        "type":"Robot mops, robot vacuums",
+        "description": "The Dreame L10s Ultra Gen2 vacuum mop boasts 10,000 Pa of power and comes with a fully automatic base station. Thanks to the pet mode, hair and dirt are quickly removed. This model does not require a mop wash with hot water.",
+        "features": [
+          "Suction power of 10,000 Pa",
+          "Edge cleaning thanks to mop extension",
+          "Base station with suction and mop wash"
+          ],
+        "highlights":"Affordable all-in-one vacuum mop with edge cleaning",
+        "functions": [
+              "high suction power of 10,000 Pa",
+              "laterally extendable mop pad",
+              "30% faster battery charging time",
+              "With smart docking station but without mop hot wash"
+          ],
+        "pros": [
+          "efficient, high suction power",
+          "suitable for cleaning corners and edges",
+          "very good equipment",
+          "great value for money"
+        ],
+        "cons": [
+          "without hot water washing for the mop pads",
+          "Pet hair brush must be purchased separately"
+        ]
+      },
+
+
+      {
+        "product_name": "Roborock Q5 Pro Black",
+        "type":"Robot mops, robot vacuums",
+        "description": "The Roborock Q5 Pro Black vacuum and mop robot has a power of 5,500 Pa and, thanks to its DuoRoller brush, removes even deep-rooted pet hair. The device can clean your home for up to four hours on a single battery charge.",
+        "features": [
+          "Suction power: 5,500 Pa",
+          "DuoRoller brush for long hair",
+          "large 770 ml dust box"
+          ],
+        "highlights":"Efficient vacuum robot with large dust box, If you live in a small to medium-sized household with pets , various types of dirt accumulate daily. While small patches of dirt can be easily removed with a cordless vacuum cleaner , robot vacuums like the Q5 Pro are the best choice for deep cleaning. The device is equipped with a double roller for mixed flooring . The DuoRoller brush consists of two rotating solid rubber brushes designed to loosen even stubborn dirt. This, along with fine dust, sand, and hair, is then drawn into the dust container. The manufacturer offers the following additional features with the Roborock model:",
+        "functions": [
+              "maximum running time of 240 minutes",
+              "350 ml water tank",
+              "gentle ScratchSafe wheels",
+              "Off-peak charging function",
+              "LiDAR navigation and 3D mapping in the app"
+          ],
+        "pros": [
+          "low purchase price",
+          "for small to medium living spaces",
+          "including anti-hair wrap floor brushes",
+          "laser-based LiDAR navigation system"
+        ],
+        "cons": [
+          "little variable wiping function"
+        ]
+      },
+
+
+      {
+        "product_name": "Philips XU7100/01",
+        "type": "Robot mops, robot vacuums",
+        "description": "The Philips XU7100/01 robot mop cleans floors independently and thus ensures cleanliness.",
+        "features": [
+          "0.3 l collection container",
+          "including exhaust air filter",
+          "Vacuum cleaners for different floors"
+          ],
+        "highlights":"Reliable cleaning anywhere, anytime. The Philips XU7100/01 wet mops your hard floors. It can absorb not only dust and everyday dirt, but also pet hair. The exhaust filter cleans the air before it is released into the environment. The Philips device has a 0.3 l dust container.",
+        "functions": [
+              "cleans the air",
+              "select different cleaning modes",
+              "absorb not only dust and everyday dirt, but also pet hair. "
+          ],
+        "pros": [
+          "good suction power on hard floors (5000 Pa)",
+          "precise navigation and obstacle detection",
+          "long battery life (up to 180 minutes)",
+          "automatic emptying in suction station (3.0 L)"
+        ],
+        "cons": [
+          "weaker cleaning performance on carpets",
+          "inadequate wiping function",
+          "App control with occasional errors",
+          "Weaknesses in cleaning corners"
+        ]
+      },
+
+      {
+        "product_name": "ECOVACS Deebot N20 Pro Plus",
+        "type": "Robot mops, robot vacuums",
+        "description": "With the Deebot N20 Pro Plus, ECOVACS offers you a price-performance-oriented vacuum robot with a bagless vacuum station.",
+        "features": [
+          "including bagless suction station",
+          "8000 pa suction power",
+          "reliable navigation with LIDAR sensor"
+          ],
+        "highlights":"Independent work thanks to extraction station, strong navigation, mediocre obstacle avoidance",
+        "functions": [
+              "don't have to empty it manually each time",
+              "minimizes running costs",
+              "the vacuum worked very reliably, even with large amounts of pet hair",
+              "Obstacle avoidance is decent, but not as good as robot vacuums with additional cameras and object",
+              "cleaning cloth that vibrates to clean"
+          ],
+        "pros": [
+          "very good extraction station",
+          "Bagless extraction station (and no follow-up costs)",
+          "very good suction power, even with pet hair",
+          "good navigation even through more complex apartments"
+        ],
+        "cons": [
+          "cleaning function mixed"
+        ]
+      },
+
+
+      {
+        "product_name": "Dyson 360 Vis Nav",
+        "type": "Robot mops, robot vacuums",
+        "description": "The Dyson 360 Vis Nav robot vacuum with camera system offers four cleaning levels and can be controlled via the MyDyson app. This powerful model with a brush roller motor is ideal for pet owners.",
+        "features": [
+          "with 360° camera navigation",
+          "Deep cleaning thanks to wide brush roller",
+          "with auto mode sensor for precise dust detection"
+          ],
+        "highlights":"Premium vacuum robot with new 360° camera system. Many cleaning modes but no wiping function",
+        "functions": [
+              "For families with children and pets",
+              "automatically detangles hair",
+              "anti-static carbon fiber filaments capture the finest dust",
+              "easy to reach under low furniture like beds and sofas",
+              "Fast, Quiet, Boost, or Auto"
+          ],
+        "pros": [
+          "extremely high suction power",
+          "sophisticated navigation",
+          "innovative camera system",
+          "4 power levels"
+        ],
+        "cons": [
+          "high purchase price",
+          "no wiping function",
+          "Charging station without dust bag"
+        ]
+      }
+  ]
+}

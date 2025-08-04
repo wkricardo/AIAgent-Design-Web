@@ -7,40 +7,40 @@
         {
           "subItems": [
             {
-              "text": "\u81ea\u52a8\u5207\u6362\u5438\u529b\u4e0e\u8def\u5f84\u6a21\u5f0f",
+              "text": "自动切换吸力与路径模式",
               "type": "S",
               "unmet": [
-                "\u62d6\u62fd\u73a9\u5177",
-                "\u5730\u9762\u4e0d\u6574\u6d01"
+                "拖拽玩具",
+                "地面不整洁"
               ]
             }
           ],
-          "text": "\u5367\u5ba4+\u5ba2\u5385\u6e05\u626b",
+          "text": "卧室+客厅清扫",
           "type": "P"
         }
       ],
       "name": "Dreame X50 Ultra",
       "notMet": [
-        "\u4e09\u53e3\u5c0f\u5bb6\u5ead",
-        "\u5b69\u5b50\u4e0a\u5e7c\u513f\u56ed"
+        "三口小家庭",
+        "孩子上幼儿园"
       ],
       "notMetRequirements": [
-        "\u62d6\u62fd\u73a9\u5177",
-        "\u5730\u9762\u4e0d\u6574\u6d01"
+        "拖拽玩具",
+        "地面不整洁"
       ],
       "persona": [
         {
           "subItems": [
             {
-              "text": "APP\u53ef\u5206\u623f\u95f4\u8bbe\u7f6e",
+              "text": "APP可分房间设置",
               "type": "S",
               "unmet": [
-                "\u4e09\u53e3\u5c0f\u5bb6\u5ead",
-                "\u5b69\u5b50\u4e0a\u5e7c\u513f\u56ed"
+                "三口小家庭",
+                "孩子上幼儿园"
               ]
             }
           ],
-          "text": "\u4e00\u7ebf/\u65b0\u4e00\u7ebf\u5c0f\u5bb6\u5ead",
+          "text": "一线/新一线小家庭",
           "type": "P"
         }
       ],
@@ -48,15 +48,15 @@
         {
           "subItems": [
             {
-              "text": "\u4f38\u7f29\u4fa7\u5237",
+              "text": "伸缩侧刷",
               "type": "S",
               "unmet": [
-                "\u5730\u9762\u6709\u7535\u7ebf",
-                "\u5ba0\u7269\u6bdb\u53d1"
+                "地面有电线",
+                "宠物毛发"
               ]
             }
           ],
-          "text": "\u89d2\u843d\u8986\u76d6",
+          "text": "角落覆盖",
           "type": "P"
         }
       ]
@@ -68,28 +68,28 @@
         {
           "subItems": [
             {
-              "text": "\u5f3a\u5438\u529b+\u9ad8\u7cbe\u5ea6\u5730\u56fe",
+              "text": "强吸力+高精度地图",
               "type": "S"
             }
           ],
-          "text": "\u5367\u5ba4+\u5ba2\u5385\u6e05\u626b",
+          "text": "卧室+客厅清扫",
           "type": "P"
         }
       ],
       "name": "Shark PowerDetect NeverTouch Pro",
       "notMet": [
-        "\u4e09\u53e3\u5bb6\u5ead",
-        "\u4e00\u7ebf/\u65b0\u4e00\u7ebf\u5c0f\u5bb6\u5ead"
+        "三口家庭",
+        "一线/新一线小家庭"
       ],
       "persona": [
         {
           "subItems": [
             {
-              "text": "\u81ea\u6e05\u6d01\u5e95\u5ea7",
+              "text": "自清洁底座",
               "type": "S"
             }
           ],
-          "text": "\u80b2\u513f\u5bb6\u5ead",
+          "text": "育儿家庭",
           "type": "P"
         }
       ]
@@ -101,36 +101,36 @@
         {
           "subItems": [
             {
-              "text": "3in1\u5e73\u677f\u673a\u8eab+\u53cc\u4fa7\u65cb\u5237",
+              "text": "3in1平板机身+双侧旋刷",
               "type": "S"
             },
             {
-              "text": "\u8ba4\u8def\u89c4\u5212\u4e0e\u8d34\u8fb9\u8def\u7ebf\u8bbe\u8ba1",
+              "text": "认路规划与贴边路线设计",
               "type": "S"
             }
           ],
-          "text": "\u89d2\u843d\u8986\u76d6",
+          "text": "角落覆盖",
           "type": "P"
         }
       ],
       "name": "Eufy L60 Hybrid",
       "notMet": [
-        "\u4e09\u53e3\u5c0f\u5bb6\u5ead",
-        "\u5b69\u5b50\u4e0a\u5e7c\u513f\u56ed"
+        "三口小家庭",
+        "孩子上幼儿园"
       ],
       "persona": [
         {
           "subItems": [
             {
-              "text": "APP\u53ef\u5206\u623f\u95f4\u8bbe\u7f6e",
+              "text": "APP可分房间设置",
               "type": "S",
               "unmet": [
-                "\u4e09\u53e3\u5c0f\u5bb6\u5ead",
-                "\u5b69\u5b50\u4e0a\u5e7c\u513f\u56ed"
+                "三口小家庭",
+                "孩子上幼儿园"
               ]
             }
           ],
-          "text": "\u4e00\u7ebf/\u65b0\u4e00\u7ebf\u5c0f\u5bb6\u5ead",
+          "text": "一线/新一线小家庭",
           "type": "P"
         }
       ]
@@ -144,11 +144,11 @@
           "selected": false,
           "subItems": [
             {
-              "text": "1.\u89d2\u843d\u7ed3\u6784\u4e0d\u4e00",
+              "text": "1.角落结构不一",
               "type": "S"
             }
           ],
-          "text": "\u5367\u5ba4+\u5ba2\u5385\u6e05\u626b",
+          "text": "卧室+客厅清扫",
           "type": "P"
         }
       ],
@@ -158,11 +158,11 @@
           "selected": true,
           "subItems": [
             {
-              "text": "2.\u89d2\u843d\u7ed3\u6784\u4e0d\u4e00",
+              "text": "2.角落结构不一",
               "type": "S"
             }
           ],
-          "text": "\u5367\u5ba4+\u5ba2\u5385\u6e05\u626b",
+          "text": "卧室+客厅清扫",
           "type": "P"
         }
       ],
@@ -172,15 +172,15 @@
           "selected": true,
           "subItems": [
             {
-              "text": "1.\u89d2\u843d\u7ed3\u6784\u4e0d\u4e00",
+              "text": "1.角落结构不一",
               "type": "S"
             },
             {
-              "text": "2.\u89d2\u843d\u7ed3\u6784\u4e0d\u4e00",
+              "text": "2.角落结构不一",
               "type": "S"
             }
           ],
-          "text": "\u89d2\u843d\u8986\u76d6",
+          "text": "角落覆盖",
           "type": "P"
         }
       ],
@@ -190,27 +190,27 @@
           "selected": true,
           "subItems": [
             {
-              "text": "2.\u89d2\u843d\u7ed3\u6784\u4e0d\u4e00",
+              "text": "2.角落结构不一",
               "type": "S"
             }
           ],
-          "text": "\u5367\u5ba4+\u5ba2\u5385\u6e05\u626b",
+          "text": "卧室+客厅清扫",
           "type": "M"
         }
       ]
     ],
     "notMet": [
       [
-        "\u4e09\u53e3\u5c0f\u5bb6\u5ead",
-        "\u5b69\u5b50\u4e0a\u5e7c\u513f\u56ed"
+        "三口小家庭",
+        "孩子上幼儿园"
       ],
       [
-        "\u4e09\u53e3\u5bb6\u5ead",
-        "\u4e00\u7ebf/\u65b0\u4e00\u7ebf\u5c0f\u5bb6\u5ead"
+        "三口家庭",
+        "一线/新一线小家庭"
       ],
       [
-        "\u4e09\u53e3\u5c0f\u5bb6\u5ead",
-        "\u5b69\u5b50\u4e0a\u5e7c\u513f\u56ed"
+        "三口小家庭",
+        "孩子上幼儿园"
       ]
     ],
     "persona": [
@@ -220,11 +220,11 @@
           "selected": true,
           "subItems": [
             {
-              "text": "1.\u89d2\u843d\u7ed3\u6784\u4e0d\u4e00",
+              "text": "1.角落结构不一",
               "type": "S"
             }
           ],
-          "text": "\u4e00\u7ebf/\u65b0\u4e00\u7ebf\u5c0f\u5bb6\u5ead",
+          "text": "一线/新一线小家庭",
           "type": "P"
         }
       ],
@@ -234,11 +234,11 @@
           "selected": true,
           "subItems": [
             {
-              "text": "2.\u89d2\u843d\u7ed3\u6784\u4e0d\u4e00",
+              "text": "2.角落结构不一",
               "type": "S"
             }
           ],
-          "text": "\u80b2\u513f\u5bb6\u5ead",
+          "text": "育儿家庭",
           "type": "P"
         }
       ],
@@ -248,11 +248,11 @@
           "selected": true,
           "subItems": [
             {
-              "text": "2.\u89d2\u843d\u7ed3\u6784\u4e0d\u4e00",
+              "text": "2.角落结构不一",
               "type": "S"
             }
           ],
-          "text": "\u4e00\u7ebf/\u65b0\u4e00\u7ebf\u5c0f\u5bb6\u5ead",
+          "text": "一线/新一线小家庭",
           "type": "P"
         }
       ],
@@ -262,11 +262,11 @@
           "selected": true,
           "subItems": [
             {
-              "text": "3.\u89d2\u843d\u7ed3\u6784\u4e0d\u4e00",
+              "text": "3.角落结构不一",
               "type": "S"
             }
           ],
-          "text": "\u5367\u5ba4+\u5ba2\u5385\u6e05\u626b",
+          "text": "卧室+客厅清扫",
           "type": "M"
         }
       ]
@@ -278,11 +278,11 @@
           "selected": true,
           "subItems": [
             {
-              "text": "2.\u89d2\u843d\u7ed3\u6784\u4e0d\u4e00",
+              "text": "2.角落结构不一",
               "type": "S"
             }
           ],
-          "text": "\u89d2\u843d\u8986\u76d6",
+          "text": "角落覆盖",
           "type": "P"
         }
       ],
@@ -291,7 +291,7 @@
           "priority": 2,
           "selected": true,
           "subItems": [],
-          "text": "\u5367\u5ba4+\u5ba2\u5385\u6e05\u626b",
+          "text": "卧室+客厅清扫",
           "type": "M"
         }
       ]
@@ -302,9 +302,12 @@
       [
         {
           "priority": 1,
+          "question": [
+            "全天候清洁需求"
+          ],
           "selected": true,
           "subItems": [],
-          "text": "Day and night \u95ee\u9898\u603b\u7ed3\uff1a\u5168\u5929\u5019\u6e05\u6d01\u9700\u6c42",
+          "text": "Day and night",
           "type": "P"
         }
       ]
@@ -313,36 +316,45 @@
       [
         {
           "priority": 1,
+          "question": [
+            "清洁面积有限"
+          ],
           "selected": false,
           "subItems": [],
-          "text": "Living room \u95ee\u9898\u603b\u7ed3\uff1a\u6e05\u6d01\u9762\u79ef\u6709\u9650",
+          "text": "Living room",
           "type": "P"
         }
       ],
       [
         {
           "priority": 2,
+          "question": [
+            "布料地毯易卡住"
+          ],
           "selected": true,
           "subItems": [],
-          "text": "Bedroom \u95ee\u9898\u603b\u7ed3\uff1a\u5e03\u6599\u5730\u6bef\u6613\u5361\u4f4f",
+          "text": "Bedroom",
           "type": "P"
         }
       ],
       [
         {
           "priority": 3,
+          "question": [
+            "区域分隔"
+          ],
           "selected": true,
           "subItems": [
             {
-              "text": "APP\u53ef\u5206\u623f\u95f4\u8bbe\u7f6e",
+              "text": "APP可分房间设置",
               "type": "S"
             },
             {
-              "text": "D\u578b\u673a\u8eab\u8bbe\u8ba1",
+              "text": "D型机身设计",
               "type": "S"
             }
           ],
-          "text": "Living room + Bedroom \u95ee\u9898\u603b\u7ed3\uff1a\u533a\u57df\u5206\u9694",
+          "text": "Living room + Bedroom",
           "type": "P"
         }
       ]
@@ -351,36 +363,46 @@
       [
         {
           "priority": 1,
+          "question": [
+            "清洁面积有限",
+            "复杂度高",
+            "分时段打扫"
+          ],
           "selected": false,
           "subItems": [
             {
-              "text": "APP\u53ef\u5206\u623f\u95f4\u8bbe\u7f6e",
+              "text": "APP可分房间设置",
               "type": "S"
             },
             {
-              "text": "D\u578b\u673a\u8eab\u8bbe\u8ba1",
+              "text": "D型机身设计",
               "type": "S"
             }
           ],
-          "text": "Major metropolitan areas \u95ee\u9898\u603b\u7ed3\uff1a\u6e05\u6d01\u9762\u79ef\u6709\u9650 \u590d\u6742\u5ea6\u9ad8 \u5206\u65f6\u6bb5\u6253\u626b",
+          "text": "Major metropolitan areas",
           "type": "P"
         }
       ],
       [
         {
           "priority": 2,
+          "question": [
+            "多人操作",
+            "随时清扫",
+            "清洁操作安心"
+          ],
           "selected": true,
           "subItems": [
             {
-              "text": "APP\u53ef\u5206\u623f\u95f4\u8bbe\u7f6e",
+              "text": "APP可分房间设置",
               "type": "S"
             },
             {
-              "text": "D\u578b\u673a\u8eab\u8bbe\u8ba1",
+              "text": "D型机身设计",
               "type": "S"
             }
           ],
-          "text": "Family of three with kids (4-10 years old) \u95ee\u9898\u603b\u7ed3\uff1a\u591a\u4eba\u64cd\u4f5c \u968f\u65f6\u6e05\u626b \u6e05\u6d01\u64cd\u4f5c\u5b89\u5fc3",
+          "text": "Family of three with kids (4-10 years old)",
           "type": "P"
         }
       ]
@@ -389,46 +411,53 @@
       [
         {
           "priority": 1,
+          "question": [
+            "边角清洁不彻底"
+          ],
           "selected": false,
           "subItems": [],
-          "text": "Dust remains in corners \u95ee\u9898\u603b\u7ed3\uff1a\u8fb9\u89d2\u6e05\u6d01\u4e0d\u5f7b\u5e95",
+          "text": "Dust remains in corners",
           "type": "P"
         }
       ],
       [
         {
           "priority": 2,
+          "question": [
+            "随时清扫需求"
+          ],
           "selected": true,
           "subItems": [],
-          "text": "Toys being dragged across the floor \u95ee\u9898\u603b\u7ed3\uff1a\u968f\u65f6\u6e05\u626b\u9700\u6c42",
+          "text": "Toys being dragged across the floor",
           "type": "P"
         }
       ]
     ]
   },
-  "productName": "Smart Device Test",
-  "userInput": "\u8fd9\u6b3e\u626b\u5730\u673a\u5668\u4eba\u4e3b\u8981\u9762\u5411\u6709\u8001\u4eba\u548c 5 - 12 \u5c81\u5b69\u5b50\u7684\u591a\u4eba\u53e3\u5bb6\u5ead\uff0c\u4ee5\u53ca\u517b\u6709\u5ba0\u7269\u7684\u4f4f\u6237\u3002\u56e0\u4e3a\u8fd9\u7c7b\u5bb6\u5ead\u5728\u65e5\u5e38\u5c45\u4f4f\u4e2d\uff0c\u5e38\u4f1a\u9047\u5230\u5730\u9762\u6563\u843d\u7740\u5b69\u5b50\u7684\u96f6\u98df\u788e\u5c51\u3001\u73a9\u5177\u8fb9\u89d2\u6389\u843d\u7684\u5c0f\u96f6\u4ef6\uff0c\u8001\u4eba\u8d70\u52a8\u65f6\u5e26\u8d77\u7684\u7070\u5c18\uff0c\u8fd8\u6709\u5ba0\u7269\u6389\u843d\u7684\u6bdb\u53d1\u7f20\u7ed5\u5728\u5bb6\u5177\u5e95\u90e8\u7b49\u6e05\u6d01\u96be\u9898\uff0c\u624b\u52a8\u6e05\u7406\u4e0d\u4ec5\u8017\u65f6\u8d39\u529b\uff0c\u8fd8\u5f88\u96be\u5f7b\u5e95\u6e05\u9664\u7f1d\u9699\u91cc\u7684\u810f\u6c61\u3002\u200b\n\u5b83\u7684\u4f7f\u7528\u573a\u666f\u6db5\u76d6\u5bb6\u5ead\u4e2d\u7684\u5ba2\u5385\u3001\u5367\u5ba4\u3001\u53a8\u623f\u548c\u8d70\u5eca\u7b49\u4e3b\u8981\u6d3b\u52a8\u533a\u57df\uff0c\u5c24\u5176\u662f\u6c99\u53d1\u5e95\u90e8\u3001\u5e8a\u5e95\u3001\u9910\u684c\u4e0b\u65b9\u8fd9\u4e9b\u5e73\u65f6\u6e05\u6d01\u5de5\u5177\u96be\u4ee5\u6df1\u5165\u7684\u89d2\u843d\u3002\u4f7f\u7528\u65f6\u95f4\u53ef\u4ee5\u7075\u6d3b\u5b89\u6392\uff0c\u65e2\u53ef\u4ee5\u5728\u5bb6\u4eba\u767d\u5929\u5916\u51fa\u5de5\u4f5c\u3001\u4e0a\u5b66\u65f6\u81ea\u52a8\u542f\u52a8\uff0c\u5b8c\u6210\u5168\u5c4b\u6e05\u6d01\uff1b\u4e5f\u80fd\u5728\u665a\u4e0a\u5bb6\u4eba\u4f11\u606f\u524d\uff0c\u9488\u5bf9\u5f53\u5929\u6d3b\u52a8\u9891\u7e41\u7684\u533a\u57df\u8fdb\u884c\u91cd\u70b9\u6e05\u626b\uff0c\u786e\u4fdd\u5bb6\u5ead\u5730\u9762\u59cb\u7ec8\u4fdd\u6301\u6d01\u51c0\u72b6\u6001\uff0c\u4e3a\u7528\u6237\u8282\u7701\u6e05\u6d01\u65f6\u95f4\u548c\u7cbe\u529b\u3002",
+  "productName": "扫地机器人",
+  "userInput": "这款扫地机器人主要面向有老人和 5 - 12 岁孩子的多人口家庭，以及养有宠物的住户。因为这类家庭在日常居住中，常会遇到地面散落着孩子的零食碎屑、玩具边角掉落的小零件，老人走动时带起的灰尘，还有宠物掉落的毛发缠绕在家具底部等清洁难题，手动清理不仅耗时费力，还很难彻底清除缝隙里的脏污。​\n它的使用场景涵盖家庭中的客厅、卧室、厨房和走廊等主要活动区域，尤其是沙发底部、床底、餐桌下方这些平时清洁工具难以深入的角落。使用时间可以灵活安排，既可以在家人白天外出工作、上学时自动启动，完成全屋清洁；也能在晚上家人休息前，针对当天活动频繁的区域进行重点清扫，确保家庭地面始终保持洁净状态，为用户节省清洁时间和精力。",
   "when": [
-    "\u767d\u5929\u5916\u51fa\u5de5\u4f5c\u3001\u4e0a\u5b66\u65f6",
-    "\u665a\u4e0a\u5bb6\u4eba\u4f11\u606f\u524d"
+    "白天家人外出工作、上学时",
+    "晚上家人休息前"
   ],
   "where": [
-    "\u5ba2\u5385",
-    "\u5367\u5ba4",
-    "\u53a8\u623f",
-    "\u8d70\u5eca",
-    "\u6c99\u53d1\u5e95\u90e8",
-    "\u5e8a\u5e95",
-    "\u9910\u684c\u4e0b\u65b9"
+    "客厅",
+    "卧室",
+    "厨房",
+    "走廊",
+    "沙发底部",
+    "床底",
+    "餐桌下方"
   ],
   "who": [
-    "\u6709\u8001\u4eba\u548c 5 - 12 \u5c81\u5b69\u5b50\u7684\u591a\u4eba\u53e3\u5bb6\u5ead",
-    "\u517b\u6709\u5ba0\u7269\u7684\u4f4f\u6237"
+    "有老人和5-12岁孩子的多人口家庭",
+    "养有宠物的住户"
   ],
   "why": [
-    "\u5730\u9762\u6563\u843d\u7740\u5b69\u5b50\u7684\u96f6\u98df\u788e\u5c51\u3001\u73a9\u5177\u8fb9\u89d2\u6389\u843d\u7684\u5c0f\u96f6\u4ef6",
-    "\u8001\u4eba\u8d70\u52a8\u65f6\u5e26\u8d77\u7684\u7070\u5c18",
-    "\u5ba0\u7269\u6389\u843d\u7684\u6bdb\u53d1\u7f20\u7ed5\u5728\u5bb6\u5177\u5e95\u90e8",
-    "\u624b\u52a8\u6e05\u7406\u4e0d\u4ec5\u8017\u65f6\u8d39\u529b\uff0c\u8fd8\u5f88\u96be\u5f7b\u5e95\u6e05\u9664\u7f1d\u9699\u91cc\u7684\u810f\u6c61"
+    "地面散落着孩子的零食碎屑、玩具边角掉落的小零件",
+    "老人走动时带起的灰尘",
+    "宠物掉落的毛发缠绕在家具底部",
+    "手动清理耗时费力",
+    "难以彻底清除缝隙里的脏污"
   ]
 }

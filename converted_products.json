@@ -1,0 +1,607 @@
+{
+  "products": [
+    {
+      "id": "Roborock S8 MaxV Ultra",
+      "product_name": "Roborock S8 MaxV Ultra",
+      "solutions": [
+        {
+          "problem": "角落和边缘清洁不彻底",
+          "solution": "提供角落到边缘的智能清洁",
+          "scenarios": [
+            "家居清洁",
+            "宠物家庭",
+            "大户型清洁"
+          ],
+          "evidence": "Corner-to-edge cleaning with side brushes"
+        },
+        {
+          "problem": "宠物毛发难以清理",
+          "solution": "使用DuoRoller刷子对抗宠物毛发",
+          "scenarios": [
+            "宠物家庭",
+            "毛发清理",
+            "高效清洁"
+          ],
+          "evidence": "DuoRoller brush against pet hair"
+        },
+        {
+          "problem": "清洁效率低",
+          "solution": "自动调节吸力，高达10,000 PA",
+          "scenarios": [
+            "高效清洁",
+            "大户型清洁",
+            "深度清洁"
+          ],
+          "evidence": "Suction power of 10,000 PA (Pascal)"
+        },
+        {
+          "problem": "拖布需要手动清洗",
+          "solution": "自动热水洗拖布，集成清洁剂箱",
+          "scenarios": [
+            "便捷清洁",
+            "卫生清洁",
+            "自动化清洁"
+          ],
+          "evidence": "automatic hot water mop wash, integrated tank for cleaning agent"
+        }
+      ],
+      "features": [
+        "自清洁基站（全能底座）",
+        "边角到边缘清洁，配备边刷",
+        "DuoRoller刷子对抗宠物毛发",
+        "摄像头和LED灯精准导航"
+      ],
+      "pros": [
+        "解决多功能清洁站需求",
+        "解决狭窄空间彻底清洁问题",
+        "适合有宠物的大户型家庭",
+        "支持语音命令直观控制"
+      ],
+      "cons": [
+        "购买价格高"
+      ],
+      "best_for": [
+        "宠物主人",
+        "大户型家庭",
+        "追求高效清洁者",
+        "科技爱好者",
+        "忙碌专业人士"
+      ]
+    },
+    {
+      "id": "Dreame L40s Pro Ultra",
+      "product_name": "Dreame L40s Pro Ultra",
+      "solutions": [
+        {
+          "problem": "吸力不足",
+          "solution": "提供19,000 Pa的强大吸力",
+          "scenarios": [
+            "地毯清洁",
+            "硬地板清洁",
+            "宠物毛发清理"
+          ],
+          "evidence": "Suction power: 19,000 Pa"
+        },
+        {
+          "problem": "障碍物跨越困难",
+          "solution": "可跨越高达4厘米的障碍物",
+          "scenarios": [
+            "门槛跨越",
+            "家具底部清洁",
+            "多房间清洁"
+          ],
+          "evidence": "Overcoming obstacles of 4 cm"
+        },
+        {
+          "problem": "宠物毛发缠绕",
+          "solution": "采用HyperStream防缠绕双刷系统",
+          "scenarios": [
+            "宠物家庭",
+            "长毛地毯清洁",
+            "高频使用场景"
+          ],
+          "evidence": "HyperStream Detangling DuoBrush system against pet hair"
+        },
+        {
+          "problem": "拖布清洁不便",
+          "solution": "75°C自动高温清洁拖布",
+          "scenarios": [
+            "厨房清洁",
+            "卫生间清洁",
+            "高卫生要求场景"
+          ],
+          "evidence": "automatic mop cleaning at 75 °C"
+        }
+      ],
+      "features": [
+        "吸力：19,000 Pa",
+        "双滚刷系统",
+        "可跨越4厘米障碍物"
+      ],
+      "pros": [
+        "解决混合表面吸力不足问题",
+        "解决导航和障碍物检测不精准问题",
+        "解决宠物毛发清理难题",
+        "解决性价比不高问题"
+      ],
+      "cons": [
+        "激光塔不可收缩"
+      ],
+      "best_for": [
+        "宠物主人",
+        "忙碌家庭",
+        "对清洁有高要求的用户",
+        "多房间家庭",
+        "硬地板和地毯混合家庭"
+      ]
+    },
+    {
+      "id": "MOVA V50 Ultra Complete",
+      "product_name": "MOVA V50 Ultra Complete",
+      "solutions": [
+        {
+          "problem": "宠物毛发难以清理",
+          "solution": "提供24,000 Pa强力吸力和宠物毛发专用刷",
+          "scenarios": [
+            "宠物家庭",
+            "毛发清理",
+            "高效清洁"
+          ],
+          "evidence": "a suction power of 24,000 Pa instead of 19,000 Pa, Triple-effective pet hair brush TroboWave DuoBrush"
+        },
+        {
+          "problem": "低矮家具下难以清洁",
+          "solution": "可伸缩传感器适应低矮空间",
+          "scenarios": [
+            "低矮家具",
+            "全面清洁",
+            "智能感应"
+          ],
+          "evidence": "extendable Versalift LDS sensor, retractable and extendable sensor"
+        },
+        {
+          "problem": "高温清洁需求",
+          "solution": "50°C热水擦拭，深度清洁",
+          "scenarios": [
+            "高温消毒",
+            "深度清洁",
+            "卫生需求"
+          ],
+          "evidence": "wipes with 50 °C hot water, Hot water cleaning at 50 °C"
+        }
+      ],
+      "features": [
+        "24,000 Pa吸力",
+        "可伸缩激光传感器",
+        "50°C热水清洁"
+      ],
+      "pros": [
+        "解决宠物毛发难以清理的问题",
+        "解决低矮家具下难以清洁的问题",
+        "解决高温清洁需求的问题",
+        "解决硬地板清洁问题"
+      ],
+      "best_for": [
+        "宠物主人",
+        "忙碌家庭",
+        "清洁爱好者"
+      ],
+      "cons": [
+        "high purchase price"
+      ]
+    },
+    {
+      "id": "ECOVACS DEEBOT T50 Omni",
+      "product_name": "ECOVACS DEEBOT T50 Omni",
+      "solutions": [
+        {
+          "problem": "难以到达的角落清洁",
+          "solution": "8.1厘米超薄设计，轻松进入低矮空间",
+          "scenarios": [
+            "家具底部清洁",
+            "狭窄空间清洁",
+            "低矮区域清洁"
+          ],
+          "evidence": "Height: 8.1 cm"
+        },
+        {
+          "problem": "强力吸尘需求",
+          "solution": "15000Pa超强吸力，彻底清除灰尘",
+          "scenarios": [
+            "地毯清洁",
+            "宠物毛发清理",
+            "灰尘堆积区域"
+          ],
+          "evidence": "Suction power: 15,000 Pa"
+        },
+        {
+          "problem": "拖地效果不佳",
+          "solution": "双拖布设计，提升拖地效率",
+          "scenarios": [
+            "地板清洁",
+            "厨房油渍",
+            "浴室水渍"
+          ],
+          "evidence": "ZeroTangle 2.0 and double mop pads"
+        }
+      ],
+      "features": [
+        "8.1厘米超薄设计",
+        "15000Pa超强吸力",
+        "ZeroTangle 2.0和双拖布设计"
+      ],
+      "pros": [
+        "解决难以到达角落的清洁问题",
+        "解决强力吸尘需求",
+        "解决拖地效果不佳问题",
+        "解决高温清洗拖布需求"
+      ],
+      "cons": [
+        "不适合大面积家庭使用",
+        "基站体积较大"
+      ],
+      "best_for": [
+        "忙碌的上班族",
+        "宠物家庭",
+        "小户型家庭",
+        "注重清洁效率的用户",
+        "希望自动化清洁的用户"
+      ]
+    },
+    {
+      "id": "original_id_placeholder",
+      "product_name": "Roborock Qrevo Curv white",
+      "solutions": [
+        {
+          "problem": "角落和边缘难以清洁",
+          "solution": "侧刷和边缘清洁系统彻底清洁",
+          "scenarios": [
+            "角落清洁",
+            "边缘清洁",
+            "顽固污渍"
+          ],
+          "evidence": "with side brush and edge cleaning system"
+        },
+        {
+          "problem": "高门槛难以跨越",
+          "solution": "可跨越高达4厘米的门槛",
+          "scenarios": [
+            "高门槛家庭",
+            "多房间清洁",
+            "无障碍清洁"
+          ],
+          "evidence": "The device can climb over thresholds up to 4 cm high."
+        },
+        {
+          "problem": "拖布自清洁不便",
+          "solution": "75°C热水自清洁拖布",
+          "scenarios": [
+            "卫生清洁",
+            "便捷维护",
+            "高效清洁"
+          ],
+          "evidence": "Hot water wash of the mops at 75 °C"
+        }
+      ],
+      "features": [
+        "吸力强大：18,500 Pa",
+        "配备侧刷和边缘清洁系统",
+        "多功能自清洁基站"
+      ],
+      "pros": [
+        "解决角落和边缘难以清洁的问题",
+        "解决高门槛难以跨越的问题",
+        "解决拖布自清洁不便的问题"
+      ],
+      "best_for": [
+        "大户型家庭",
+        "爱干净人士",
+        "忙碌上班族"
+      ],
+      "type": "Robot mops, robot vacuums",
+      "description": "The new Roborock Qrevo Curv white vacuum and mop robot offers powerful suction and is suitable for large living spaces. Extendable mop pads and a side brush clean corners, edges, and stubborn stains. The device can climb over thresholds up to 4 cm high.",
+      "highlights": "High-end vacuum mop for thresholds up to 4 cm high",
+      "functions": [
+        "the 2-part DuoDivide suction roll",
+        "18,500 Pa in Max+ suction mode",
+        "extendable FlexiArm in Arc Shape design",
+        "2 rotating mops",
+        "Round docking station with self-cleaning"
+      ],
+      "cons": [
+        "high-priced",
+        "loud when vacuuming"
+      ]
+    },
+    {
+      "id": "Dreame L10s Ultra Gen2",
+      "product_name": "Dreame L10s Ultra Gen2",
+      "solutions": [
+        {
+          "problem": "高效清洁需求",
+          "solution": "提供10,000 Pa强大吸力，快速清除灰尘和宠物毛发",
+          "scenarios": [
+            "宠物家庭",
+            "高效清洁",
+            "角落清洁"
+          ],
+          "evidence": "Suction power of 10,000 Pa"
+        },
+        {
+          "problem": "边缘清洁困难",
+          "solution": "可横向扩展的拖布设计，轻松清洁边缘和角落",
+          "scenarios": [
+            "边缘清洁",
+            "角落清洁",
+            "高效清洁"
+          ],
+          "evidence": "Edge cleaning thanks to mop extension"
+        },
+        {
+          "problem": "充电时间长",
+          "solution": "电池充电时间加快30%，减少等待时间",
+          "scenarios": [
+            "快速充电",
+            "高效使用",
+            "节省时间"
+          ],
+          "evidence": "30% faster battery charging time"
+        }
+      ],
+      "features": [
+        "10,000 Pa强大吸力",
+        "可横向扩展的拖布设计",
+        "带吸尘和拖布清洗的基站"
+      ],
+      "pros": [
+        "解决高效清洁问题，提供强大吸力",
+        "解决边缘清洁困难，拖布可横向扩展",
+        "解决充电时间长问题，充电加快30%",
+        "解决设备齐全需求，提供智能基站"
+      ],
+      "cons": [
+        "拖布不支持热水清洗",
+        "宠物毛发刷需单独购买"
+      ],
+      "best_for": [
+        "宠物主人",
+        "忙碌家庭",
+        "清洁爱好者"
+      ],
+      "highlights": "经济实惠的一体式吸尘拖地机器人，带边缘清洁功能",
+      "functions": [
+        "10,000 Pa强大吸力",
+        "可横向扩展的拖布垫",
+        "电池充电时间加快30%",
+        "带智能基站但不支持拖布热水清洗"
+      ]
+    },
+    {
+      "id": "original_id_placeholder",
+      "product_name": "Roborock Q5 Pro Black",
+      "solutions": [
+        {
+          "problem": "宠物毛发难以清理",
+          "solution": "5500Pa吸力加DuoRoller刷头，深度清洁",
+          "scenarios": [
+            "宠物家庭",
+            "长毛地毯",
+            "频繁掉发"
+          ],
+          "evidence": "The Roborock Q5 Pro Black vacuum and mop robot has a power of 5,500 Pa and, thanks to its DuoRoller brush, removes even deep-rooted pet hair."
+        },
+        {
+          "problem": "家庭日常清洁耗时",
+          "solution": "240分钟续航，自动回充，持续清洁",
+          "scenarios": [
+            "忙碌家庭",
+            "大面积清洁",
+            "无人值守清洁"
+          ],
+          "evidence": "The device can clean your home for up to four hours on a single battery charge."
+        },
+        {
+          "problem": "地板类型多样清洁困难",
+          "solution": "双橡胶刷头适应各种地板，高效清洁",
+          "scenarios": [
+            "混合地板",
+            "硬地板",
+            "地毯"
+          ],
+          "evidence": "The DuoRoller brush consists of two rotating solid rubber brushes designed to loosen even stubborn dirt."
+        }
+      ],
+      "features": [
+        "5500Pa强大吸力",
+        "专为长发设计的DuoRoller刷头",
+        "770ml大容量尘盒"
+      ],
+      "pros": [
+        "解决宠物毛发难以清理的问题",
+        "解决家庭日常清洁耗时的问题",
+        "解决地板类型多样清洁困难的问题",
+        "解决清洁过程中划伤地板的问题"
+      ],
+      "best_for": [
+        "宠物主人",
+        "忙碌家庭",
+        "大面积住宅",
+        "科技爱好者"
+      ],
+      "cons": [
+        "擦拭功能较为单一"
+      ]
+    },
+    {
+      "id": "Philips XU7100/01",
+      "product_name": "Philips XU7100/01",
+      "solutions": [
+        {
+          "problem": "地板清洁不彻底",
+          "solution": "独立清洁地板，确保干净",
+          "scenarios": [
+            "家庭清洁",
+            "宠物家庭",
+            "硬地板清洁"
+          ],
+          "evidence": "The Philips XU7100/01 robot mop cleans floors independently and thus ensures cleanliness."
+        },
+        {
+          "problem": "空气污染",
+          "solution": "清洁空气后释放",
+          "scenarios": [
+            "空气质量敏感",
+            "宠物家庭",
+            "环保意识强"
+          ],
+          "evidence": "The exhaust filter cleans the air before it is released into the environment."
+        },
+        {
+          "problem": "不同地板清洁需求",
+          "solution": "适应不同地板的吸尘器",
+          "scenarios": [
+            "多类型地板",
+            "家庭清洁",
+            "办公环境"
+          ],
+          "evidence": "Vacuum cleaners for different floors"
+        }
+      ],
+      "features": [
+        "0.3升收集容器",
+        "包括排气过滤器",
+        "适应不同地板的吸尘器"
+      ],
+      "pros": [
+        "解决硬地板吸力不足问题（5000 Pa）",
+        "解决导航和障碍检测不精确问题",
+        "解决电池续航短问题（最长180分钟）",
+        "解决自动清空不便问题（3.0升吸尘站）"
+      ],
+      "cons": [
+        "地毯清洁效果较弱",
+        "擦拭功能不足",
+        "应用控制偶尔出错",
+        "角落清洁不足"
+      ],
+      "best_for": [
+        "忙碌家庭",
+        "宠物主人",
+        "硬地板用户",
+        "环保倡导者",
+        "科技爱好者"
+      ]
+    },
+    {
+      "id": "ECOVACS Deebot N20 Pro Plus",
+      "product_name": "ECOVACS Deebot N20 Pro Plus",
+      "solutions": [
+        {
+          "problem": "手动清理扫地机器人尘盒繁琐",
+          "solution": "配备无尘袋吸尘站，自动清理",
+          "scenarios": [
+            "家庭清洁",
+            "宠物家庭",
+            "忙碌上班族"
+          ],
+          "evidence": "including bagless suction station"
+        },
+        {
+          "problem": "清洁力不足，难以处理宠物毛发",
+          "solution": "8000 pa强大吸力，轻松应对宠物毛发",
+          "scenarios": [
+            "宠物家庭",
+            "高清洁需求",
+            "地毯清洁"
+          ],
+          "evidence": "8000 pa suction power"
+        },
+        {
+          "problem": "导航不精准，易迷路",
+          "solution": "LIDAR传感器，可靠导航",
+          "scenarios": [
+            "复杂户型",
+            "多房间清洁",
+            "高效清洁"
+          ],
+          "evidence": "reliable navigation with LIDAR sensor"
+        }
+      ],
+      "features": [
+        "无尘袋吸尘站",
+        "8000 pa吸力",
+        "LIDAR传感器导航"
+      ],
+      "pros": [
+        "解决手动清理尘盒繁琐问题",
+        "解决宠物毛发清洁难题",
+        "解决复杂户型导航问题"
+      ],
+      "cons": [
+        "清洁功能混合"
+      ],
+      "best_for": [
+        "宠物主人",
+        "忙碌上班族",
+        "大户型家庭"
+      ]
+    },
+    {
+      "id": "Dyson 360 Vis Nav",
+      "product_name": "Dyson 360 Vis Nav",
+      "solutions": [
+        {
+          "problem": "宠物毛发难以清理",
+          "solution": "自动解缠毛发，强力吸尘",
+          "scenarios": [
+            "宠物家庭",
+            "毛发困扰",
+            "高效清洁"
+          ],
+          "evidence": "automatically detangles hair, anti-static carbon fiber filaments capture the finest dust"
+        },
+        {
+          "problem": "家具底部难以清洁",
+          "solution": "设计紧凑，轻松深入低矮家具",
+          "scenarios": [
+            "低矮家具清洁",
+            "难以触及区域",
+            "全面覆盖"
+          ],
+          "evidence": "easy to reach under low furniture like beds and sofas"
+        },
+        {
+          "problem": "清洁模式单一",
+          "solution": "提供四种清洁模式，适应不同需求",
+          "scenarios": [
+            "多样化清洁",
+            "按需选择",
+            "灵活应对"
+          ],
+          "evidence": "Fast, Quiet, Boost, or Auto"
+        }
+      ],
+      "features": [
+        "360度摄像头导航",
+        "宽刷辊深度清洁",
+        "自动模式传感器精确检测灰尘"
+      ],
+      "pros": [
+        "解决吸力不足问题：极高吸力",
+        "解决导航不精准问题：复杂导航系统",
+        "解决灰尘检测不准确问题：创新摄像头系统",
+        "解决清洁模式单一问题：4种功率级别"
+      ],
+      "cons": [
+        "高购买价格",
+        "无擦拭功能",
+        "充电站无尘袋"
+      ],
+      "best_for": [
+        "宠物主人",
+        "有小孩的家庭",
+        "对清洁有高要求的用户"
+      ]
+    }
+  ]
+}
