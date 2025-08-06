@@ -2,9 +2,10 @@ from itertools import count
 from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
-from apiFunction import getDesignTaskTags
+from apiFunction import getDesignTaskTags, getProblemSolution
 import json
 import os
+
 
 app = Flask(__name__)
 CORS(app)
@@ -115,6 +116,15 @@ def from_task_to_tag():
     data['why'] = tagsJson['why']
     data['where'] = tagsJson['where']
     data['when'] = tagsJson['when']
+    save_data(data)
+    return jsonify({"status": "success"})
+
+
+@app.route('/api/getproblemsolution')
+def get_problem_solution():
+    data = load_data()
+    evaluation_data = getProblemSolution()
+    data['evaluationData'] = evaluation_data
     save_data(data)
     return jsonify({"status": "success"})
 

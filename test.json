@@ -1,0 +1,162 @@
+{
+  "results": {
+    "when": [
+      {
+        "subDemands": "用户外出工作、购物时",
+        "solutions": [
+          {
+            "product": "Roborock Q5 Pro Black",
+            "solution": "240分钟续航，自动回充，持续清洁",
+            "匹配原因": "长时间续航和自动回充功能适合用户外出时无人值守的清洁需求"
+          }
+        ]
+      },
+      {
+        "subDemands": "用户居家休息时",
+        "solutions": [
+          {
+            "product": "Roborock S8 MaxV Ultra",
+            "solution": "以低噪音模式进行清洁",
+            "匹配原因": "低噪音模式适合用户居家休息时使用，减少干扰"
+          }
+        ]
+      },
+      {
+        "subDemands": "随时清洁的需求",
+        "solutions": [
+          {
+            "product": "ECOVACS Deebot N20 Pro Plus",
+            "solution": "LIDAR传感器，可靠导航",
+            "匹配原因": "精准导航确保随时启动清洁任务，适应随时清洁的需求"
+          }
+        ]
+      },
+      {
+        "subDemands": "以低噪音模式进行清洁",
+        "solutions": [
+          {
+            "product": "Roborock S8 MaxV Ultra",
+            "solution": "以低噪音模式进行清洁",
+            "匹配原因": "直接满足低噪音清洁的需求"
+          }
+        ]
+      }
+    ],
+    "where": [
+      {
+        "subDemands": "家庭中的客厅、卧室、厨房、卫生间（干燥区域）",
+        "solutions": [
+          {
+            "product": "ECOVACS DEEBOT T50 Omni",
+            "solution": "8.1厘米超薄设计，轻松进入低矮空间",
+            "匹配原因": "超薄设计适合家庭中各种低矮空间的清洁"
+          }
+        ]
+      },
+      {
+        "subDemands": "小型办公室",
+        "solutions": [
+          {
+            "product": "Philips XU7100/01",
+            "solution": "适应不同地板的吸尘器",
+            "匹配原因": "适应多种地板类型，适合小型办公室的多样化地面"
+          }
+        ]
+      },
+      {
+        "subDemands": "便利店",
+        "solutions": [
+          {
+            "product": "Dreame L40s Pro Ultra",
+            "solution": "可跨越高达4厘米的障碍物",
+            "匹配原因": "跨越障碍物能力强，适合便利店等可能有门槛或障碍物的环境"
+          }
+        ]
+      },
+      {
+        "subDemands": "多种室内地面环境",
+        "solutions": [
+          {
+            "product": "Roborock Q5 Pro Black",
+            "solution": "双橡胶刷头适应各种地板，高效清洁",
+            "匹配原因": "适应多种地板类型，满足多种室内地面环境的清洁需求"
+          }
+        ]
+      },
+      {
+        "subDemands": "地板、地砖、短毛地毯",
+        "solutions": [
+          {
+            "product": "Dreame L40s Pro Ultra",
+            "solution": "提供19,000 Pa的强大吸力",
+            "匹配原因": "强大吸力适合清洁地板、地砖和短毛地毯"
+          }
+        ]
+      }
+    ],
+    "who": [
+      {
+        "subDemands": "家庭用户",
+        "solutions": [
+          {
+            "product": "Roborock S8 MaxV Ultra",
+            "solution": "自动热水洗拖布，集成清洁剂箱",
+            "匹配原因": "自动化清洁功能适合家庭用户，减少手动清洁的工作量"
+          }
+        ]
+      },
+      {
+        "subDemands": "小型办公场所工作人员",
+        "solutions": [
+          {
+            "product": "Philips XU7100/01",
+            "solution": "适应不同地板的吸尘器",
+            "匹配原因": "适应多种地板类型，适合小型办公场所的多样化地面"
+          }
+        ]
+      },
+      {
+        "subDemands": "各类有地面清洁需求的人群",
+        "solutions": [
+          {
+            "product": "Dyson 360 Vis Nav",
+            "solution": "提供四种清洁模式，适应不同需求",
+            "匹配原因": "多样化的清洁模式可以满足不同人群的清洁需求"
+          }
+        ]
+      }
+    ],
+    "why": [
+      {
+        "subDemands": "解决人们日常清洁地面耗时费力的问题",
+        "solutions": [
+          {
+            "product": "ECOVACS Deebot N20 Pro Plus",
+            "solution": "配备无尘袋吸尘站，自动清理",
+            "匹配原因": "自动清理功能显著减少清洁的耗时和费力"
+          }
+        ]
+      },
+      {
+        "subDemands": "让用户能从繁琐的清扫工作中解脱出来",
+        "solutions": [
+          {
+            "product": "Roborock S8 MaxV Ultra",
+            "solution": "自动热水洗拖布，集成清洁剂箱",
+            "匹配原因": "自动化清洁功能让用户从繁琐的清扫工作中解脱"
+          }
+        ]
+      },
+      {
+        "subDemands": "拥有更多时间投入到工作、学习或休闲中",
+        "solutions": [
+          {
+            "product": "Roborock Q5 Pro Black",
+            "solution": "240分钟续航，自动回充，持续清洁",
+            "匹配原因": "长时间续航和自动回充功能让用户无需频繁干预，节省时间"
+          }
+        ]
+      }
+    ]
+  }
+}

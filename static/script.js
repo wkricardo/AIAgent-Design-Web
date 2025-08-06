@@ -188,7 +188,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 继续按钮点击事件
         continueBtn.addEventListener('click', () => {
-            window.location.href = 'explore-3.html';
+            const loadingAlert = document.getElementById('loadingAlert');
+            loadingAlert.style.display = 'block';
+            fetch('/api/getproblemsolution')
+                .then(response => response.json())
+                .then(data => {
+                    loadingAlert.style.display = 'none';
+                    if (data['status'] == 'success') {
+                        window.location.href = 'explore-3.html';
+                    } else {
+                        alert('请先填写设计任务');
+                    }
+                });
         });
     }
 

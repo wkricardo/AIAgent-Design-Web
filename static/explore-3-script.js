@@ -56,30 +56,29 @@ function renderDevelopPage() {
                         sContainer.className = 'explore-s-container';
 
 
-                        for (let i = 0; i < 3; i++) {                           // 处理S类型子项
-                            if (pItem.subItems && pItem.subItems.length) {
-                                pItem.subItems.forEach(subItem => {
-                                    if (subItem.type === 'S') {
-                                        const sTag = document.createElement('div');
-                                        sTag.className = 'develop-tag s-type';
-                                        if (Math.random() < 0.3) {
-                                            sTag.innerHTML = `
-                                                <div class="pnsselect-checkbox"></div>
-                                                <span class="stag-content">${subItem.text}</span>
-                                                <span class="tag-badge">AI</span>
-                                            `;
-                                        }
-                                        else {
-                                            sTag.innerHTML = `
-                                                <div class="pnsselect-checkbox"></div>
-                                                <span class="stag-content">${subItem.text}</span>
-                                            `;
-                                        }
-
-                                        sContainer.appendChild(sTag);
+                     // 处理S类型子项
+                        if (pItem.subItems && pItem.subItems.length) {
+                            pItem.subItems.forEach(subItem => {
+                                if (subItem.type === 'S') {
+                                    const sTag = document.createElement('div');
+                                    sTag.className = 'develop-tag s-type';
+                                    if (Math.random() < 0.3) {
+                                        sTag.innerHTML = `
+                                            <div class="pnsselect-checkbox"></div>
+                                            <span class="stag-content">${subItem.text}</span>
+                                            <span class="tag-badge">AI</span>
+                                        `;
                                     }
-                                });
-                            }
+                                    else {
+                                        sTag.innerHTML = `
+                                            <div class="pnsselect-checkbox"></div>
+                                            <span class="stag-content">${subItem.text}</span>
+                                        `;
+                                    }
+
+                                    sContainer.appendChild(sTag);
+                                }
+                            });
                         }
 
 
