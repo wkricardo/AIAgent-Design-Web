@@ -1,5 +1,4 @@
 from httpx import get
-from regex import M
 from apikey import API_KEY
 from openai import OpenAI
 from itertools import count
