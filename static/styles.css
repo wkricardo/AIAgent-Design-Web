@@ -110,7 +110,7 @@
     padding: 12px; 
     margin: 8px; 
     background-color: white; 
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
+    box-shadow: 0 4px 12px rgba(163, 100, 100, 0.05); 
     flex: 1; 
     min-width: auto; 
     max-width: auto;
@@ -643,7 +643,7 @@
     /* gap: 20px; */
     padding: 10px;
     overflow-y: auto;
-    max-height: 270px;
+    max-height: 320px;
     /* box-sizing: border-box;  */
 }
 
@@ -1205,7 +1205,7 @@
 }
 
 .evaluation-tag.parent-type {
-    max-width: 25%;
+    max-width: 33%;
     border-width: 1px;
     margin: 10px;
     background-color: #ffffff;
@@ -1224,7 +1224,7 @@
 }
 
 .evaluation-tag .detail-type {
-    max-width: 25%;
+    max-width: 33%;
     border-width: 0px;
     margin: 10px;
     background-color: #ffffff;

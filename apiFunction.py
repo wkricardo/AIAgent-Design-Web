@@ -51,6 +51,9 @@ class RobotSolutionMatcher:
             "Authorization": f"Bearer {self.api_key}"
         }
 
+        with open('test.json', 'r') as f:
+            outputSimple = json.load(f)
+        self.outputSimple = outputSimple
         
         # 产品解决方案数据预处理
         self.product_solutions = self._preprocess_products()
@@ -100,7 +103,7 @@ class RobotSolutionMatcher:
         要求：
         1. 分别解析用户需求的when/where/who/why四个维度，每个维度下的子需求单独匹配解决方案；
         2. 匹配逻辑：解决方案的“scenarios”或“problem”与用户需求语义相关（如“低噪音”匹配“Quiet模式”，“多地面”匹配“混合地板清洁”）；
-        3. 返回格式：必须是JSON格式，包含“用户原始需求”和“results”，匹配结果按when/where/who/why分组，每组包含subDemands、solutions（产品+解决方案内容）、匹配原因，所有json名称都用英文便于索引，而且每个子需求的匹配结果都单独列成一个块；
+        3. 返回格式：必须是JSON格式，包含“用户原始需求”和“results”，匹配结果按when/where/who/why分组，每组包含subDemands、solutions（产品+解决方案内容）、matching_reason，所有j son名称都用英文便于索引，而且每个子需求的匹配结果都单独列成一个块,格式参考:{self.outputSimple};
         4. 同一子需求可匹配多个solution，原因需具体说明关联点；
         5. 不要包含任何JSON以外的内容，确保可以被json.loads正确解析。
         """
@@ -188,7 +191,7 @@ def convert_results_to_evaluation(results):
                 sub_item_text = f"{sol['solution']}"
                 sub_items.append({
                     "text": sub_item_text,
-                    "reason": sol['匹配原因'],
+                    "reason": sol['matching_reason'],
                     "type": "S"  # S表示解决方案
                 })
             

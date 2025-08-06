@@ -180,4 +180,4 @@ if __name__ == '__main__':
     # 确保static目录存在
     # print(from_task_to_tag())
     os.makedirs('static', exist_ok=True)
-    app.run(debug=True, port=8000)
+    app.run(debug=False, host='0.0.0.0', port=8000)
